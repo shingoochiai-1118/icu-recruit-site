@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>集中治療科 | 沖縄県立中部病院</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #F7FAF7;
+      color: #1E2D20;
+      -webkit-font-smoothing: antialiased;
+    }
+    :root {
+      --primary: #2E9944;
+      --primary-dark: #1A6B2E;
+      --primary-light: #B8E8C4;
+      --primary-xlight: #E8F8EC;
+      --accent: #44B05A;
+      --text: #1A2E1E;
+      --text-muted: #4A7258;
+      --text-light: #7AAA88;
+      --bg: #FFFFFF;
+      --bg-alt: #F2FAF4;
+      --card: #FFFFFF;
+      --border: #C8EDD2;
+      --nav-h: 68px;
+      --max-w: 1080px;
+      --serif: 'Noto Serif JP', serif;
+      --sans: 'Noto Sans JP', sans-serif;
+    }
+    ::selection { background: var(--primary-light); color: var(--primary-dark); }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 3px; }
+
+    /* Utility */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      color: var(--accent); text-transform: uppercase; margin-bottom: 14px;
+    }
+    .section-label::before {
+      content: ''; display: block; width: 24px; height: 2px;
+      background: var(--accent); border-radius: 1px;
+    }
+    h2.section-title {
+      font-family: var(--serif); font-size: 32px; font-weight: 700;
+      color: var(--text); line-height: 1.3; margin-bottom: 8px;
+    }
+    .section-subtitle {
+      font-size: 13px; color: var(--text-muted); line-height: 1.7;
+      font-style: italic; margin-bottom: 40px;
+    }
+    .img-placeholder {
+      background-image: repeating-linear-gradient(
+        45deg,
+        rgba(74,122,80,0.08) 0px, rgba(74,122,80,0.08) 5px,
+        rgba(74,122,80,0.03) 5px, rgba(74,122,80,0.03) 14px
+      );
+      border: 1px dashed rgba(74,122,80,0.35);
+      border-radius: 10px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 6px;
+    }
+    .img-placeholder span {
+      font-family: monospace; font-size: 11px; color: var(--text-muted);
+      text-align: center; padding: 0 16px; line-height: 1.5;
+    }
+    .img-placeholder span.sub {
+      font-size: 9px; color: var(--text-light);
+    }
+
+    /* Nav */
+    #site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-h);
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(46,80,52,0.06);
+      transition: background 0.3s;
+    }
+    #site-header .inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 40px;
+      height: 100%; display: flex; align-items: center; gap: 32px;
+    }
+    .header-logo { flex-shrink: 0; }
+    .header-logo .hosp { font-size: 10px; color: var(--text-muted); letter-spacing: 0.1em; font-weight: 500; }
+    .header-logo .dept { font-size: 15px; font-weight: 700; color: var(--primary-dark); font-family: var(--serif); line-height: 1.2; margin-top: 1px; }
+    .header-logo .dept span { font-size: 10px; font-weight: 500; color: var(--text-muted); margin-left: 6px; font-family: var(--sans); }
+
+    .header-divider { width: 1px; height: 28px; background: var(--border); flex-shrink: 0; }
+    #main-nav { display: flex; align-items: center; gap: 2px; flex: 1; overflow-x: auto; scrollbar-width: none; }
+    #main-nav::-webkit-scrollbar { display: none; }
+    .nav-link {
+      flex-shrink: 0; padding: 6px 12px; font-size: 12px; font-weight: 500;
+      color: var(--text-muted); cursor: pointer; border-radius: 6px;
+      transition: color 0.2s, background 0.2s; white-space: nowrap; border: none; background: transparent;
+      font-family: var(--sans);
+    }
+    .nav-link:hover { color: var(--primary); background: var(--primary-xlight); }
+    .nav-link.active { color: var(--primary-dark); background: var(--primary-light); font-weight: 700; }
+
+    .header-contact {
+      flex-shrink: 0; background: var(--primary); color: #fff;
+      font-size: 11px; font-weight: 700; padding: 8px 18px;
+      border-radius: 24px; cursor: pointer; border: none;
+      font-family: var(--sans); transition: background 0.2s;
+    }
+    .header-contact:hover { background: var(--primary-dark); }
+
+    /* Hero */
+    #hero {
+      margin-top: var(--nav-h);
+      background: linear-gradient(150deg, #2F8A4C 0%, #46A063 55%, #5FB97C 100%);
+      padding: 80px 0 90px; position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    #hero::after {
+      content: ''; position: absolute; right: -100px; top: -100px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: rgba(255,255,255,0.04); pointer-events: none;
+    }
+    .hero-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 40px;
+      display: grid; grid-template-columns: 1fr 380px; gap: 60px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.14); backdrop-filter: blur(4px);
+      padding: 6px 14px; border-radius: 20px; margin-bottom: 20px;
+    }
+    .hero-badge span { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.9); letter-spacing: 0.14em; }
+    .hero-badge .dot { width: 6px; height: 6px; background: #8DCF95; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.8)} }
+    .hero-title { font-family: var(--serif); font-size: 54px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 8px; }
+    .hero-title-en { font-size: 14px; color: rgba(255,255,255,0.65); letter-spacing: 0.08em; font-weight: 400; margin-bottom: 24px; }
+    .hero-desc { font-size: 15px; color: rgba(255,255,255,0.82); line-height: 1.9; margin-bottom: 36px; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .hero-tag {
+      background: rgba(255,255,255,0.14); backdrop-filter: blur(4px);
+      color: rgba(255,255,255,0.92); font-size: 12px; font-weight: 600;
+      padding: 7px 16px; border-radius: 20px;
+    }
+    .hero-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    }
+    .hero-stat {
+      background: rgba(255,255,255,0.10); backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 14px; padding: 20px 18px; text-align: center;
+    }
+    .hero-stat .num { font-size: 36px; font-weight: 700; color: #fff; line-height: 1; font-variant-numeric: tabular-nums; }
+    .hero-stat .unit { font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 2px; font-weight: 500; }
+    .hero-stat .label { font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 6px; }
+
+    /* Jump nav (TOC) below hero */
+    #jump-nav {
+      background: #fff; border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(46,80,52,0.04);
+    }
+    .jump-nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 40px;
+      display: flex; align-items: center; gap: 0; overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .jump-nav-inner::-webkit-scrollbar { display: none; }
+    .jump-item {
+      flex-shrink: 0; display: flex; flex-direction: column; align-items: center;
+      padding: 16px 20px; cursor: pointer; border-bottom: 2px solid transparent;
+      transition: all 0.2s; text-decoration: none; color: inherit;
+    }
+    .jump-item:hover { border-bottom-color: var(--accent); }
+    .jump-item .num { font-size: 10px; color: var(--accent); font-weight: 700; letter-spacing: 0.06em; }
+    .jump-item .name { font-size: 12px; font-weight: 600; color: var(--text); margin-top: 3px; white-space: nowrap; }
+    .jump-item .name-en { font-size: 9px; color: var(--text-muted); margin-top: 1px; white-space: nowrap; }
+
+    /* Section base */
+    .page-section { padding: 90px 0; }
+    .page-section.alt { background: var(--bg-alt); }
+
+    /* ── 診療内容 ── */
+    .medical-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px;
+    }
+    .medical-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px 30px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .medical-card:hover { box-shadow: 0 8px 32px rgba(74,122,80,0.12); transform: translateY(-2px); }
+    .medical-card .icon {
+      width: 48px; height: 48px; background: var(--primary-xlight);
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .medical-card h3 { font-size: 17px; font-weight: 700; color: var(--text); font-family: var(--serif); margin-bottom: 10px; }
+    .medical-card p { font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+
+    /* ── 診療理念 ── */
+    .philosophy-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .philosophy-quote {
+      font-family: var(--serif); font-size: 22px; font-weight: 600;
+      color: var(--primary-dark); line-height: 1.8;
+      border-left: 4px solid var(--primary); padding-left: 28px;
+    }
+    .philosophy-quote-mark { font-size: 60px; color: var(--primary-light); font-family: Georgia, serif; line-height: 1; margin-bottom: 4px; }
+    .philosophy-values { display: flex; flex-direction: column; gap: 20px; }
+    .value-item {
+      display: flex; gap: 18px; align-items: flex-start;
+    }
+    .value-num {
+      font-size: 28px; font-weight: 700; color: var(--primary-light);
+      font-family: var(--serif); line-height: 1; flex-shrink: 0; min-width: 32px;
+    }
+    .value-item h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .value-item p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+
+    /* ── 対象疾患 ── */
+    .disease-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px;
+    }
+    .disease-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px 22px;
+      transition: box-shadow 0.2s;
+    }
+    .disease-card:hover { box-shadow: 0 4px 20px rgba(74,122,80,0.1); }
+    .disease-card .tag {
+      display: inline-block; background: var(--primary-xlight);
+      color: var(--primary); font-size: 9px; font-weight: 700;
+      padding: 3px 8px; border-radius: 10px; letter-spacing: 0.08em; margin-bottom: 12px;
+    }
+    .disease-card h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+    .disease-card .en { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+
+    /* ── 設備紹介 ── */
+    .equipment-list { display: flex; flex-direction: column; gap: 64px; margin-top: 48px; }
+    .equipment-item {
+      display: grid; gap: 56px; align-items: center;
+    }
+    .equipment-item.left  { grid-template-columns: 460px 1fr; }
+    .equipment-item.right { grid-template-columns: 1fr 460px; }
+    .equipment-item.right .equip-img { order: 2; }
+    .equipment-item.right .equip-body { order: 1; }
+    .equip-img {
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(46,153,68,0.10);
+    }
+    .equip-img .img-placeholder {
+      height: 300px; border-radius: 16px;
+    }
+    .equip-num { font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 10px; }
+    .equip-body h3 { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .equip-body .en { font-size: 12px; color: var(--text-muted); letter-spacing: 0.06em; font-style: italic; margin-bottom: 18px; }
+    .equip-body p { font-size: 14px; color: var(--text-muted); line-height: 1.9; }
+    .equip-feature-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .equip-feature-tags span {
+      background: var(--primary-xlight); color: var(--primary-dark);
+      font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 16px;
+    }
+
+    /* ── スケジュール ── */
+    .schedule-container { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px; align-items: start; }
+    .schedule-list { position: relative; }
+    .schedule-item { display: flex; gap: 16px; align-items: stretch; }
+    .schedule-time-col {
+      display: flex; flex-direction: column; align-items: center;
+      width: 64px; flex-shrink: 0;
+    }
+    .schedule-time-badge {
+      background: var(--primary); color: #fff;
+      font-size: 11px; font-weight: 700; padding: 5px 8px;
+      border-radius: 8px; font-variant-numeric: tabular-nums;
+      white-space: nowrap; line-height: 1.3; text-align: center; flex-shrink: 0;
+    }
+    .schedule-item.minor .schedule-time-badge {
+      background: var(--primary-light); color: var(--primary-dark);
+    }
+    .schedule-connector {
+      width: 2px; background: var(--primary-light);
+      flex: 1; margin: 4px auto 0; border-radius: 1px;
+    }
+    .schedule-item:last-child .schedule-connector { display: none; }
+    .schedule-body { padding: 2px 0 22px 0; flex: 1; }
+    .schedule-ja { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; }
+    .schedule-en { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+    .schedule-desc { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; }
+    .schedule-desc h4 { font-family: var(--serif); font-size: 18px; color: var(--primary-dark); margin-bottom: 14px; }
+    .schedule-desc p { font-size: 13px; color: var(--text-muted); line-height: 1.85; }
+    .schedule-desc .highlight { color: var(--primary); font-weight: 600; }
+
+    /* ── 教育体制 ── */
+    .education-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-top: 48px; }
+    .edu-programs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+    .edu-program {
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--text); font-size: 13px; font-weight: 600;
+      padding: 9px 18px; border-radius: 24px;
+      transition: all 0.2s;
+    }
+    .edu-program:hover { background: var(--primary); color: #fff; border-color: var(--primary); cursor: pointer; }
+    .edu-features { display: flex; flex-direction: column; gap: 16px; }
+    .edu-feature {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px;
+    }
+    .edu-feature-icon {
+      width: 40px; height: 40px; background: var(--primary-xlight);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 18px;
+    }
+    .edu-feature h4 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .edu-feature p { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+    .edu-callout {
+      background: var(--primary); border-radius: 16px; padding: 24px 28px; color: #fff; margin-top: 24px;
+      display: flex; align-items: center; gap: 20px;
+      text-decoration: none; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .edu-callout:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(46,153,68,0.28);
+    }
+    .edu-callout-body { flex: 1; }
+    .edu-callout h4 { font-family: var(--serif); font-size: 17px; margin-bottom: 6px; color: #fff; }
+    .edu-callout p { font-size: 13px; color: rgba(255,255,255,0.82); line-height: 1.7; }
+    .edu-callout .arrow {
+      flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .edu-callout:hover .arrow { background: rgba(255,255,255,0.28); transform: translateX(4px); }
+
+    /* ── レジデントの声 ── */
+    .residents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .resident-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 30px 26px;
+      transition: box-shadow 0.2s;
+    }
+    .resident-card:hover { box-shadow: 0 8px 28px rgba(74,122,80,0.1); }
+    .resident-qmark { font-size: 44px; color: var(--primary-light); font-family: Georgia, serif; line-height: 1; margin-bottom: 8px; }
+    .resident-comment { font-size: 14px; color: var(--text); line-height: 1.85; margin-bottom: 16px; }
+    .resident-comment-en { font-size: 11px; color: var(--text-muted); font-style: italic; line-height: 1.7; margin-bottom: 22px; }
+    .resident-divider { height: 1px; background: var(--border); margin-bottom: 18px; }
+    .resident-profile { display: flex; align-items: center; gap: 14px; }
+    .resident-avatar {
+      width: 44px; height: 44px; border-radius: 50%; background: var(--primary-xlight);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; font-weight: 700; color: var(--primary); font-family: var(--serif); flex-shrink: 0;
+    }
+    .resident-name { font-size: 13px; font-weight: 700; color: var(--text); }
+    .resident-year { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+    .placeholder-tag {
+      display: inline-block; font-family: monospace; font-size: 9px; letter-spacing: 0.06em;
+      color: var(--text-light); border: 1px dashed rgba(74,122,80,0.35);
+      padding: 3px 9px; border-radius: 10px; margin-bottom: 16px;
+    }
+
+    /* ── 数字で見るICU ── */
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
+    .stat-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 26px 20px; text-align: center;
+    }
+    .stat-card .num {
+      font-family: var(--serif); font-size: 36px; font-weight: 700; color: var(--primary-dark);
+      line-height: 1; font-variant-numeric: tabular-nums;
+    }
+    .stat-card .unit { font-size: 11px; color: var(--text-muted); margin-top: 4px; font-weight: 500; }
+    .stat-card .label { font-size: 12.5px; color: var(--text); margin-top: 10px; font-weight: 600; line-height: 1.5; }
+    .stat-card.pending { background: transparent; border: 1px dashed rgba(74,122,80,0.35); }
+    .stat-card.pending .num { font-family: monospace; font-size: 15px; color: var(--text-light); font-weight: 700; }
+    .stat-card.pending .label { color: var(--text-light); }
+
+    /* ── 紹介リンク（アンバサダー） ── */
+    .ref-banner {
+      display: none; background: rgba(0,0,0,0.16); backdrop-filter: blur(4px);
+      color: #fff; font-size: 12.5px; text-align: center; padding: 10px 20px;
+      position: relative; z-index: 2; border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .ref-banner.show { display: block; }
+    .ref-widget {
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+      padding: 28px 30px; margin: 28px auto 0; max-width: 460px; text-align: left;
+    }
+    .ref-widget.on-dark { background: rgba(255,255,255,0.10); backdrop-filter: blur(6px); border-color: rgba(255,255,255,0.18); }
+    .ref-widget h4 { font-family: var(--serif); font-size: 15px; color: var(--text); margin-bottom: 6px; }
+    .ref-widget.on-dark h4 { color: #fff; }
+    .ref-widget p { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+    .ref-widget.on-dark p { color: rgba(255,255,255,0.72); }
+    .ref-widget-row { display: flex; gap: 8px; margin-top: 16px; }
+    .ref-widget input {
+      flex: 1; min-width: 0; padding: 10px 14px; border-radius: 22px;
+      border: 1px solid var(--border); font-size: 12.5px; font-family: var(--sans); color: var(--text);
+    }
+    .ref-widget.on-dark input { border: none; }
+    .ref-gen-btn {
+      flex-shrink: 0; background: var(--primary); color: #fff; font-size: 12.5px; font-weight: 700;
+      padding: 10px 18px; border-radius: 22px; border: none; cursor: pointer; font-family: var(--sans);
+    }
+    .ref-widget.on-dark .ref-gen-btn { background: #fff; color: var(--primary-dark); }
+    .ref-output {
+      display: none; margin-top: 14px; background: var(--bg-alt); border: 1px solid var(--border);
+      border-radius: 10px; padding: 12px 14px; font-size: 11.5px; word-break: break-all;
+      font-family: monospace; color: var(--primary-dark); align-items: center; justify-content: space-between; gap: 10px;
+    }
+    .ref-widget.on-dark .ref-output { background: rgba(0,0,0,0.2); color: #fff; border-color: rgba(255,255,255,0.18); }
+    .ref-output.show { display: flex; }
+    .ref-output-url { flex: 1; }
+    .ref-copy-btn {
+      flex-shrink: 0; background: transparent; border: 1px solid currentColor; color: inherit;
+      font-size: 10.5px; font-weight: 700; padding: 5px 10px; border-radius: 14px; cursor: pointer;
+      font-family: var(--sans);
+    }
+
+    /* ── スタッフ ── */
+    .staff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
+    .staff-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+      padding: 28px 20px; text-align: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .staff-card:hover { box-shadow: 0 8px 28px rgba(74,122,80,0.1); transform: translateY(-3px); }
+    .staff-photo { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; margin: 0 auto 16px; }
+    .staff-name { font-size: 15px; font-weight: 700; color: var(--text); font-family: var(--serif); margin-bottom: 4px; }
+    .staff-role { font-size: 11px; font-weight: 700; color: var(--accent); margin-bottom: 2px; letter-spacing: 0.04em; }
+    .staff-role-en { font-size: 9px; color: var(--text-muted); margin-bottom: 10px; }
+    .staff-spec { font-size: 11px; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── CTA / Contact ── */
+    #contact {
+      background: linear-gradient(135deg, #2D5034 0%, #4A7A50 100%);
+      padding: 80px 0; text-align: center; position: relative; overflow: hidden;
+    }
+    #contact::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    #contact h2 { font-family: var(--serif); font-size: 28px; color: #fff; margin-bottom: 10px; position: relative; }
+    #contact p { font-size: 14px; color: rgba(255,255,255,0.75); margin-bottom: 36px; line-height: 1.8; position: relative; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; position: relative; }
+    .cta-btn-primary {
+      background: #fff; color: var(--primary-dark); font-size: 14px; font-weight: 700;
+      padding: 14px 36px; border-radius: 32px; cursor: pointer; border: none;
+      font-family: var(--sans); transition: box-shadow 0.2s;
+    }
+    .cta-btn-primary:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .cta-btn-outline {
+      background: transparent; color: #fff; font-size: 14px; font-weight: 700;
+      padding: 14px 36px; border-radius: 32px; cursor: pointer;
+      border: 2px solid rgba(255,255,255,0.5); font-family: var(--sans); transition: border-color 0.2s;
+    }
+    .cta-btn-outline:hover { border-color: #fff; }
+
+    /* Footer */
+    footer {
+      background: #1A2D1C; padding: 48px 0 32px;
+    }
+    .footer-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 40px;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px;
+    }
+    .footer-col h4 { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 14px; }
+    .footer-col p, .footer-col a { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.9; text-decoration: none; display: block; }
+    .footer-col a:hover { color: rgba(255,255,255,0.8); }
+    .footer-bottom {
+      max-width: var(--max-w); margin: 32px auto 0; padding: 24px 40px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-bottom p { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<!-- STICKY HEADER -->
+<header id="site-header">
+  <div class="inner">
+    <div class="header-logo">
+      <div class="hosp">OKINAWA PREFECTURAL CHUBU HOSPITAL</div>
+      <div class="dept">沖縄県立中部病院<span>集中治療科</span></div>
+    </div>
+    <div class="header-divider"></div>
+    <nav id="main-nav">
+      <button class="nav-link" data-target="medical">診療内容</button>
+      <button class="nav-link" data-target="philosophy">診療理念</button>
+      <button class="nav-link" data-target="diseases">対象疾患</button>
+      <button class="nav-link" data-target="equipment">設備紹介</button>
+      <button class="nav-link" data-target="schedule">スケジュール</button>
+      <button class="nav-link" data-target="stats">数字で見る</button>
+      <button class="nav-link" data-target="education">研修プログラム</button>
+      <button class="nav-link" data-target="residents">レジデントの声</button>
+      <button class="nav-link" data-target="staff">スタッフ紹介</button>
+    </nav>
+    <button class="header-contact">お問い合わせ</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="ref-banner" id="refBanner"><span id="refBannerText"></span></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge"><div class="dot"></div><span>INTENSIVE CARE UNIT</span></div>
+      <h1 class="hero-title">集中治療科</h1>
+      <p class="hero-title-en">Department of Critical Care Medicine</p>
+      <p class="hero-desc">
+        生命の危機に瀕した患者さん一人ひとりへ、<br>
+        最高水準の集中治療をチームで届けます。<br>
+        <span style="font-size:12px;color:rgba(255,255,255,0.55);font-style:italic;">We deliver world-class critical care through seamless multidisciplinary teamwork.</span>
+      </p>
+      <div class="hero-tags">
+        <span class="hero-tag">14 ICUベッド</span>
+        <span class="hero-tag">24時間対応</span>
+        <span class="hero-tag">多職種チーム医療</span>
+        <span class="hero-tag">内科系・外科系集中治療</span>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">14</div>
+        <div class="unit">beds</div>
+        <div class="label">ICUベッド数</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">24</div>
+        <div class="unit">hrs / 365</div>
+        <div class="label">専門医師常駐</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">5+</div>
+        <div class="unit">disciplines</div>
+        <div class="label">多職種連携</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">50+</div>
+        <div class="unit">years</div>
+        <div class="label">教育病院の実績</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JUMP NAV (TABLE OF CONTENTS) -->
+<div id="jump-nav">
+  <div class="jump-nav-inner">
+    <a class="jump-item" href="#medical"><span class="num">01</span><span class="name">診療内容</span><span class="name-en">Medical Services</span></a>
+    <a class="jump-item" href="#philosophy"><span class="num">02</span><span class="name">診療理念</span><span class="name-en">Philosophy</span></a>
+    <a class="jump-item" href="#diseases"><span class="num">03</span><span class="name">対象疾患</span><span class="name-en">Conditions</span></a>
+    <a class="jump-item" href="#equipment"><span class="num">04</span><span class="name">設備紹介</span><span class="name-en">Equipment</span></a>
+    <a class="jump-item" href="#schedule"><span class="num">05</span><span class="name">スケジュール</span><span class="name-en">Daily Schedule</span></a>
+    <a class="jump-item" href="#stats"><span class="num">06</span><span class="name">数字で見るICU</span><span class="name-en">By the Numbers</span></a>
+    <a class="jump-item" href="#education"><span class="num">07</span><span class="name">教育体制</span><span class="name-en">Education</span></a>
+    <a class="jump-item" href="#residents"><span class="num">08</span><span class="name">レジデントの声</span><span class="name-en">Resident Voices</span></a>
+    <a class="jump-item" href="#staff"><span class="num">09</span><span class="name">スタッフ紹介</span><span class="name-en">Our Team</span></a>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- 01 診療内容                      -->
+<!-- ════════════════════════════════ -->
+<section id="medical" class="page-section" data-screen-label="01 診療内容">
+  <div class="container">
+    <div class="section-label">01 &nbsp;Medical Services</div>
+    <h2 class="section-title">診療内容</h2>
+    <p class="section-subtitle">Critical Care Medicine — our scope of practice</p>
+
+    <p style="font-size:15px;color:var(--text-muted);line-height:1.95;max-width:720px;margin-bottom:48px;text-wrap:pretty;">
+      集中治療科（ICU）は、生命の危機に瀕した患者さんに対して、高度な医療を継続的に提供する診療科です。術後管理、重症内科疾患、外傷など幅広い病態に対応し、医師・看護師・薬剤師・理学療法士・栄養士が一体となってチーム医療を実践しています。
+    </p>
+
+    <div class="medical-grid">
+      <div class="medical-card reveal">
+        <div class="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>高度集中治療管理</h3>
+        <p>人工呼吸管理、循環動態管理、腎代替療法（CHDF）など、多臓器不全を含む最重症例に24時間体制で対応します。継続的なモニタリングと迅速な介入が生命予後を改善します。</p>
+        <p style="font-size:11px;margin-top:10px;font-style:italic;color:var(--text-light);">Comprehensive management including mechanical ventilation, hemodynamic monitoring, and renal replacement therapy.</p>
+      </div>
+      <div class="medical-card reveal">
+        <div class="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>術後集中管理</h3>
+        <p>心臓血管手術、消化器外科手術、外傷手術後の患者さんを対象に、周術期合併症の早期発見・治療を行い、安全かつ迅速な回復をサポートします。</p>
+        <p style="font-size:11px;margin-top:10px;font-style:italic;color:var(--text-light);">Post-operative ICU care for cardiac, vascular, and trauma surgery patients.</p>
+      </div>
+      <div class="medical-card reveal">
+        <div class="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>多職種チーム医療</h3>
+        <p>医師・看護師・薬剤師・理学療法士・臨床工学技士・栄養士・MSWが毎朝のカンファレンスで連携し、患者さん中心の統合的なケアを提供します。</p>
+        <p style="font-size:11px;margin-top:10px;font-style:italic;color:var(--text-light);">Daily multidisciplinary rounds integrating medicine, nursing, pharmacy, PT, and nutrition.</p>
+      </div>
+      <div class="medical-card reveal">
+        <div class="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>患者・家族支援</h3>
+        <p>重症患者さんのご家族に対して、定期的な面談・丁寧な病状説明を行い、精神的サポートとともに治療への参加を促します。ICU日記などの取り組みも実施しています。</p>
+        <p style="font-size:11px;margin-top:10px;font-style:italic;color:var(--text-light);">Family-centered care with regular updates, emotional support, and ICU diary initiatives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ -->
+<!-- 02 診療理念                      -->
+<!-- ════════════════════════════════ -->
+<section id="philosophy" class="page-section alt" data-screen-label="02 診療理念">
+  <div class="container">
+    <div class="section-label">02 &nbsp;Philosophy</div>
+    <h2 class="section-title">診療理念</h2>
+    <p class="section-subtitle">Our guiding principles in critical care</p>
+
+    <div class="philosophy-inner">
+      <div class="reveal">
+        <div class="philosophy-quote-mark">"</div>
+        <div class="philosophy-quote">
+          生命の危機に瀕した患者さん一人ひとりと、そのご家族に寄り添い、科学的根拠に基づいた最善の集中治療を、チームで届け続けます。
+        </div>
+        <p style="font-size:12px;color:var(--text-muted);font-style:italic;margin-top:18px;line-height:1.8;">
+          We stand by every critically ill patient and their family, delivering evidence-based, compassionate care as one unified team.
+        </p>
+      </div>
+
+      <div class="philosophy-values reveal">
+        <div class="value-item">
+          <div class="value-num">01</div>
+          <div>
+            <h4>科学的根拠に基づく医療</h4>
+            <p>最新のエビデンスを常に取り入れ、プロトコルに基づいた標準化された高品質の治療を実践します。</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-num">02</div>
+          <div>
+            <h4>患者・家族中心のケア</h4>
+            <p>患者さんとご家族の思いを尊重し、意思決定への参加を支援します。</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-num">03</div>
+          <div>
+            <h4>多職種チームワーク</h4>
+            <p>専門職が互いを尊重し、コミュニケーションを大切に、最善のチーム医療を実践します。</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-num">04</div>
+          <div>
+            <h4>教育と継続的改善</h4>
+            <p>常に学び、振り返り、より良い医療を探求し続ける文化を大切にします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ -->
+<!-- 03 対象疾患                      -->
+<!-- ════════════════════════════════ -->
+<section id="diseases" class="page-section" data-screen-label="03 対象疾患">
+  <div class="container">
+    <div class="section-label">03 &nbsp;Target Conditions</div>
+    <h2 class="section-title">主な対象疾患</h2>
+    <p class="section-subtitle">Conditions managed in our ICU</p>
+
+    <div class="disease-grid">
+      <div class="disease-card reveal">
+        <div class="tag">SEPSIS</div>
+        <h3>敗血症性ショック</h3>
+        <p class="en">Septic Shock</p>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:10px;line-height:1.7;">敗血症に伴う重篤な循環不全に対して、早期目標指向型治療・抗菌薬投与・臓器保護を包括的に行います。</p>
+      </div>
+      <div class="disease-card reveal">
+        <div class="tag">RESPIRATORY</div>
+        <h3>ARDS</h3>
+        <p class="en">Acute Respiratory Distress Syndrome</p>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:10px;line-height:1.7;">肺保護換気戦略・腹臥位療法・ECMOを含む最先端の呼吸管理で重症ARDSに対応します。</p>
+      </div>
+      <div class="disease-card reveal">
+        <div class="tag">TRAUMA</div>
+        <h3>重症外傷・多発外傷</h3>
+        <p class="en">Severe / Multiple Trauma</p>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:10px;line-height:1.7;">外科・整形外科・脳神経外科と連携した外傷集中治療。輸血プロトコルや頭蓋内圧管理も実施します。</p>
+      </div>
+      <div class="disease-card reveal">
+        <div class="tag">BURN</div>
+        <h3>重症熱傷</h3>
+        <p class="en">Severe Burn Injury</p>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:10px;line-height:1.7;">大面積熱傷に対する輸液蘇生、感染管理、創傷治療を専門的チームで行います。</p>
+      </div>
+      <div class="disease-card reveal">
+        <div class="tag">CARDIAC</div>
+        <h3>心臓血管手術後管理</h3>
+        <p class="en">Post Cardiac / Vascular Surgery</p>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:10px;line-height:1.7;">CABG・弁膜症手術・大血管手術後の周術期管理。IABP・ECMO等補助循環にも対応します。</p>
+      </div>
+      <div class="disease-card reveal">
+        <div class="tag">MOF</div>
+        <h3>多臓器不全</h3>
+        <p class="en">Multiple Organ Failure</p>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:10px;line-height:1.7;">複数臓器の機能不全に対する包括的集中治療。CHDFによる腎代替療法も含みます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ -->
+<!-- 04 設備紹介                      -->
+<!-- ════════════════════════════════ -->
+<section id="equipment" class="page-section alt" data-screen-label="04 設備紹介">
+  <div class="container">
+    <div class="section-label">04 &nbsp;Equipment</div>
+    <h2 class="section-title">主要医療機器・設備</h2>
+    <p class="section-subtitle">State-of-the-art equipment supporting life-saving care</p>
+
+    <div class="equipment-list">
+
+      <!-- 人工呼吸器 -->
+      <div class="equipment-item left reveal">
+        <div class="equip-img">
+          <div class="img-placeholder">
+            <span>人工呼吸器</span>
+            <span class="sub">Mechanical Ventilator · photo</span>
+          </div>
+        </div>
+        <div class="equip-body">
+          <div class="equip-num">EQUIPMENT 01</div>
+          <h3>人工呼吸器</h3>
+          <p class="en">Mechanical Ventilator</p>
+          <p>自分の力だけでは十分に呼吸ができない患者さんの代わりに、肺へ空気（酸素）を送り込んで呼吸を助ける機械です。最新の機種を複数台そろえており、マスクを使う方法から、のどに管を入れてしっかりと補助する方法まで、患者さんの状態に合わせて幅広く対応します。</p>
+          <p style="font-size:11px;font-style:italic;color:var(--text-muted);margin-top:12px;line-height:1.7;">A machine that breathes for patients who cannot breathe well on their own, gently delivering oxygen to the lungs — from a simple mask to full support through a breathing tube.</p>
+          <div class="equip-feature-tags">
+            <span>肺保護換気戦略</span><span>NPPV対応</span><span>ウィーニングプロトコル</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PiCCO -->
+      <div class="equipment-item right reveal">
+        <div class="equip-img">
+          <div class="img-placeholder">
+            <span>PiCCOモニター</span>
+            <span class="sub">PiCCO Monitor · photo</span>
+          </div>
+        </div>
+        <div class="equip-body">
+          <div class="equip-num">EQUIPMENT 02</div>
+          <h3>PiCCOモニター</h3>
+          <p class="en">PiCCO Hemodynamic Monitor</p>
+          <p>心臓がどれくらいの血液を全身に送り出しているか、体の中の水分のバランスはどうかなどを、くわしく測定できる機械です。点滴の量や薬の調整を、より正確に行うために役立てています。</p>
+          <p style="font-size:11px;font-style:italic;color:var(--text-muted);margin-top:12px;line-height:1.7;">A monitor that measures how much blood the heart is pumping and the body's fluid balance, helping us fine-tune IV fluids and medications.</p>
+          <div class="equip-feature-tags">
+            <span>肺水分量測定</span><span>心機能評価</span><span>ARDS管理</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CKRT -->
+      <div class="equipment-item left reveal">
+        <div class="equip-img">
+          <div class="img-placeholder">
+            <span>CKRT装置</span>
+            <span class="sub">Continuous Kidney Replacement Therapy · photo</span>
+          </div>
+        </div>
+        <div class="equip-body">
+          <div class="equip-num">EQUIPMENT 03</div>
+          <h3>CKRT装置</h3>
+          <p class="en">Continuous Kidney Replacement Therapy</p>
+          <p>腎臓のはたらきが急に低下した患者さんのために、腎臓の代わりとなって血液をゆっくりときれいにする装置です（透析の一種）。時間をかけて少しずつ行うため、全身の状態が不安定な重症の患者さんにも負担が少なく行えます。</p>
+          <p style="font-size:11px;font-style:italic;color:var(--text-muted);margin-top:12px;line-height:1.7;">A device that gently cleans the blood in place of the kidneys when they suddenly stop working — a slow form of dialysis that even very unstable patients can tolerate.</p>
+          <div class="equip-feature-tags">
+            <span>急性腎不全対応</span><span>循環動態安定</span><span>炎症物質除去</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ECMO -->
+      <div class="equipment-item right reveal">
+        <div class="equip-body">
+          <div class="equip-num">EQUIPMENT 04</div>
+          <h3>ECMO</h3>
+          <p class="en">Extracorporeal Membrane Oxygenation</p>
+          <p>心臓や肺のはたらきが極めて弱くなった患者さんの体の外で、血液に酸素を取り込み、いらなくなった二酸化炭素を取り除く装置です。肺や心臓の代わりを一時的にになうことで、回復するまでの時間を支える、重症の患者さんにとって最後のとりでともいえる生命維持装置です。</p>
+          <p style="font-size:11px;font-style:italic;color:var(--text-muted);margin-top:12px;line-height:1.7;">A life-support machine that adds oxygen to the blood and removes carbon dioxide outside the body, temporarily taking over for failing lungs or heart.</p>
+          <div class="equip-feature-tags">
+            <span>VV-ECMO（重症ARDS）</span><span>VA-ECMO（心原性ショック）</span><span>循環器連携</span>
+          </div>
+        </div>
+        <div class="equip-img">
+          <div class="img-placeholder">
+            <span>ECMO</span>
+            <span class="sub">Extracorporeal Membrane Oxygenation · photo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Impella -->
+      <div class="equipment-item left reveal">
+        <div class="equip-img">
+          <div class="img-placeholder">
+            <span>Impella</span>
+            <span class="sub">Impella Heart Pump · photo</span>
+          </div>
+        </div>
+        <div class="equip-body">
+          <div class="equip-num">EQUIPMENT 05</div>
+          <h3>Impella</h3>
+          <p class="en">Impella Percutaneous Heart Pump</p>
+          <p>足の付け根などの血管から心臓へ細い管を入れて使う、超小型のポンプです。弱った心臓に代わって血液を全身へ送り出し、心臓を休ませながら回復を助けます。心臓のはたらきが急に弱まった重い状態のときなどに使用します。</p>
+          <p style="font-size:11px;font-style:italic;color:var(--text-muted);margin-top:12px;line-height:1.7;">A tiny pump threaded through a blood vessel into the heart that helps a weakened heart pump blood to the body, letting it rest and recover.</p>
+          <div class="equip-feature-tags">
+            <span>心原性ショック</span><span>心臓補助</span><span>循環器連携</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ICU病床 -->
+      <div class="equipment-item left reveal">
+        <div class="equip-img">
+          <div class="img-placeholder">
+            <span>ICU病床</span>
+            <span class="sub">ICU Beds · photo</span>
+          </div>
+        </div>
+        <div class="equip-body">
+          <div class="equip-num">FACILITY 06</div>
+          <h3>ICU病床</h3>
+          <p class="en">ICU Beds</p>
+          <p>当ICUには全部で１４床のベッドがあり、そのうち１床は「陰圧室」という特別な個室です。陰圧室は、結核や麻疹など空気を介してうつる病気の患者さんを、まわりにうつさないよう管理できる部屋です。各ベッドには容体を見守るモニターや呼吸を助ける機械などがそろい、２４時間体制で患者さんを見守っています。</p>
+          <p style="font-size:11px;font-style:italic;color:var(--text-muted);margin-top:12px;line-height:1.7;">14 ICU beds, including one negative-pressure room that safely isolates patients with airborne infections such as tuberculosis or measles.</p>
+          <div class="equip-feature-tags">
+            <span>総床数14床</span><span>陰圧室1床</span><span>全床モニタリング完備</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 医師控室 -->
+      <div class="equipment-item right reveal">
+        <div class="equip-body">
+          <div class="equip-num">FACILITY 07</div>
+          <h3>カンファレンスルーム</h3>
+          <p class="en">Conference Room</p>
+          <p>ICUの片隅に小さな図書館を完備したカンファレンスルームがあります。医学書・ジャーナルを揃えており、医師たちが業務の合間でも学習に取り組み、最先端の医学知識を学ぶ努力をしております。また、チーム間のコミュニケーションの場としても活用されています。病床モニターを備え、緊急時には医師たちがベットに駆けつけます。</p>
+          <p style="font-size:11px;font-style:italic;color:var(--text-muted);margin-top:12px;line-height:1.7;">A physician lounge with a small café and medical library — for rest and study between shifts, with bedside monitors for immediate emergency response.</p>
+          <div class="equip-feature-tags">
+            <span>カンファルーム</span><span>医学図書館</span><span>チーム交流の場</span>
+          </div>
+        </div>
+        <div class="equip-img">
+          <div class="img-placeholder">
+            <span>医師控室</span>
+            <span class="sub">Conference Room · photo</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ -->
+<!-- 05 スケジュール -->
+<!-- ════════════════════════════════ -->
+<section id="schedule" class="page-section" data-screen-label="05 スケジュール">
+  <div class="container">
+    <div class="section-label">05 &nbsp;Daily Schedule</div>
+    <h2 class="section-title">1日のスケジュール</h2>
+    <p class="section-subtitle">A typical day in the ICU</p>
+
+    <div class="schedule-container">
+      <div class="schedule-list reveal">
+        <div class="schedule-item">
+          <div class="schedule-time-col">
+            <div class="schedule-time-badge">7:00</div>
+            <div class="schedule-connector"></div>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-ja">申し送り・回診準備</div>
+            <div class="schedule-en">Night-to-Day Handoff &amp; Round Preparation</div>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time-col">
+            <div class="schedule-time-badge">8:30</div>
+            <div class="schedule-connector"></div>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-ja">回診</div>
+            <div class="schedule-en">Morning Round</div>
+          </div>
+        </div>
+        <div class="schedule-item minor">
+          <div class="schedule-time-col">
+            <div class="schedule-time-badge">9:00〜</div>
+            <div class="schedule-connector"></div>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-ja">処置・治療・各種検査</div>
+            <div class="schedule-en">Procedures, Treatments &amp; Diagnostics</div>
+          </div>
+        </div>
+        <div class="schedule-item minor">
+          <div class="schedule-time-col">
+            <div class="schedule-time-badge">12:30</div>
+            <div class="schedule-connector"></div>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-ja">昼休憩</div>
+            <div class="schedule-en">Lunch Break</div>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time-col">
+            <div class="schedule-time-badge">13:00</div>
+            <div class="schedule-connector"></div>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-ja">カンファレンス・勉強会</div>
+            <div class="schedule-en">Conference / Educational Session</div>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time-col">
+            <div class="schedule-time-badge">16:00〜</div>
+            <div class="schedule-connector"></div>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-ja">夕回診・引き継ぎ準備</div>
+            <div class="schedule-en">Evening Round &amp; Handover Preparation</div>
+          </div>
+        </div>
+        <div class="schedule-item minor">
+          <div class="schedule-time-col">
+            <div class="schedule-time-badge">17:00</div>
+            <div class="schedule-connector"></div>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-ja">申し送り・記録</div>
+            <div class="schedule-en">Evening Handoff &amp; Documentation</div>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time-col">
+            <div class="schedule-time-badge">18:00</div>
+            <div class="schedule-connector"></div>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-ja">当直体制へ移行</div>
+            <div class="schedule-en">Night Shift Begins</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="schedule-desc" style="margin-bottom:16px;">
+          <h4>朝回診について</h4>
+          <p>毎朝8:30より、ICU医師・主科医師・担当看護師とともに回診を実施しています。各患者さんの状態を共有し、当日の治療目標を全員で決定します。患者さん・ご家族の参加も歓迎しています。処置や検査は回診と並行して進行していきます。</p>
+        </div>
+        <div class="schedule-desc" style="margin-bottom:16px;">
+          <h4>カンファレンス</h4>
+          <p>毎日午後には<span class="highlight">カンファレンス</span>を開催。研修医・専攻医が症例提示を行ったり、最新のガイドラインや知見の勉強会を通して、治療方針について指導医とともに議論します。M&Mカンファレンスなど質改善活動も定期的に実施しています。</p>
+        </div>
+        <div class="schedule-desc">
+          <h4>夜間・当直体制</h4>
+          <p>夜間は当直医・オンコール医師が常駐し、<span class="highlight">24時間365日</span>の対応体制を整えています。緊急手術後や重症患者の受け入れにも迅速に対応します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ -->
+<!-- 06 数字で見るICU                 -->
+<!-- ════════════════════════════════ -->
+<section id="stats" class="page-section alt" data-screen-label="06 数字で見るICU">
+  <div class="container">
+    <div class="section-label">06 &nbsp;By the Numbers</div>
+    <h2 class="section-title">数字で見るICU</h2>
+    <p class="section-subtitle">Being upfront about the numbers that matter to you</p>
+
+    <p style="font-size:14px;color:var(--text-muted);line-height:1.9;max-width:680px;margin-bottom:40px;text-wrap:pretty;">
+      研修先を選ぶうえで気になる症例数や当直体制について、できる限り具体的な数字で公開する方針です。集計が整い次第、随時更新していきます。
+    </p>
+
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="num">14</div>
+        <div class="unit">beds</div>
+        <div class="label">ICU病床数</div>
+      </div>
+      <div class="stat-card pending reveal">
+        <div class="num">− −</div>
+        <div class="unit">cases / year</div>
+        <div class="label">年間新規入室患者数</div>
+      </div>
+      <div class="stat-card pending reveal">
+        <div class="num">− −</div>
+        <div class="unit">cases / year</div>
+        <div class="label">ECMO年間実施件数</div>
+      </div>
+      <div class="stat-card pending reveal">
+        <div class="num">− −</div>
+        <div class="unit">nights / month</div>
+        <div class="label">フェロー平均当直回数</div>
+      </div>
+      <div class="stat-card pending reveal">
+        <div class="num">− −</div>
+        <div class="unit">%</div>
+        <div class="label">集中治療専門医試験 合格率</div>
+      </div>
+      <div class="stat-card pending reveal">
+        <div class="num">− −</div>
+        <div class="unit">papers / year</div>
+        <div class="label">学会発表・論文数</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="num">24</div>
+        <div class="unit">hrs / 365</div>
+        <div class="label">専門医常駐体制</div>
+      </div>
+      <div class="stat-card pending reveal">
+        <div class="num">− −</div>
+        <div class="unit">people</div>
+        <div class="label">直近5年間のフェロー修了者数</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ -->
+<!-- 07 教育体制                      -->
+<!-- ════════════════════════════════ -->
+<section id="education" class="page-section alt" data-screen-label="07 教育体制">
+  <div class="container">
+    <div class="section-label">07 &nbsp;Education &amp; Training</div>
+    <h2 class="section-title">研修・教育体制</h2>
+    <p class="section-subtitle">A nationally recognized teaching program in critical care</p>
+
+    <p style="font-size:15px;color:var(--text-muted);line-height:1.95;max-width:680px;margin-bottom:48px;text-wrap:pretty;">
+      沖縄県立中部病院は全国屈指の教育病院として知られています。集中治療科においても初期研修医から集中治療専門医を目指す専攻医まで、段階的・系統的な研修プログラムを提供し、質の高い医療を常に受け継いでいきます。
+    </p>
+
+    <div class="education-inner">
+      <div>
+        <h3 style="font-family:var(--serif);font-size:18px;color:var(--primary-dark);margin-bottom:18px;">研修プログラム一覧</h3>
+        <div class="edu-programs">
+          <div class="edu-program">内科専攻医プログラム</div>
+          <div class="edu-program">総合診療科専攻医プログラム</div>
+          <div class="edu-program">救急科専攻医プログラム</div>
+          <div class="edu-program">外科専攻医プログラム</div>
+          <div class="edu-program">集中治療科フェローシッププログラム</div>
+        </div>
+        <a class="edu-callout" href="https://www.jsicm.org/" target="_blank" rel="noopener">
+          <div class="edu-callout-body">
+            <h4>集中治療専門医取得サポート</h4>
+            <p>日本集中治療医学会専門医・サブスペシャルティ取得を目指す研修医・専攻医を全力でサポートします。症例数・指導体制ともに充実しています。詳しくはこちらへ。</p>
+          </div>
+          <div class="arrow">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 9h8M9 4l5 5-5 5"/>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      <div class="edu-features">
+        <div class="edu-feature reveal">
+          <div class="edu-feature-icon">📋</div>
+          <div>
+            <h4>豊富な症例数</h4>
+            <p>沖縄県の基幹病院として多様かつ豊富な症例を経験できます。敗血症・外傷・術後管理など幅広く対応します。</p>
+          </div>
+        </div>
+        <div class="edu-feature reveal">
+          <div class="edu-feature-icon">👨‍⚕️</div>
+          <div>
+            <h4>専門医による丁寧な指導</h4>
+            <p>集中治療専門医が常に指導・フィードバックを行います。手技の機会も豊富で、安全な環境で習得できます。</p>
+          </div>
+        </div>
+        <div class="edu-feature reveal">
+          <div class="edu-feature-icon">🔬</div>
+          <div>
+            <h4>最新設備での実践研修</h4>
+            <p>PiCCO・スワンガンツ・CHDF・超音波ガイド下手技など、最先端機器を使った実践的な研修が可能です。</p>
+          </div>
+        </div>
+        <div class="edu-feature reveal">
+          <div class="edu-feature-icon">🌺</div>
+          <div>
+            <h4>沖縄ならではの医療環境</h4>
+            <p>米軍や離島からの搬送症例など、沖縄特有の多様な症例を経験できる全国でも稀有な環境です。また、<a href="https://jin-aikai.com/urasoe/section/clinical01/" target="_blank" rel="noopener" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">浦添総合病院</a>と研修の連携を組んでいます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ -->
+<!-- 08 レジデントの声                 -->
+<!-- ════════════════════════════════ -->
+<section id="residents" class="page-section" data-screen-label="08 レジデントの声">
+  <div class="container">
+    <div class="section-label">08 &nbsp;Resident Voices</div>
+    <h2 class="section-title">レジデントの声</h2>
+    <p class="section-subtitle">現役フェロー・レジデントに聞いた、率直な言葉</p>
+
+    <div class="residents-grid">
+      <div class="resident-card reveal">
+        <span class="placeholder-tag">PLACEHOLDER — 実際のコメントに差し替え予定</span>
+        <div class="resident-qmark">"</div>
+        <div class="resident-comment">当直明けでも、朝のカンファレンスでは指導医が必ずフィードバックをくれる。分からないことをそのままにしない文化がここにはあります。</div>
+        <div class="resident-comment-en">Even after a night shift, the attending always gives feedback at morning conference — nothing gets left unexplained here.</div>
+        <div class="resident-divider"></div>
+        <div class="resident-profile">
+          <div class="resident-avatar">仮</div>
+          <div>
+            <div class="resident-name">氏名（仮）</div>
+            <div class="resident-year">フェロー1年目</div>
+          </div>
+        </div>
+      </div>
+      <div class="resident-card reveal">
+        <span class="placeholder-tag">PLACEHOLDER — 実際のコメントに差し替え予定</span>
+        <div class="resident-qmark">"</div>
+        <div class="resident-comment">症例数の多さに最初は圧倒されましたが、その分、教科書だけでは学べない判断力が確実についてきていると感じます。</div>
+        <div class="resident-comment-en">The volume of cases was overwhelming at first, but I can feel my clinical judgment growing in ways no textbook could teach.</div>
+        <div class="resident-divider"></div>
+        <div class="resident-profile">
+          <div class="resident-avatar">仮</div>
+          <div>
+            <div class="resident-name">氏名（仮）</div>
+            <div class="resident-year">フェロー2年目</div>
+          </div>
+        </div>
+      </div>
+      <div class="resident-card reveal">
+        <span class="placeholder-tag">PLACEHOLDER — 実際のコメントに差し替え予定</span>
+        <div class="resident-qmark">"</div>
+        <div class="resident-comment">他科出身でも置いていかれない指導体制でした。今は自分が後輩に同じことを伝えたいと思っています。</div>
+        <div class="resident-comment-en">Coming from another specialty, I never felt left behind — now I want to pass that same support on to the next resident.</div>
+        <div class="resident-divider"></div>
+        <div class="resident-profile">
+          <div class="resident-avatar">仮</div>
+          <div>
+            <div class="resident-name">氏名（仮）</div>
+            <div class="resident-year">兼任フェロー</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ -->
+<!-- 09 スタッフ紹介                   -->
+<!-- ════════════════════════════════ -->
+<section id="staff" class="page-section alt" data-screen-label="09 スタッフ紹介">
+  <div class="container">
+    <div class="section-label">09 &nbsp;Our Team</div>
+    <h2 class="section-title">スタッフ紹介</h2>
+    <p class="section-subtitle">Meet the critical care specialists</p>
+
+    <!-- スタッフ（診療科長） -->
+    <div style="margin-bottom:48px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+        <div style="height:2px;width:28px;background:var(--primary);border-radius:1px;"></div>
+        <span style="font-size:12px;font-weight:700;color:var(--primary-dark);letter-spacing:0.1em;">スタッフ（診療科長）</span>
+        <div style="height:2px;flex:1;background:var(--border);border-radius:1px;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+        <div class="staff-card reveal" style="border-top:3px solid var(--primary);">
+          <div class="staff-photo">
+            <div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;">
+              <span style="font-size:22px;font-family:var(--serif);font-weight:700;color:var(--primary);">医</span>
+            </div>
+          </div>
+          <div class="staff-name">井澤 純一</div>
+          <div class="staff-role">診療科長</div>
+          <div class="staff-role-en">Head of Department</div>
+          <div class="staff-spec" style="font-size:11px;line-height:1.8;">博士（社会健康医学; DrPH）<br>集中治療専門医<br>総合内科専門医<br>呼吸療法専門医<br>臨床疫学会認定専門家</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- スタッフ -->
+    <div style="margin-bottom:48px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+        <div style="height:2px;width:28px;background:var(--accent);border-radius:1px;"></div>
+        <span style="font-size:12px;font-weight:700;color:var(--primary-dark);letter-spacing:0.1em;">スタッフ</span>
+        <div style="height:2px;flex:1;background:var(--border);border-radius:1px;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+        <div class="staff-card reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:22px;font-family:var(--serif);font-weight:700;color:var(--primary);">医</span></div></div>
+          <div class="staff-name">酒井 亮裕</div>
+          <div class="staff-role">スタッフ</div>
+          <div class="staff-role-en">Attending Physician</div>
+          <div class="staff-spec" style="font-size:11px;line-height:1.8;">集中治療専門医<br>外科専門医</div>
+        </div>
+        <div class="staff-card reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:22px;font-family:var(--serif);font-weight:700;color:var(--primary);">医</span></div></div>
+          <div class="staff-name">依光 たみ枝</div>
+          <div class="staff-role">スタッフ</div>
+          <div class="staff-role-en">Attending Physician</div>
+          <div class="staff-spec" style="font-size:11px;line-height:1.8;">集中治療専門医
+麻酔科専門医</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- フェロー -->
+    <div style="margin-bottom:48px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+        <div style="height:2px;width:28px;background:var(--text-light);border-radius:1px;"></div>
+        <span style="font-size:12px;font-weight:700;color:var(--primary-dark);letter-spacing:0.1em;">フェロー</span>
+        <div style="height:2px;flex:1;background:var(--border);border-radius:1px;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+        <div class="staff-card reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:22px;font-family:var(--serif);font-weight:700;color:var(--accent);">医</span></div></div>
+          <div class="staff-name">落合 伸伍</div>
+          <div class="staff-role" style="color:var(--accent);">フェロー</div>
+          <div class="staff-role-en">Fellow</div>
+          <div class="staff-spec" style="font-size:11px;">外科専門医</div>
+        </div>
+        <div class="staff-card reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:22px;font-family:var(--serif);font-weight:700;color:var(--accent);">医</span></div></div>
+          <div class="staff-name">江田 哲信</div>
+          <div class="staff-role" style="color:var(--accent);">フェロー</div>
+          <div class="staff-role-en">Fellow</div>
+          <div class="staff-spec" style="font-size:11px;">救急科専門医</div>
+        </div>
+        <div class="staff-card reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:22px;font-family:var(--serif);font-weight:700;color:var(--accent);">医</span></div></div>
+          <div class="staff-name">森 祐太</div>
+          <div class="staff-role" style="color:var(--accent);">フェロー</div>
+          <div class="staff-role-en">Fellow</div>
+          <div class="staff-spec" style="font-size:11px;">外科専門医</div>
+        </div>
+        <div class="staff-card reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:22px;font-family:var(--serif);font-weight:700;color:var(--accent);">医</span></div></div>
+          <div class="staff-name">石島 佑治</div>
+          <div class="staff-role" style="color:var(--accent);">フェロー</div>
+          <div class="staff-role-en">Fellow</div>
+          <div class="staff-spec" style="font-size:11px;">内科（兼任）</div>
+        </div>
+        <div class="staff-card reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:22px;font-family:var(--serif);font-weight:700;color:var(--accent);">医</span></div></div>
+          <div class="staff-name">高橋 慶太</div>
+          <div class="staff-role" style="color:var(--accent);">フェロー</div>
+          <div class="staff-role-en">Fellow</div>
+          <div class="staff-spec" style="font-size:11px;">救急科（兼任）</div>
+        </div>
+        <div class="staff-card reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:22px;font-family:var(--serif);font-weight:700;color:var(--accent);">医</span></div></div>
+          <div class="staff-name">仲田 そら</div>
+          <div class="staff-role" style="color:var(--accent);">フェロー</div>
+          <div class="staff-role-en">Fellow</div>
+          <div class="staff-spec" style="font-size:11px;">救急科（兼任）</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 非常勤医師 -->
+    <div style="margin-bottom:48px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+        <div style="height:2px;width:28px;background:#B0C4B8;border-radius:1px;"></div>
+        <span style="font-size:12px;font-weight:700;color:var(--primary-dark);letter-spacing:0.1em;">非常勤医師</span>
+        <div style="height:2px;flex:1;background:var(--border);border-radius:1px;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+        <div class="staff-card reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:22px;font-family:var(--serif);font-weight:700;color:#8AAA92;">医</span></div></div>
+          <div class="staff-name">岩永 航</div>
+          <div class="staff-role" style="color:#8AAA92;">非常勤医師</div>
+          <div class="staff-role-en">Part-time Physician</div>
+          <div class="staff-spec" style="font-size:11px;line-height:1.8;">集中治療専門医
+救急科専門医</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NP（診療看護師） -->
+    <div style="margin-bottom:48px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+        <div style="height:2px;width:28px;background:#80B5C8;border-radius:1px;"></div>
+        <span style="font-size:12px;font-weight:700;color:var(--primary-dark);letter-spacing:0.1em;">NP（診療看護師）</span>
+        <div style="height:2px;flex:1;background:var(--border);border-radius:1px;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+        <div class="staff-card reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:22px;font-family:var(--serif);font-weight:700;color:#5B96B0;">看</span></div></div>
+          <div class="staff-name">小波本 直也</div>
+          <div class="staff-role" style="color:#5B96B0;">診療看護師（NP）</div>
+          <div class="staff-role-en">Nurse Practitioner</div>
+          <div class="staff-spec" style="font-size:11px;">専門分野：集中治療</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 病棟NS -->
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+        <div style="height:2px;width:28px;background:#8ABCB0;border-radius:1px;"></div>
+        <span style="font-size:12px;font-weight:700;color:var(--primary-dark);letter-spacing:0.1em;">病棟NS（看護師）</span>
+        <div style="height:2px;flex:1;background:var(--border);border-radius:1px;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:20px;">
+        <div class="staff-card reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:18px;font-family:var(--serif);font-weight:700;color:#5B9A8A;">看</span></div></div>
+          <div class="staff-name">氏　名</div>
+          <div class="staff-role" style="color:#5B9A8A;">師長</div>
+          <div class="staff-role-en">Head Nurse</div>
+          <div class="staff-spec" style="font-size:11px;">ICU専任</div>
+        </div>
+        <div class="staff-card reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:18px;font-family:var(--serif);font-weight:700;color:#5B9A8A;">看</span></div></div>
+          <div class="staff-name">氏　名</div>
+          <div class="staff-role" style="color:#5B9A8A;">副師長</div>
+          <div class="staff-role-en">Deputy Head Nurse</div>
+          <div class="staff-spec" style="font-size:11px;">ICU専任</div>
+        </div>
+        <div class="staff-card reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:18px;font-family:var(--serif);font-weight:700;color:#5B9A8A;">看</span></div></div>
+          <div class="staff-name">氏　名</div>
+          <div class="staff-role" style="color:#5B9A8A;">副師長</div>
+          <div class="staff-role-en">Deputy Head Nurse</div>
+          <div class="staff-spec" style="font-size:11px;">ICU専任</div>
+        </div>
+        <div class="staff-card reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:18px;font-family:var(--serif);font-weight:700;color:#5B9A8A;">認</span></div></div>
+          <div class="staff-name">氏　名</div>
+          <div class="staff-role" style="color:#5B9A8A;">認定看護師</div>
+          <div class="staff-role-en">Certified Nurse</div>
+          <div class="staff-spec" style="font-size:11px;">集中ケア認定看護師</div>
+        </div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 32px;">
+        <p style="font-size:14px;color:var(--text-muted);line-height:1.9;">ICU専任看護師が24時間体制で患者さんのケアにあたります。師長・副師長のリーダーシップのもと、認定看護師を含む高度な専門知識と技術を持つ看護師チームが、医師・多職種と緊密に連携し、患者さんの回復を支援しています。</p>
+        <p style="font-size:12px;font-style:italic;color:var(--text-light);margin-top:10px;">Dedicated ICU nurses — led by head and deputy head nurses and supported by certified specialists — provide round-the-clock multidisciplinary care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ -->
+<!-- CTA                             -->
+<!-- ════════════════════════════════ -->
+<section id="contact" data-screen-label="Contact">
+  <div style="position:relative;z-index:1;">
+    <h2>研修・見学のご相談、お気軽にどうぞ</h2>
+    <p>集中治療科での研修にご興味のある方、見学希望の方はいつでもお問い合わせください。<br>
+    <span style="font-size:12px;">We warmly welcome inquiries about residency training and hospital visits.</span></p>
+    <div class="cta-buttons">
+      <button class="cta-btn-primary">お問い合わせ</button>
+      <button class="cta-btn-outline">見学を申し込む</button>
+    </div>
+
+    <div class="ref-widget on-dark">
+      <h4>在籍医師の方へ — 紹介リンクを発行する</h4>
+      <p>お名前またはIDを入力すると、このページ専用の紹介リンクが作成されます。後輩や知人にそのまま送ってください。（現時点では簡易生成のみで、経由の閲覧数計測は公開先が決まり次第対応予定です）</p>
+      <div class="ref-widget-row">
+        <input type="text" id="refNameInput" placeholder="例：ochiai" aria-label="お名前またはID">
+        <button class="ref-gen-btn" id="refGenBtn" type="button">発行する</button>
+      </div>
+      <div class="ref-output" id="refOutput">
+        <span class="ref-output-url" id="refOutputUrl"></span>
+        <button class="ref-copy-btn" id="refCopyBtn" type="button">コピー</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>沖縄県立中部病院</h4>
+      <p>Okinawa Prefectural Chubu Hospital</p>
+      <p style="margin-top:12px;">〒904-2293<br>沖縄県うるま市宮里281<br>281 Miyazato, Uruma City,<br>Okinawa 904-2293</p>
+    </div>
+    <div class="footer-col">
+      <h4>集中治療科</h4>
+      <a href="#medical">診療内容</a>
+      <a href="#philosophy">診療理念</a>
+      <a href="#diseases">主な対象疾患</a>
+      <a href="#equipment">設備紹介</a>
+      <a href="#schedule">1日のスケジュール</a>
+      <a href="#stats">数字で見るICU</a>
+      <a href="#education">教育体制</a>
+      <a href="#residents">レジデントの声</a>
+      <a href="#staff">スタッフ紹介</a>
+    </div>
+    <div class="footer-col">
+      <h4>関連リンク</h4>
+      <a href="#">病院トップページ</a>
+      <a href="#">診療科一覧</a>
+      <a href="#">研修医募集</a>
+      <a href="#">外来受付</a>
+      <a href="#">アクセス・交通</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 沖縄県立中部病院 集中治療科. All rights reserved.</p>
+    <p>Department of Critical Care Medicine, Okinawa Prefectural Chubu Hospital</p>
+  </div>
+</footer>
+
+<script>
+// ── Smooth scroll (avoid scrollIntoView) ──
+document.querySelectorAll('a[href^="#"], button[data-target]').forEach(el => {
+  el.addEventListener('click', e => {
+    e.preventDefault();
+    const id = el.getAttribute('href')?.slice(1) || el.getAttribute('data-target');
+    const target = document.getElementById(id);
+    if (target) {
+      const offset = target.getBoundingClientRect().top + window.pageYOffset - 78;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
+  });
+});
+
+// ── Active nav on scroll ──
+const navLinks = document.querySelectorAll('.nav-link[data-target]');
+const sections = Array.from(document.querySelectorAll('section[id]'));
+
+const updateNav = () => {
+  const scrollY = window.pageYOffset + 120;
+  let current = '';
+  sections.forEach(sec => {
+    if (sec.offsetTop <= scrollY) current = sec.id;
+  });
+  navLinks.forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-target') === current);
+  });
+};
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
+
+// ── Scroll reveal ──
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => revealObserver.observe(el));
+
+// ── Referral banner (?ref=...) ──
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get('ref');
+  if (!ref) return;
+  const banner = document.getElementById('refBanner');
+  const text = document.getElementById('refBannerText');
+  if (banner && text) {
+    text.textContent = ref + ' さんからのご紹介でこのページをご覧いただき、ありがとうございます。';
+    banner.classList.add('show');
+  }
+})();
+
+// ── Referral link generator ──
+const refGenBtn = document.getElementById('refGenBtn');
+if (refGenBtn) {
+  refGenBtn.addEventListener('click', () => {
+    const nameInput = document.getElementById('refNameInput');
+    const output = document.getElementById('refOutput');
+    const outputUrl = document.getElementById('refOutputUrl');
+    const name = (nameInput.value || '').trim();
+    if (!name) { nameInput.focus(); return; }
+    const slug = encodeURIComponent(name);
+    const url = window.location.origin + window.location.pathname + '?ref=' + slug;
+    outputUrl.textContent = url;
+    output.classList.add('show');
+  });
+}
+const refCopyBtn = document.getElementById('refCopyBtn');
+if (refCopyBtn) {
+  refCopyBtn.addEventListener('click', async () => {
+    const outputUrl = document.getElementById('refOutputUrl');
+    if (!outputUrl || !outputUrl.textContent) return;
+    try {
+      await navigator.clipboard.writeText(outputUrl.textContent);
+      refCopyBtn.textContent = 'コピーしました';
+      setTimeout(() => { refCopyBtn.textContent = 'コピー'; }, 1600);
+    } catch (e) {}
+  });
+}
+</script>
+</body>
+</html>
