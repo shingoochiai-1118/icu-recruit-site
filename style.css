@@ -401,7 +401,7 @@ h2.section-title {
 }
 
 /* ── 数字で見るICU ── */
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
 .stat-card {
   background: var(--card); border: 1px solid var(--border); border-radius: 14px;
   padding: 26px 20px; text-align: center;
