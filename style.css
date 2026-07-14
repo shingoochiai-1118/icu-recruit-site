@@ -518,47 +518,54 @@ body.nav-open { overflow: hidden; }
   padding: 3px 9px; border-radius: 10px; margin-bottom: var(--space-4);
 }
 
-/* ── 他己紹介（人物ポートレート型カード） ── */
+/* ── 他己紹介（人物イラスト型カード） ── */
 .peer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-9); }
 .peer-card {
-  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
-  padding: 32px 26px 28px; text-align: center; transition: box-shadow 0.2s, transform 0.2s;
+  position: relative; background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 42px 24px 26px; transition: box-shadow 0.2s, transform 0.2s;
 }
 .peer-card:hover { box-shadow: 0 8px 28px rgba(74,122,80,0.1); transform: translateY(-3px); }
-.peer-card .placeholder-tag { display: block; text-align: left; }
+.peer-card .placeholder-tag {
+  position: absolute; top: 14px; right: 14px; left: 14px; margin: 0;
+  display: block; text-align: center; white-space: normal;
+}
 
-.peer-portrait { display: flex; flex-direction: column; align-items: center; margin: 8px 0 18px; }
+.peer-portrait { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
 .peer-avatar {
-  width: 76px; height: 76px; border-radius: 50%; background: var(--primary-xlight);
-  display: flex; align-items: center; justify-content: center;
-  font-size: var(--text-deco-md); font-weight: 700; color: var(--primary); font-family: var(--serif);
+  width: 86px; height: 86px; border-radius: 50%; background: var(--primary-xlight);
+  display: flex; align-items: center; justify-content: center; padding: 18px; box-sizing: border-box;
   border: 3px solid var(--primary-light); flex-shrink: 0;
 }
-.peer-avatar.wide { font-size: var(--text-lg); letter-spacing: -0.02em; }
-.peer-card.role-nurse .peer-avatar { color: var(--staff-nursing); border-color: rgba(74,133,119,0.4); background: rgba(74,133,119,0.08); }
-.peer-card.role-np .peer-avatar { color: var(--accent); border-color: rgba(31,165,147,0.4); background: rgba(31,165,147,0.08); }
+.peer-avatar svg { width: 100%; height: 100%; color: var(--primary); }
+.peer-card.role-nurse .peer-avatar { border-color: rgba(74,133,119,0.4); background: rgba(74,133,119,0.08); }
+.peer-card.role-nurse .peer-avatar svg { color: var(--staff-nursing); }
+.peer-card.role-np .peer-avatar { border-color: rgba(31,165,147,0.4); background: rgba(31,165,147,0.08); }
+.peer-card.role-np .peer-avatar svg { color: var(--accent); }
 
 .peer-tagline {
-  position: relative; margin-top: 14px; background: var(--primary-dark); color: #fff;
-  font-family: var(--serif); font-size: var(--text-sm-plus); font-weight: 600; line-height: 1.5;
-  padding: 10px 18px; border-radius: 14px;
+  position: relative; flex: 1; background: var(--primary-dark); color: #fff;
+  font-family: var(--serif); font-size: var(--text-sm); font-weight: 600; line-height: 1.5;
+  padding: 12px 16px; border-radius: 4px 14px 14px 14px;
 }
 .peer-tagline::before {
-  content: ""; position: absolute; top: -7px; left: 50%; transform: translateX(-50%);
-  border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid var(--primary-dark);
+  content: ""; position: absolute; top: -8px; left: 22px;
+  border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 8px solid var(--primary-dark);
 }
 .peer-card.role-nurse .peer-tagline { background: var(--staff-nursing); }
 .peer-card.role-nurse .peer-tagline::before { border-bottom-color: var(--staff-nursing); }
 .peer-card.role-np .peer-tagline { background: var(--accent); }
 .peer-card.role-np .peer-tagline::before { border-bottom-color: var(--accent); }
 
-.peer-name { font-size: var(--text-sm-plus); font-weight: 700; color: var(--text); margin-top: 2px; }
-.peer-role { font-size: var(--text-xs); color: var(--text-muted); margin-top: 3px; }
-.peer-by { font-size: var(--text-3xs); color: var(--text-light); margin-top: 6px; letter-spacing: 0.02em; }
+.peer-profile { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 3px; }
+.peer-name { font-size: var(--text-sm-plus); font-weight: 700; color: var(--text); }
+.peer-role { font-size: var(--text-xs); color: var(--text-muted); }
+.peer-by { font-size: var(--text-3xs); color: var(--text-light); margin-bottom: 14px; letter-spacing: 0.02em; }
 
-.peer-divider { height: 1px; background: var(--border); margin: 18px 0 16px; }
-.peer-comment { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.85; text-align: left; margin-bottom: 10px; }
-.peer-comment-en { font-size: var(--text-3xs); color: var(--text-light); font-style: italic; line-height: 1.7; text-align: left; }
+.peer-comment-box { background: var(--primary-xlight); border-radius: 12px; padding: 16px 18px; }
+.peer-card.role-nurse .peer-comment-box { background: rgba(74,133,119,0.08); }
+.peer-card.role-np .peer-comment-box { background: rgba(31,165,147,0.08); }
+.peer-comment { font-size: var(--text-sm); color: var(--text); line-height: 1.85; margin-bottom: 8px; }
+.peer-comment-en { font-size: var(--text-3xs); color: var(--text-light); font-style: italic; line-height: 1.7; }
 
 /* ── チームの雰囲気 ── */
 .team-photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-top: var(--space-9); }
