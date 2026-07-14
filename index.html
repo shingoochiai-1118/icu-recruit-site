@@ -8,8 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNyIgZmlsbD0iIzJFOTk0NCIvPjxwYXRoIGQ9Ik0yMiAxMmgtNGwtMyA5TDkgM2wtMyA5SDIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=">
 </head>
 <body>
+<a class="skip-link" href="#main">本文へスキップ</a>
 
 <!-- STICKY HEADER -->
 <header id="site-header">
@@ -19,18 +21,23 @@
       <div class="dept">沖縄県立中部病院<span>集中治療科</span></div>
     </div>
     <div class="header-divider"></div>
+    <button id="navToggle" class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="main-nav">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+    </button>
     <nav id="main-nav">
       <button class="nav-link" data-target="medical">診療内容</button>
       <button class="nav-link" data-target="philosophy">診療理念</button>
       <button class="nav-link" data-target="diseases">対象疾患</button>
+      <button class="nav-link" data-target="daily-flow">ICUでの1日の流れ</button>
       <button class="nav-link" data-target="equipment">設備紹介</button>
       <button class="nav-link" data-target="staff">スタッフ紹介</button>
+      <a class="header-crosslink" href="recruit.html">医療従事者の方へ：レジデント・フェロー募集 →</a>
     </nav>
-    <a class="header-crosslink" href="recruit.html">医療従事者の方へ：レジデント・フェロー募集 →</a>
     <button class="header-contact">お問い合わせ</button>
   </div>
 </header>
 
+<main id="main">
 <!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
@@ -81,8 +88,9 @@
     <a class="jump-item" href="#medical"><span class="num">01</span><span class="name">診療内容</span><span class="name-en">Medical Services</span></a>
     <a class="jump-item" href="#philosophy"><span class="num">02</span><span class="name">診療理念</span><span class="name-en">Philosophy</span></a>
     <a class="jump-item" href="#diseases"><span class="num">03</span><span class="name">対象疾患</span><span class="name-en">Conditions</span></a>
-    <a class="jump-item" href="#equipment"><span class="num">04</span><span class="name">設備紹介</span><span class="name-en">Equipment</span></a>
-    <a class="jump-item" href="#staff"><span class="num">05</span><span class="name">スタッフ紹介</span><span class="name-en">Our Team</span></a>
+    <a class="jump-item" href="#daily-flow"><span class="num">04</span><span class="name">1日の流れ</span><span class="name-en">A Day in Our ICU</span></a>
+    <a class="jump-item" href="#equipment"><span class="num">05</span><span class="name">設備紹介</span><span class="name-en">Equipment</span></a>
+    <a class="jump-item" href="#staff"><span class="num">06</span><span class="name">スタッフ紹介</span><span class="name-en">Our Team</span></a>
   </div>
 </div>
 
@@ -241,11 +249,92 @@
 </section>
 
 <!-- ════════════════════════════════ -->
-<!-- 04 設備紹介                      -->
+<!-- 04 ICUでの1日の流れ                -->
 <!-- ════════════════════════════════ -->
-<section id="equipment" class="page-section alt" data-screen-label="04 設備紹介">
+<section id="daily-flow" class="page-section" data-screen-label="04 ICUでの1日の流れ">
   <div class="container">
-    <div class="section-label">04 &nbsp;Equipment</div>
+    <div class="section-label">04 &nbsp;A Day in Our ICU</div>
+    <h2 class="section-title">ICUでの1日の流れ</h2>
+    <p class="section-subtitle">ご家族の視点から見た、当科の1日</p>
+
+    <div class="schedule-container">
+      <div class="schedule-list reveal">
+        <div class="schedule-item">
+          <div class="schedule-time-col">
+            <div class="schedule-time-badge">8:30</div>
+            <div class="schedule-connector"></div>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-ja">朝の回診</div>
+            <div class="schedule-en">Morning Round</div>
+          </div>
+        </div>
+        <div class="schedule-item minor">
+          <div class="schedule-time-col">
+            <div class="schedule-time-badge">9:00〜</div>
+            <div class="schedule-connector"></div>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-ja">治療・処置</div>
+            <div class="schedule-en">Treatment &amp; Procedures</div>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time-col">
+            <div class="schedule-time-badge">随時</div>
+            <div class="schedule-connector"></div>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-ja">病状説明（ご希望に応じて）</div>
+            <div class="schedule-en">Family Consultation (by request)</div>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time-col">
+            <div class="schedule-time-badge">15:00〜17:00</div>
+            <div class="schedule-connector"></div>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-ja">面会時間</div>
+            <div class="schedule-en">Visiting Hours</div>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time-col">
+            <div class="schedule-time-badge">18:00</div>
+            <div class="schedule-connector"></div>
+          </div>
+          <div class="schedule-body">
+            <div class="schedule-ja">夜間体制へ移行</div>
+            <div class="schedule-en">Night Shift Begins</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="schedule-desc" style="margin-bottom:16px;">
+          <h4>朝の回診について</h4>
+          <p>毎朝8:30より、医師・看護師が中心となって回診を行い、その日の治療方針を確認します。ご家族にも状況を共有できるよう努めています。</p>
+        </div>
+        <div class="schedule-desc" style="margin-bottom:16px;">
+          <h4>病状説明</h4>
+          <p>病状に大きな変化があった場合や、ご家族からのご希望があった場合には、医師が直接お時間を取って説明いたします。面会時や受付にてお気軽にお申し出ください。</p>
+        </div>
+        <div class="schedule-desc">
+          <h4>面会について</h4>
+          <p>感染対策にご協力いただいた上で、面会時間帯にご案内しております。詳しい時間帯やルールは受付・看護師までお問い合わせください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ -->
+<!-- 05 設備紹介                      -->
+<!-- ════════════════════════════════ -->
+<section id="equipment" class="page-section alt" data-screen-label="05 設備紹介">
+  <div class="container">
+    <div class="section-label">05 &nbsp;Equipment</div>
     <h2 class="section-title">主要医療機器・設備</h2>
     <p class="section-subtitle">State-of-the-art equipment supporting life-saving care</p>
 
@@ -396,139 +485,137 @@
 </section>
 
 <!-- ════════════════════════════════ -->
-<!-- 05 スタッフ紹介                   -->
+<!-- 06 スタッフ紹介                   -->
 <!-- ════════════════════════════════ -->
-<section id="staff" class="page-section alt" data-screen-label="05 スタッフ紹介">
+<section id="staff" class="page-section alt" data-screen-label="06 スタッフ紹介">
   <div class="container">
-    <div class="section-label">05 &nbsp;Our Team</div>
+    <div class="section-label">06 &nbsp;Our Team</div>
     <h2 class="section-title">スタッフ紹介</h2>
     <p class="section-subtitle">Meet the critical care specialists</p>
 
     <!-- スタッフ（診療科長） -->
-    <div style="margin-bottom:48px;">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
-        <div style="height:2px;width:28px;background:var(--primary);border-radius:1px;"></div>
-        <span style="font-size:12px;font-weight:700;color:var(--primary-dark);letter-spacing:0.1em;">スタッフ（診療科長）</span>
-        <div style="height:2px;flex:1;background:var(--border);border-radius:1px;"></div>
+    <div class="staff-group">
+      <div class="staff-group-header">
+        <div class="bar"></div>
+        <span class="label">スタッフ（診療科長）</span>
+        <div class="line"></div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+      <div class="staff-grid">
         <div class="staff-card reveal" style="border-top:3px solid var(--primary);">
           <div class="staff-photo">
             <div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;">
-              <span style="font-size:22px;font-family:var(--serif);font-weight:700;color:var(--primary);">医</span>
+              <span class="staff-avatar-initial">医</span>
             </div>
           </div>
           <div class="staff-name">井澤 純一</div>
           <div class="staff-role">診療科長</div>
           <div class="staff-role-en">Head of Department</div>
-          <div class="staff-spec" style="font-size:11px;line-height:1.8;">博士（社会健康医学; DrPH）<br>集中治療専門医<br>総合内科専門医<br>呼吸療法専門医<br>臨床疫学会認定専門家</div>
+          <div class="staff-spec">博士（社会健康医学; DrPH）<br>集中治療専門医<br>総合内科専門医<br>呼吸療法専門医<br>臨床疫学会認定専門家</div>
         </div>
       </div>
     </div>
 
     <!-- スタッフ -->
-    <div style="margin-bottom:48px;">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
-        <div style="height:2px;width:28px;background:var(--accent);border-radius:1px;"></div>
-        <span style="font-size:12px;font-weight:700;color:var(--primary-dark);letter-spacing:0.1em;">スタッフ</span>
-        <div style="height:2px;flex:1;background:var(--border);border-radius:1px;"></div>
+    <div class="staff-group">
+      <div class="staff-group-header">
+        <div class="bar"></div>
+        <span class="label">スタッフ</span>
+        <div class="line"></div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+      <div class="staff-grid">
         <div class="staff-card reveal">
-          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:22px;font-family:var(--serif);font-weight:700;color:var(--primary);">医</span></div></div>
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span class="staff-avatar-initial">医</span></div></div>
           <div class="staff-name">酒井 亮裕</div>
           <div class="staff-role">スタッフ</div>
           <div class="staff-role-en">Attending Physician</div>
-          <div class="staff-spec" style="font-size:11px;line-height:1.8;">集中治療専門医<br>外科専門医</div>
+          <div class="staff-spec">集中治療専門医<br>外科専門医</div>
         </div>
         <div class="staff-card reveal">
-          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:22px;font-family:var(--serif);font-weight:700;color:var(--primary);">医</span></div></div>
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span class="staff-avatar-initial">医</span></div></div>
           <div class="staff-name">依光 たみ枝</div>
           <div class="staff-role">スタッフ</div>
           <div class="staff-role-en">Attending Physician</div>
-          <div class="staff-spec" style="font-size:11px;line-height:1.8;">集中治療専門医
-麻酔科専門医</div>
+          <div class="staff-spec">集中治療専門医<br>麻酔科専門医</div>
         </div>
       </div>
     </div>
 
     <!-- 非常勤医師 -->
-    <div style="margin-bottom:48px;">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
-        <div style="height:2px;width:28px;background:#B0C4B8;border-radius:1px;"></div>
-        <span style="font-size:12px;font-weight:700;color:var(--primary-dark);letter-spacing:0.1em;">非常勤医師</span>
-        <div style="height:2px;flex:1;background:var(--border);border-radius:1px;"></div>
+    <div class="staff-group">
+      <div class="staff-group-header">
+        <div class="bar"></div>
+        <span class="label">非常勤医師</span>
+        <div class="line"></div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
-        <div class="staff-card reveal">
-          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:22px;font-family:var(--serif);font-weight:700;color:#8AAA92;">医</span></div></div>
+      <div class="staff-grid">
+        <div class="staff-card tier-parttime reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span class="staff-avatar-initial">医</span></div></div>
           <div class="staff-name">岩永 航</div>
-          <div class="staff-role" style="color:#8AAA92;">非常勤医師</div>
+          <div class="staff-role">非常勤医師</div>
           <div class="staff-role-en">Part-time Physician</div>
-          <div class="staff-spec" style="font-size:11px;line-height:1.8;">集中治療専門医
-救急科専門医</div>
+          <div class="staff-spec">集中治療専門医<br>救急科専門医</div>
         </div>
       </div>
     </div>
 
     <!-- NP（診療看護師） -->
-    <div style="margin-bottom:48px;">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
-        <div style="height:2px;width:28px;background:#80B5C8;border-radius:1px;"></div>
-        <span style="font-size:12px;font-weight:700;color:var(--primary-dark);letter-spacing:0.1em;">NP（診療看護師）</span>
-        <div style="height:2px;flex:1;background:var(--border);border-radius:1px;"></div>
+    <div class="staff-group">
+      <div class="staff-group-header">
+        <div class="bar"></div>
+        <span class="label">NP（診療看護師）</span>
+        <div class="line"></div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
-        <div class="staff-card reveal">
-          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:22px;font-family:var(--serif);font-weight:700;color:#5B96B0;">看</span></div></div>
+      <div class="staff-grid">
+        <div class="staff-card tier-nursing reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span class="staff-avatar-initial">看</span></div></div>
           <div class="staff-name">小波本 直也</div>
-          <div class="staff-role" style="color:#5B96B0;">診療看護師（NP）</div>
+          <div class="staff-role">診療看護師（NP）</div>
           <div class="staff-role-en">Nurse Practitioner</div>
-          <div class="staff-spec" style="font-size:11px;">専門分野：集中治療</div>
+          <div class="staff-spec">専門分野：集中治療</div>
         </div>
       </div>
     </div>
 
     <!-- 病棟NS -->
-    <div>
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
-        <div style="height:2px;width:28px;background:#8ABCB0;border-radius:1px;"></div>
-        <span style="font-size:12px;font-weight:700;color:var(--primary-dark);letter-spacing:0.1em;">病棟NS（看護師）</span>
-        <div style="height:2px;flex:1;background:var(--border);border-radius:1px;"></div>
+    <div class="staff-group">
+      <div class="staff-group-header">
+        <div class="bar"></div>
+        <span class="label">病棟NS（看護師）</span>
+        <div class="line"></div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:20px;">
-        <div class="staff-card reveal">
-          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:18px;font-family:var(--serif);font-weight:700;color:#5B9A8A;">看</span></div></div>
+      <div class="staff-grid" style="margin-bottom:var(--space-5);">
+        <div class="staff-card tier-nursing reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span class="staff-avatar-initial">看</span></div></div>
           <div class="staff-name">氏　名</div>
-          <div class="staff-role" style="color:#5B9A8A;">師長</div>
+          <div class="staff-role">師長</div>
           <div class="staff-role-en">Head Nurse</div>
-          <div class="staff-spec" style="font-size:11px;">ICU専任</div>
+          <div class="staff-spec">ICU専任</div>
         </div>
-        <div class="staff-card reveal">
-          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:18px;font-family:var(--serif);font-weight:700;color:#5B9A8A;">看</span></div></div>
+        <div class="staff-card tier-nursing reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span class="staff-avatar-initial">看</span></div></div>
           <div class="staff-name">氏　名</div>
-          <div class="staff-role" style="color:#5B9A8A;">副師長</div>
+          <div class="staff-role">副師長</div>
           <div class="staff-role-en">Deputy Head Nurse</div>
-          <div class="staff-spec" style="font-size:11px;">ICU専任</div>
+          <div class="staff-spec">ICU専任</div>
         </div>
-        <div class="staff-card reveal">
-          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:18px;font-family:var(--serif);font-weight:700;color:#5B9A8A;">看</span></div></div>
+        <div class="staff-card tier-nursing reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span class="staff-avatar-initial">看</span></div></div>
           <div class="staff-name">氏　名</div>
-          <div class="staff-role" style="color:#5B9A8A;">副師長</div>
+          <div class="staff-role">副師長</div>
           <div class="staff-role-en">Deputy Head Nurse</div>
-          <div class="staff-spec" style="font-size:11px;">ICU専任</div>
+          <div class="staff-spec">ICU専任</div>
         </div>
-        <div class="staff-card reveal">
-          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span style="font-size:18px;font-family:var(--serif);font-weight:700;color:#5B9A8A;">認</span></div></div>
+        <div class="staff-card tier-nursing reveal">
+          <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span class="staff-avatar-initial">認</span></div></div>
           <div class="staff-name">氏　名</div>
-          <div class="staff-role" style="color:#5B9A8A;">認定看護師</div>
+          <div class="staff-role">認定看護師</div>
           <div class="staff-role-en">Certified Nurse</div>
-          <div class="staff-spec" style="font-size:11px;">集中ケア認定看護師</div>
+          <div class="staff-spec">集中ケア認定看護師</div>
         </div>
       </div>
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 32px;">
-        <p style="font-size:14px;color:var(--text-muted);line-height:1.9;">ICU専任看護師が24時間体制で患者さんのケアにあたります。師長・副師長のリーダーシップのもと、認定看護師を含む高度な専門知識と技術を持つ看護師チームが、医師・多職種と緊密に連携し、患者さんの回復を支援しています。</p>
-        <p style="font-size:12px;font-style:italic;color:var(--text-light);margin-top:10px;">Dedicated ICU nurses — led by head and deputy head nurses and supported by certified specialists — provide round-the-clock multidisciplinary care.</p>
+      <div class="staff-note">
+        <p>ICU専任看護師が24時間体制で患者さんのケアにあたります。師長・副師長のリーダーシップのもと、認定看護師を含む高度な専門知識と技術を持つ看護師チームが、医師・多職種と緊密に連携し、患者さんの回復を支援しています。</p>
+        <p class="en">Dedicated ICU nurses — led by head and deputy head nurses and supported by certified specialists — provide round-the-clock multidisciplinary care.</p>
       </div>
     </div>
 
@@ -562,6 +649,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -576,6 +664,7 @@
       <a href="#medical">診療内容</a>
       <a href="#philosophy">診療理念</a>
       <a href="#diseases">主な対象疾患</a>
+      <a href="#daily-flow">ICUでの1日の流れ</a>
       <a href="#equipment">設備紹介</a>
       <a href="#staff">スタッフ紹介</a>
       <a href="recruit.html">レジデント・フェロー募集</a>
@@ -593,7 +682,7 @@
     <p>© 沖縄県立中部病院 集中治療科. All rights reserved.</p>
     <p>Department of Critical Care Medicine, Okinawa Prefectural Chubu Hospital</p>
   </div>
-  <p class="footer-brand-credit">集中治療の、今</p>
+  <p class="footer-brand-credit" aria-hidden="true">集中治療の、今</p>
 </footer>
 
 <script src="script.js"></script>

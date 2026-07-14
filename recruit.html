@@ -8,8 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNyIgZmlsbD0iIzE2ODk3QSIvPjxwYXRoIGQ9Ik0yMiAxMmgtNGwtMyA5TDkgM2wtMyA5SDIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=">
 </head>
 <body>
+<a class="skip-link" href="#main">本文へスキップ</a>
 
 <!-- STICKY HEADER -->
 <header id="site-header">
@@ -19,18 +21,24 @@
       <div class="dept">沖縄県立中部病院<span>集中治療科 レジデント・フェロー募集</span></div>
     </div>
     <div class="header-divider"></div>
+    <button id="navToggle" class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="main-nav">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+    </button>
     <nav id="main-nav">
       <button class="nav-link" data-target="schedule">スケジュール</button>
       <button class="nav-link" data-target="stats">数字で見る</button>
       <button class="nav-link" data-target="education">教育体制</button>
       <button class="nav-link" data-target="residents">修練医の声</button>
+      <button class="nav-link" data-target="peer-intro">他己紹介</button>
+      <button class="nav-link" data-target="team">チームの雰囲気</button>
       <button class="nav-link" data-target="dispatches">現場からの発信</button>
+      <a class="header-crosslink" href="index.html">← 集中治療科サイトへ戻る</a>
     </nav>
-    <a class="header-crosslink" href="index.html">← 集中治療科サイトへ戻る</a>
     <button class="header-contact">見学に申し込む</button>
   </div>
 </header>
 
+<main id="main">
 <!-- HERO -->
 <section id="hero">
   <div class="ref-banner" id="refBanner"><span id="refBannerText"></span></div>
@@ -83,7 +91,9 @@
     <a class="jump-item" href="#stats"><span class="num">02</span><span class="name">数字で見るICU</span><span class="name-en">By the Numbers</span></a>
     <a class="jump-item" href="#education"><span class="num">03</span><span class="name">教育体制</span><span class="name-en">Education</span></a>
     <a class="jump-item" href="#residents"><span class="num">04</span><span class="name">修練医の声</span><span class="name-en">Resident Voices</span></a>
-    <a class="jump-item" href="#dispatches"><span class="num">05</span><span class="name">現場からの発信</span><span class="name-en">Dispatches</span></a>
+    <a class="jump-item" href="#peer-intro"><span class="num">05</span><span class="name">他己紹介</span><span class="name-en">Peer Introductions</span></a>
+    <a class="jump-item" href="#team"><span class="num">06</span><span class="name">チームの雰囲気</span><span class="name-en">Team Life</span></a>
+    <a class="jump-item" href="#dispatches"><span class="num">07</span><span class="name">現場からの発信</span><span class="name-en">Dispatches</span></a>
   </div>
 </div>
 
@@ -373,11 +383,97 @@
 </section>
 
 <!-- ════════════════════════════════ -->
-<!-- 05 現場からの発信                 -->
+<!-- 05 他己紹介                       -->
 <!-- ════════════════════════════════ -->
-<section id="dispatches" class="page-section alt" data-screen-label="05 現場からの発信">
+<section id="peer-intro" class="page-section" data-screen-label="05 他己紹介">
   <div class="container">
-    <div class="section-label">05 &nbsp;Dispatches</div>
+    <div class="section-label">05 &nbsp;Peer Introductions</div>
+    <h2 class="section-title">他己紹介</h2>
+    <p class="section-subtitle">同僚が語る、素顔のスタッフ紹介</p>
+
+    <div class="residents-grid">
+      <div class="resident-card reveal">
+        <div class="placeholder-tag">PLACEHOLDER — 実際のコメントに差し替え予定</div>
+        <div class="resident-qmark">"</div>
+        <div class="resident-comment">いつも冷静で、緊急時こそ頼りになる先輩です。後輩からの質問にも嫌な顔ひとつせず付き合ってくれる、頼れる存在です。</div>
+        <div class="resident-comment-en">Calm under pressure and always reliable in emergencies — someone who never brushes off a junior colleague's question.</div>
+        <div class="resident-divider"></div>
+        <div class="resident-profile">
+          <div class="resident-avatar">医</div>
+          <div>
+            <div class="resident-name">氏名（仮）</div>
+            <div class="resident-year">集中治療専門医 ／ 紹介者：同僚の医師</div>
+          </div>
+        </div>
+      </div>
+      <div class="resident-card reveal">
+        <div class="placeholder-tag">PLACEHOLDER — 実際のコメントに差し替え予定</div>
+        <div class="resident-qmark">"</div>
+        <div class="resident-comment">どんなに忙しい日でも、患者さんへの声かけを絶やさない方です。新人の私にも手技を優しく教えてくれました。</div>
+        <div class="resident-comment-en">No matter how busy the day gets, she never stops talking to patients with care — and she was endlessly patient teaching me procedures as a newcomer.</div>
+        <div class="resident-divider"></div>
+        <div class="resident-profile">
+          <div class="resident-avatar">看</div>
+          <div>
+            <div class="resident-name">氏名（仮）</div>
+            <div class="resident-year">ICU看護師 ／ 紹介者：同僚の看護師</div>
+          </div>
+        </div>
+      </div>
+      <div class="resident-card reveal">
+        <div class="placeholder-tag">PLACEHOLDER — 実際のコメントに差し替え予定</div>
+        <div class="resident-qmark">"</div>
+        <div class="resident-comment">多職種カンファレンスでは必ず的確な視点を持ち込んでくれる、ICUに欠かせない存在です。</div>
+        <div class="resident-comment-en">In every multidisciplinary conference, this person brings a sharp perspective that the ICU simply can't do without.</div>
+        <div class="resident-divider"></div>
+        <div class="resident-profile">
+          <div class="resident-avatar">看</div>
+          <div>
+            <div class="resident-name">氏名（仮）</div>
+            <div class="resident-year">診療看護師（NP） ／ 紹介者：同僚スタッフ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ -->
+<!-- 06 チームの雰囲気                 -->
+<!-- ════════════════════════════════ -->
+<section id="team" class="page-section" data-screen-label="06 チームの雰囲気">
+  <div class="container">
+    <div class="section-label">06 &nbsp;Team Life</div>
+    <h2 class="section-title">チームの雰囲気</h2>
+    <p class="section-subtitle">診療の合間にも、チームで過ごす時間を大切にしています</p>
+
+    <div class="team-photo-grid">
+      <div class="team-photo-item reveal">
+        <div class="img-placeholder"><span>歓迎会</span><span class="sub">Welcome Party · photo</span></div>
+        <p class="team-photo-caption">新任スタッフ歓迎会</p>
+      </div>
+      <div class="team-photo-item reveal">
+        <div class="img-placeholder"><span>BBQ</span><span class="sub">BBQ · photo</span></div>
+        <p class="team-photo-caption">夏のBBQ</p>
+      </div>
+      <div class="team-photo-item reveal">
+        <div class="img-placeholder"><span>忘年会</span><span class="sub">Year-End Party · photo</span></div>
+        <p class="team-photo-caption">忘年会</p>
+      </div>
+      <div class="team-photo-item reveal">
+        <div class="img-placeholder"><span>新年会</span><span class="sub">New Year Gathering · photo</span></div>
+        <p class="team-photo-caption">新年会</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ -->
+<!-- 07 現場からの発信                 -->
+<!-- ════════════════════════════════ -->
+<section id="dispatches" class="page-section alt" data-screen-label="07 現場からの発信">
+  <div class="container">
+    <div class="section-label">07 &nbsp;Dispatches</div>
     <h2 class="section-title">現場からの発信</h2>
     <p class="section-subtitle">教育動画や記事で、日々の診療や指導の様子をお伝えします</p>
 
@@ -390,6 +486,35 @@
           <span class="content-type-tag video">動画</span>
           <h4>エコーの扱い方</h4>
           <p>日々の診療で欠かせない相棒です。大切にしましょう。</p>
+        </div>
+      </div>
+      <!--
+        症例紹介記事（vignette）を公開する際は、下の準備中カードをこのテンプレートに置き換える。
+        運用フロー（README.md参照）: ①AIが教育目的の典型症例（架空・複合的）を生成
+        → ②指導医が症例の臨床的妥当性を承認 → ③指導医/修練医が診療方針を回答として執筆
+        → ④回答者本人が最終文面を確認 → 公開。実在の特定患者はベースにしない。
+      <div class="content-card reveal">
+        <div class="content-thumb img-placeholder">
+          <span>症例紹介</span>
+          <span class="sub">Case Vignette · illustration</span>
+        </div>
+        <div class="content-card-body">
+          <span class="content-type-tag article">症例紹介</span>
+          <h4>【症例】タイトル</h4>
+          <p>典型的な症例（架空・複合症例）をもとに、初期輸液・抗菌薬選択・循環管理の考え方を指導医が解説します。</p>
+          <p class="content-meta">監修：集中治療科 指導医 / 教育目的の複合症例（実在の患者の記録ではありません）</p>
+        </div>
+      </div>
+      -->
+      <div class="content-card reveal">
+        <div class="content-thumb img-placeholder">
+          <span>症例紹介記事</span>
+          <span class="sub">Case Vignette · coming soon</span>
+        </div>
+        <div class="content-card-body">
+          <span class="placeholder-tag">準備中 — 近日公開予定</span>
+          <h4>症例紹介記事（不定期更新）</h4>
+          <p>指導医監修による教育目的の症例紹介記事を、現在準備しています。公開まで今しばらくお待ちください。</p>
         </div>
       </div>
     </div>
@@ -441,6 +566,7 @@
     </a>
   </div>
 </section>
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -456,6 +582,8 @@
       <a href="#stats">数字で見るICU</a>
       <a href="#education">教育体制</a>
       <a href="#residents">修練医の声</a>
+      <a href="#peer-intro">他己紹介</a>
+      <a href="#team">チームの雰囲気</a>
       <a href="#dispatches">現場からの発信</a>
       <a href="index.html">集中治療科について</a>
     </div>
@@ -471,7 +599,7 @@
     <p>© 沖縄県立中部病院 集中治療科. All rights reserved.</p>
     <p>Department of Critical Care Medicine, Okinawa Prefectural Chubu Hospital</p>
   </div>
-  <p class="footer-brand-credit">集中治療の、今</p>
+  <p class="footer-brand-credit" aria-hidden="true">集中治療の、今</p>
 </footer>
 
 <script src="script.js"></script>
