@@ -518,6 +518,48 @@ body.nav-open { overflow: hidden; }
   padding: 3px 9px; border-radius: 10px; margin-bottom: var(--space-4);
 }
 
+/* ── 他己紹介（人物ポートレート型カード） ── */
+.peer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-9); }
+.peer-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 32px 26px 28px; text-align: center; transition: box-shadow 0.2s, transform 0.2s;
+}
+.peer-card:hover { box-shadow: 0 8px 28px rgba(74,122,80,0.1); transform: translateY(-3px); }
+.peer-card .placeholder-tag { display: block; text-align: left; }
+
+.peer-portrait { display: flex; flex-direction: column; align-items: center; margin: 8px 0 18px; }
+.peer-avatar {
+  width: 76px; height: 76px; border-radius: 50%; background: var(--primary-xlight);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--text-deco-md); font-weight: 700; color: var(--primary); font-family: var(--serif);
+  border: 3px solid var(--primary-light); flex-shrink: 0;
+}
+.peer-avatar.wide { font-size: var(--text-lg); letter-spacing: -0.02em; }
+.peer-card.role-nurse .peer-avatar { color: var(--staff-nursing); border-color: rgba(74,133,119,0.4); background: rgba(74,133,119,0.08); }
+.peer-card.role-np .peer-avatar { color: var(--accent); border-color: rgba(31,165,147,0.4); background: rgba(31,165,147,0.08); }
+
+.peer-tagline {
+  position: relative; margin-top: 14px; background: var(--primary-dark); color: #fff;
+  font-family: var(--serif); font-size: var(--text-sm-plus); font-weight: 600; line-height: 1.5;
+  padding: 10px 18px; border-radius: 14px;
+}
+.peer-tagline::before {
+  content: ""; position: absolute; top: -7px; left: 50%; transform: translateX(-50%);
+  border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid var(--primary-dark);
+}
+.peer-card.role-nurse .peer-tagline { background: var(--staff-nursing); }
+.peer-card.role-nurse .peer-tagline::before { border-bottom-color: var(--staff-nursing); }
+.peer-card.role-np .peer-tagline { background: var(--accent); }
+.peer-card.role-np .peer-tagline::before { border-bottom-color: var(--accent); }
+
+.peer-name { font-size: var(--text-sm-plus); font-weight: 700; color: var(--text); margin-top: 2px; }
+.peer-role { font-size: var(--text-xs); color: var(--text-muted); margin-top: 3px; }
+.peer-by { font-size: var(--text-3xs); color: var(--text-light); margin-top: 6px; letter-spacing: 0.02em; }
+
+.peer-divider { height: 1px; background: var(--border); margin: 18px 0 16px; }
+.peer-comment { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.85; text-align: left; margin-bottom: 10px; }
+.peer-comment-en { font-size: var(--text-3xs); color: var(--text-light); font-style: italic; line-height: 1.7; text-align: left; }
+
 /* ── チームの雰囲気 ── */
 .team-photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-top: var(--space-9); }
 .team-photo-item .img-placeholder { aspect-ratio: 4 / 3; border-radius: 12px; }
@@ -714,6 +756,7 @@ footer {
   .schedule-container { gap: var(--space-7); } /* 48px→32px */
   .education-inner { gap: 2.25rem; } /* 64px→36px */
   .residents-grid { grid-template-columns: repeat(2, 1fr); }
+  .peer-grid { grid-template-columns: repeat(2, 1fr); }
   .staff-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -742,6 +785,7 @@ footer {
   .education-inner { grid-template-columns: 1fr; }
 
   .residents-grid { grid-template-columns: 1fr; }
+  .peer-grid { grid-template-columns: 1fr; }
 
   .content-feed-grid { grid-template-columns: 1fr; }
 
