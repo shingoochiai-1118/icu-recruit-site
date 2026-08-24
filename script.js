@@ -72,6 +72,23 @@ const revealObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 revealEls.forEach(el => revealObserver.observe(el));
 
+// ── スケジュール「仕事の裏側」アコーディオン — recruit.html のみ要素が存在 ──
+// トリガーは <button type="button">。href="#..." や data-target を使うと
+// 上のスムーススクロールに拾われてしまうため、この形を崩さないこと。
+document.querySelectorAll('.schedule-behind-toggle').forEach(btn => {
+  const panel = document.getElementById(btn.getAttribute('aria-controls'));
+  if (!panel) return;
+  const icon = btn.querySelector('.schedule-behind-icon');
+  const label = btn.querySelector('.schedule-behind-label');
+  btn.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    panel.hidden = isOpen;
+    if (icon) icon.textContent = isOpen ? '+' : '−';
+    if (label) label.textContent = isOpen ? '裏側を見る' : '閉じる';
+  });
+});
+
 // ── 紹介リンク機能の唯一の制御点 ──
 // 病院側の正式な公開許可が下りるまで false のまま。再有効化時はこの1箇所を true に変更する。
 // README.md「⚠️ 実名・住所の暫定公開について」参照。

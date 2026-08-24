@@ -448,6 +448,54 @@ body.nav-open { overflow: hidden; }
 .schedule-desc p { font-size: var(--text-sm-plus); color: var(--text-muted); line-height: 1.85; }
 .schedule-desc .highlight { color: var(--primary); font-weight: 600; }
 
+/* ── スケジュール:「仕事の裏側」アコーディオン ── */
+/* .schedule-container（2カラムグリッド）の左カラム。タイムラインと
+   「予定外」カードをまとめ、グリッドの子を2つに保つためのラッパー。 */
+.schedule-col { display: flex; flex-direction: column; gap: var(--space-2); }
+
+.schedule-behind { margin-top: 8px; }
+.schedule-behind-toggle {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 0; border: none; background: transparent; cursor: pointer;
+  font-family: var(--sans); font-size: var(--text-xs); font-weight: 600;
+  color: var(--text-light); transition: color 0.2s;
+}
+.schedule-behind-toggle:hover { color: var(--primary-dark); }
+.schedule-behind-toggle[aria-expanded="true"] { color: var(--primary-dark); }
+.schedule-behind-icon {
+  width: 15px; height: 15px; border-radius: 4px; flex-shrink: 0;
+  background: var(--primary-xlight); color: var(--primary-dark);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: var(--text-2xs); font-weight: 700; line-height: 1;
+  transition: background 0.2s;
+}
+.schedule-behind-toggle:hover .schedule-behind-icon,
+.schedule-behind-toggle[aria-expanded="true"] .schedule-behind-icon { background: var(--primary-light); }
+.schedule-behind-panel {
+  margin-top: 10px; padding: 14px 16px;
+  background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px;
+  animation: behind-in 0.22s ease;
+}
+.schedule-behind-panel h5 {
+  font-family: var(--serif); font-size: var(--text-sm-plus); font-weight: 700;
+  color: var(--primary-dark); margin-bottom: 6px; line-height: 1.5;
+}
+.schedule-behind-panel p { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.8; }
+@keyframes behind-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+/* 予定外の動き（時間軸から独立したカード） */
+.schedule-adhoc {
+  background: var(--card); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent); border-radius: 12px;
+  padding: 20px 22px;
+}
+.schedule-adhoc-head { display: flex; align-items: flex-start; gap: var(--space-3); }
+.schedule-adhoc-badge {
+  flex-shrink: 0; background: var(--primary-xlight); color: var(--primary-dark);
+  font-size: var(--text-2xs); font-weight: 700; letter-spacing: 0.06em;
+  padding: 4px 10px; border-radius: 12px; white-space: nowrap; margin-top: 1px;
+}
+
 /* ── 教育体制 ── */
 .education-inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-11); align-items: start; margin-top: var(--space-9); }
 .edu-programs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: var(--space-7); }
@@ -829,5 +877,6 @@ footer {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .hero-badge .dot { animation: none; }
+  .schedule-behind-panel { animation: none; }
   .nav-toggle span, #main-nav, .nav-toggle-bar { transition: none; }
 }

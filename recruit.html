@@ -107,85 +107,163 @@
     <p class="section-subtitle">A typical day in the ICU</p>
 
     <div class="schedule-container">
-      <div class="schedule-list reveal">
-        <div class="schedule-item">
-          <div class="schedule-time-col">
-            <div class="schedule-time-badge">7:00</div>
-            <div class="schedule-connector"></div>
+      <div class="schedule-col">
+        <div class="schedule-list reveal">
+          <div class="schedule-item">
+            <div class="schedule-time-col">
+              <div class="schedule-time-badge">7:00</div>
+              <div class="schedule-connector"></div>
+            </div>
+            <div class="schedule-body">
+              <div class="schedule-ja">申し送り・回診準備</div>
+              <div class="schedule-en">Night-to-Day Handoff &amp; Round Preparation</div>
+            </div>
           </div>
-          <div class="schedule-body">
-            <div class="schedule-ja">申し送り・回診準備</div>
-            <div class="schedule-en">Night-to-Day Handoff &amp; Round Preparation</div>
+          <div class="schedule-item">
+            <div class="schedule-time-col">
+              <div class="schedule-time-badge">8:30</div>
+              <div class="schedule-connector"></div>
+            </div>
+            <div class="schedule-body">
+              <div class="schedule-ja">回診</div>
+              <div class="schedule-en">Morning Round</div>
+              <!--
+                「裏側」に書く内容の方針: 普段外からは見えない実務の動きを書く。
+                右カラムの .schedule-desc「朝回診について」は制度・体制の説明なので、
+                そちらと内容が重複しないようにする（役割分担: desc=制度 / ここ=手触り）。
+                記入例の方向性: 回診が始まる前に修練医が何を準備しているか、夜間イベントを
+                どう拾い上げるか、プレゼンの順番はどう決まるか、指導医がどこを見ているか。
+              -->
+              <div class="schedule-behind">
+                <button type="button" class="schedule-behind-toggle" aria-expanded="false" aria-controls="behind-round">
+                  <span class="schedule-behind-icon" aria-hidden="true">+</span>
+                  <span class="schedule-behind-label">裏側を見る</span>
+                </button>
+                <div class="schedule-behind-panel" id="behind-round" hidden>
+                  <h5>[要記入] 見出し1行（例：回診が始まる前の30分）</h5>
+                  <p>[要記入] 本文2〜3文。文字量の目安としてこのダミーを置いています。実際には、回診の前後に修練医が具体的に何をしているかを、体験の手触りが伝わる書き方で記入してください。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="schedule-item minor">
+            <div class="schedule-time-col">
+              <div class="schedule-time-badge">9:00〜</div>
+              <div class="schedule-connector"></div>
+            </div>
+            <div class="schedule-body">
+              <div class="schedule-ja">処置・治療・各種検査</div>
+              <div class="schedule-en">Procedures, Treatments &amp; Diagnostics</div>
+            </div>
+          </div>
+          <div class="schedule-item minor">
+            <div class="schedule-time-col">
+              <div class="schedule-time-badge">12:30</div>
+              <div class="schedule-connector"></div>
+            </div>
+            <div class="schedule-body">
+              <div class="schedule-ja">昼休憩</div>
+              <div class="schedule-en">Lunch Break</div>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time-col">
+              <div class="schedule-time-badge">13:00</div>
+              <div class="schedule-connector"></div>
+            </div>
+            <div class="schedule-body">
+              <div class="schedule-ja">カンファレンス・勉強会</div>
+              <div class="schedule-en">Conference / Educational Session</div>
+              <!--
+                方針: 右カラムの .schedule-desc「カンファレンス」が制度の説明なので、
+                ここには実務の動きだけを書く。
+                記入例の方向性: 発表する症例を誰がどう選ぶか、スライドをいつ作っているか、
+                どんな質問が飛ぶか、当てられたときにどこまで答えられればよいか。
+              -->
+              <div class="schedule-behind">
+                <button type="button" class="schedule-behind-toggle" aria-expanded="false" aria-controls="behind-conference">
+                  <span class="schedule-behind-icon" aria-hidden="true">+</span>
+                  <span class="schedule-behind-label">裏側を見る</span>
+                </button>
+                <div class="schedule-behind-panel" id="behind-conference" hidden>
+                  <h5>[要記入] 見出し1行（例：発表症例はこう決まる）</h5>
+                  <p>[要記入] 本文2〜3文。文字量の目安としてこのダミーを置いています。実際には、準備から発表・質疑までの流れを、修練医の目線で具体的に記入してください。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time-col">
+              <div class="schedule-time-badge">16:00〜</div>
+              <div class="schedule-connector"></div>
+            </div>
+            <div class="schedule-body">
+              <div class="schedule-ja">夕回診・引き継ぎ準備</div>
+              <div class="schedule-en">Evening Round &amp; Handover Preparation</div>
+            </div>
+          </div>
+          <div class="schedule-item minor">
+            <div class="schedule-time-col">
+              <div class="schedule-time-badge">17:00</div>
+              <div class="schedule-connector"></div>
+            </div>
+            <div class="schedule-body">
+              <div class="schedule-ja">申し送り・記録</div>
+              <div class="schedule-en">Evening Handoff &amp; Documentation</div>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time-col">
+              <div class="schedule-time-badge">18:00</div>
+              <div class="schedule-connector"></div>
+            </div>
+            <div class="schedule-body">
+              <div class="schedule-ja">当直体制へ移行</div>
+              <div class="schedule-en">Night Shift Begins</div>
+              <!--
+                方針: 右カラムの .schedule-desc「夜間・当直体制」が体制の説明なので、
+                ここには引き継ぎの実務だけを書く。
+                記入例の方向性: 引き継ぎシートに何を書くか、日勤帯のうちに片付けておくこと、
+                夜間に上級医を呼ぶかどうかの判断の目安、翌朝までの動き方。
+              -->
+              <div class="schedule-behind">
+                <button type="button" class="schedule-behind-toggle" aria-expanded="false" aria-controls="behind-night">
+                  <span class="schedule-behind-icon" aria-hidden="true">+</span>
+                  <span class="schedule-behind-label">裏側を見る</span>
+                </button>
+                <div class="schedule-behind-panel" id="behind-night" hidden>
+                  <h5>[要記入] 見出し1行（例：引き継ぎで必ず伝えること）</h5>
+                  <p>[要記入] 本文2〜3文。文字量の目安としてこのダミーを置いています。実際には、日勤から当直へ切り替わる時間帯の実務の動きを、具体的に記入してください。</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="schedule-item">
-          <div class="schedule-time-col">
-            <div class="schedule-time-badge">8:30</div>
-            <div class="schedule-connector"></div>
+
+        <!--
+          時間軸から独立した「予定外の動き」カード。タイムライン（.schedule-list）の
+          外側に置くことで、.schedule-item:last-child の縦線処理に影響を与えない。
+          方針: 予定通りに進まない日に何が起きるかを書く。
+          記入例の方向性: 最初に誰の携帯が鳴るか、ベッドコントロールはどう動くか、
+          進行中の業務をチーム内でどう割り振り直すか、修練医はどこから関わるか。
+        -->
+        <div class="schedule-adhoc reveal">
+          <div class="schedule-adhoc-head">
+            <span class="schedule-adhoc-badge">予定外</span>
+            <div>
+              <div class="schedule-ja">緊急入室・他科からの相談が入ったとき</div>
+              <div class="schedule-en">When an Unscheduled Admission or Consult Comes In</div>
+            </div>
           </div>
-          <div class="schedule-body">
-            <div class="schedule-ja">回診</div>
-            <div class="schedule-en">Morning Round</div>
-          </div>
-        </div>
-        <div class="schedule-item minor">
-          <div class="schedule-time-col">
-            <div class="schedule-time-badge">9:00〜</div>
-            <div class="schedule-connector"></div>
-          </div>
-          <div class="schedule-body">
-            <div class="schedule-ja">処置・治療・各種検査</div>
-            <div class="schedule-en">Procedures, Treatments &amp; Diagnostics</div>
-          </div>
-        </div>
-        <div class="schedule-item minor">
-          <div class="schedule-time-col">
-            <div class="schedule-time-badge">12:30</div>
-            <div class="schedule-connector"></div>
-          </div>
-          <div class="schedule-body">
-            <div class="schedule-ja">昼休憩</div>
-            <div class="schedule-en">Lunch Break</div>
-          </div>
-        </div>
-        <div class="schedule-item">
-          <div class="schedule-time-col">
-            <div class="schedule-time-badge">13:00</div>
-            <div class="schedule-connector"></div>
-          </div>
-          <div class="schedule-body">
-            <div class="schedule-ja">カンファレンス・勉強会</div>
-            <div class="schedule-en">Conference / Educational Session</div>
-          </div>
-        </div>
-        <div class="schedule-item">
-          <div class="schedule-time-col">
-            <div class="schedule-time-badge">16:00〜</div>
-            <div class="schedule-connector"></div>
-          </div>
-          <div class="schedule-body">
-            <div class="schedule-ja">夕回診・引き継ぎ準備</div>
-            <div class="schedule-en">Evening Round &amp; Handover Preparation</div>
-          </div>
-        </div>
-        <div class="schedule-item minor">
-          <div class="schedule-time-col">
-            <div class="schedule-time-badge">17:00</div>
-            <div class="schedule-connector"></div>
-          </div>
-          <div class="schedule-body">
-            <div class="schedule-ja">申し送り・記録</div>
-            <div class="schedule-en">Evening Handoff &amp; Documentation</div>
-          </div>
-        </div>
-        <div class="schedule-item">
-          <div class="schedule-time-col">
-            <div class="schedule-time-badge">18:00</div>
-            <div class="schedule-connector"></div>
-          </div>
-          <div class="schedule-body">
-            <div class="schedule-ja">当直体制へ移行</div>
-            <div class="schedule-en">Night Shift Begins</div>
+          <div class="schedule-behind">
+            <button type="button" class="schedule-behind-toggle" aria-expanded="false" aria-controls="behind-adhoc">
+              <span class="schedule-behind-icon" aria-hidden="true">+</span>
+              <span class="schedule-behind-label">裏側を見る</span>
+            </button>
+            <div class="schedule-behind-panel" id="behind-adhoc" hidden>
+              <h5>[要記入] 見出し1行（例：連絡が入ってから入室までの動き）</h5>
+              <p>[要記入] 本文2〜3文。文字量の目安としてこのダミーを置いています。実際には、予定外の依頼が入ったときにチームがどう動き、修練医がどの段階から関わるのかを記入してください。</p>
+            </div>
           </div>
         </div>
       </div>
