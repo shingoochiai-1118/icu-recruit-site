@@ -418,6 +418,75 @@
         </div>
       </div>
     </div>
+
+    <!--
+      入職後のキャリアパス図。画像は使わず HTML + CSS のみで描画する。
+      接続線（.career-connector）はタイムラインの .schedule-connector と同じ
+      2px / var(--primary-light) の表現に揃えている。
+      .education-inner は 1fr 1fr の2カラムグリッドで1段あたりの幅が足りないため、
+      その外側に全幅で配置する。デスクトップは横方向、768px以下では縦方向に折り返す。
+      各段階のテキストは [要記入]。「担当する役割 / 習得する手技 / 節目」の3項目を
+      短い箇条書きで埋める想定。
+    -->
+    <div class="career-path">
+      <h3 class="career-path-title">入職後のキャリアパス</h3>
+      <p class="career-path-en">Career Path After Joining</p>
+      <div class="career-track">
+        <div class="career-stage reveal">
+          <div class="career-stage-head">
+            <span class="career-stage-num" aria-hidden="true">1</span>
+            <div>
+              <div class="career-stage-ja">1年目</div>
+              <div class="career-stage-en">Year One</div>
+            </div>
+          </div>
+          <dl class="career-stage-body">
+            <dt>担当する役割</dt>
+            <dd>[要記入] 担当患者数と、指導医と一緒に動く範囲を1行で</dd>
+            <dt>習得する手技</dt>
+            <dd>[要記入] この時期に一通り身につける手技を1〜2行で</dd>
+            <dt>節目</dt>
+            <dd>[要記入] 院内カンファでの症例提示など、1年目の到達点</dd>
+          </dl>
+        </div>
+        <div class="career-connector" aria-hidden="true"></div>
+        <div class="career-stage reveal">
+          <div class="career-stage-head">
+            <span class="career-stage-num" aria-hidden="true">2</span>
+            <div>
+              <div class="career-stage-ja">2年目</div>
+              <div class="career-stage-en">Year Two</div>
+            </div>
+          </div>
+          <dl class="career-stage-body">
+            <dt>担当する役割</dt>
+            <dd>[要記入] 後輩指導や当直帯での役割など、広がる責任範囲</dd>
+            <dt>習得する手技</dt>
+            <dd>[要記入] より高度な手技・デバイスへの関わり方</dd>
+            <dt>節目</dt>
+            <dd>[要記入] 学会発表、専門医申請に向けた症例登録の開始時期</dd>
+          </dl>
+        </div>
+        <div class="career-connector" aria-hidden="true"></div>
+        <div class="career-stage reveal">
+          <div class="career-stage-head">
+            <span class="career-stage-num" aria-hidden="true">3</span>
+            <div>
+              <div class="career-stage-ja">3年目以降</div>
+              <div class="career-stage-en">Year Three &amp; Beyond</div>
+            </div>
+          </div>
+          <dl class="career-stage-body">
+            <dt>担当する役割</dt>
+            <dd>[要記入] チーム運営・多職種調整など、指導する側としての役割</dd>
+            <dt>習得する手技</dt>
+            <dd>[要記入] 手技を教える立場への移行と、その進め方</dd>
+            <dt>節目</dt>
+            <dd>[要記入] 集中治療専門医の申請・取得と、その後の進路</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 

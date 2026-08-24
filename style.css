@@ -540,6 +540,37 @@ body.nav-open { overflow: hidden; }
 }
 .edu-callout:hover .arrow { background: rgba(255,255,255,0.28); transform: translateX(4px); }
 
+/* ── 教育体制: キャリアパス図 ── */
+.career-path { margin-top: var(--space-11); }
+.career-path-title { font-family: var(--serif); font-size: var(--text-2xl); font-weight: 700; color: var(--primary-dark); margin-bottom: 4px; }
+.career-path-en { font-size: var(--text-sm-plus); color: var(--text-muted); font-style: italic; margin-bottom: var(--space-6); }
+.career-track { display: flex; align-items: stretch; gap: var(--space-2); }
+.career-stage {
+  flex: 1; min-width: 0;
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 22px 22px 24px;
+}
+.career-stage-head { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); }
+.career-stage-num {
+  width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px;
+  background: var(--primary-xlight); color: var(--primary-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: var(--text-2xl); font-weight: 700; line-height: 1;
+}
+.career-stage-ja { font-size: var(--text-md); font-weight: 700; color: var(--text); line-height: 1.4; }
+.career-stage-en { font-size: var(--text-xs); color: var(--text-muted); margin-top: 2px; }
+.career-stage-body dt {
+  font-size: var(--text-2xs); font-weight: 700; letter-spacing: 0.08em;
+  color: var(--accent); margin-top: var(--space-4);
+}
+.career-stage-body dt:first-child { margin-top: 0; }
+.career-stage-body dd { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.7; margin-top: 4px; }
+/* 接続線: タイムラインの .schedule-connector と同じ 2px / --primary-light の表現 */
+.career-connector {
+  flex: 0 0 24px; align-self: center;
+  height: 2px; background: var(--primary-light); border-radius: 1px;
+}
+
 /* ── レジデントの声 ── */
 .residents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-9); }
 .resident-card {
@@ -838,6 +869,8 @@ footer {
   .schedule-time-col { width: 52px; }
 
   .education-inner { grid-template-columns: 1fr; }
+  .career-track { flex-direction: column; }
+  .career-connector { flex-basis: 20px; width: 2px; height: 20px; }
 
   .residents-grid { grid-template-columns: 1fr; }
   .peer-grid { grid-template-columns: 1fr; }
