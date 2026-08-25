@@ -690,7 +690,13 @@ body.nav-open { overflow: hidden; }
 }
 /* 画像プレースホルダーの枠は、チーム写真・機材ギャラリーと同じ明るい縞模様で見せる
    （上の background-color は動画の黒背景としてのみ効かせる） */
-.content-thumb.img-placeholder { border: none; border-radius: 0; background-color: transparent; }
+/* 上の .content-card .content-thumb が display:block を指定しており、
+   .img-placeholder の flex 中央揃えを打ち消してしまうため、ここで復帰させる
+   （他セクションのプレースホルダーと同じ、文字が中央に来る見え方に揃える） */
+.content-thumb.img-placeholder {
+  border: none; border-radius: 0; background-color: transparent;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
 .content-card-body { padding: 22px 24px; }
 .content-type-tag {
   display: inline-block; font-size: var(--text-2xs); font-weight: 700; letter-spacing: 0.08em;
