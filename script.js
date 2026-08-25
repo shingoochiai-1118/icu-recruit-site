@@ -122,6 +122,32 @@ document.querySelectorAll('[role="tablist"]').forEach(list => {
   });
 });
 
+// ── カードグリッドの折りたたみ — recruit.html のみ要素が存在 ──
+// data-collapse-after="件数" を持つグリッドを、その件数までに絞って表示する。
+// 対になるトグルは、そのグリッドの id を aria-controls で指す .feed-more ボタン。
+// 表示件数を変えるときは HTML の data-collapse-after を書き換えるだけでよい。
+document.querySelectorAll('[data-collapse-after]').forEach(grid => {
+  const toggle = document.querySelector('.feed-more[aria-controls="' + grid.id + '"]');
+  const limit = parseInt(grid.dataset.collapseAfter, 10);
+  if (!toggle || !Number.isFinite(limit)) return;
+  const extras = Array.from(grid.children).slice(limit);
+  if (!extras.length) return; // 件数が上限以下ならトグルは出さない
+  const closedLabel = toggle.dataset.moreLabel + '（残り' + extras.length + '件）';
+  extras.forEach(item => { item.hidden = true; });
+  toggle.textContent = closedLabel;
+  toggle.hidden = false;
+  toggle.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    extras.forEach(item => {
+      item.hidden = isOpen;
+      // 非表示のままだと .reveal が translateY で残るため、開いた時点で確定させる
+      if (!isOpen) item.classList.add('visible');
+    });
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    toggle.textContent = isOpen ? closedLabel : '折りたたむ';
+  });
+});
+
 // ── 紹介リンク機能の唯一の制御点 ──
 // 病院側の正式な公開許可が下りるまで false のまま。再有効化時はこの1箇所を true に変更する。
 // README.md「⚠️ 実名・住所の暫定公開について」参照。

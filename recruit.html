@@ -745,9 +745,14 @@
   <div class="container">
     <div class="section-label">07 &nbsp;Dispatches</div>
     <h2 class="section-title">現場からの発信</h2>
-    <p class="section-subtitle">教育動画や記事で、日々の診療や指導の様子をお伝えします</p>
+    <p class="section-subtitle">勉強会で学んだこと、スタッフが書いたもの、ときどき動画で</p>
 
-    <div class="content-feed-grid">
+    <!--
+      カードは data-collapse-after 件までを常時表示し、それ以降は「もっと見る」で開く。
+      挙動は script.js の共通処理（[data-collapse-after] を持つグリッド）に任せる。
+      表示件数を変えたいときは data-collapse-after の数字だけを書き換える。
+    -->
+    <div class="content-feed-grid" id="content-feed" data-collapse-after="4">
       <div class="content-card reveal">
         <video controls preload="metadata">
           <source src="media/echo-handling.mp4" type="video/mp4">
@@ -787,7 +792,76 @@
           <p>指導医監修による教育目的の症例紹介記事を、現在準備しています。公開まで今しばらくお待ちください。</p>
         </div>
       </div>
+
+      <!--
+        学びのログ（院内勉強会の記録）。運用フロー:
+        ① 院内勉強会資料のうち、文献レビュー部分のスライドのみを抽出する
+           （自験例の症例背景スライドがある場合は、AIに投入する前に必ず除外する）
+        ② AIで1枚のビジュアルに要約する。元論文・教科書の図表そのものを再現させず、
+           新規に描き起こした模式図とテキストのみで構成する（著作権配慮）
+        ③ 発表者または指導医が、要約の医学的正確性を確認する
+        ④ 公開。スライド全文は掲載せず、テーマ・一言コメント・要約ビジュアルのみとする
+
+        鍵アイコン付きバッジはリンクを持たせない（遷移先を作らない）。
+        院内共有ドライブのURLやフォルダ名もHTMLに書かないこと。
+        新しい記録は、この位置（新しい順）に追加していく。
+      -->
+      <div class="content-card reveal">
+        <div class="content-thumb img-placeholder">
+          <span>学びのまとめ</span>
+          <span class="sub">Session Summary · AI-generated visual</span>
+        </div>
+        <div class="content-card-body">
+          <div class="content-card-meta-row">
+            <span class="content-type-tag learning">学び</span>
+            <span class="learning-date">2026年8月</span>
+          </div>
+          <h4>[要記入] テーマ（例：循環管理の文献レビュー）</h4>
+          <p class="learning-comment">[要記入] 一言コメント。勉強会で何が印象に残ったか、明日からの診療がどう変わりそうかを1〜2文で。
+            <span class="learning-by">— 発表者または指導医</span>
+          </p>
+          <p class="content-meta">参考文献：[要記入] 著者・論文タイトル・雑誌名・年</p>
+          <span class="locked-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>詳細資料は入職後、院内共有ドライブで閲覧できます</span>
+        </div>
+      </div>
+      <div class="content-card reveal">
+        <div class="content-thumb img-placeholder">
+          <span>学びのまとめ</span>
+          <span class="sub">Session Summary · AI-generated visual</span>
+        </div>
+        <div class="content-card-body">
+          <div class="content-card-meta-row">
+            <span class="content-type-tag learning">学び</span>
+            <span class="learning-date">2026年7月</span>
+          </div>
+          <h4>[要記入] テーマ（例：人工呼吸器離脱のプロトコル）</h4>
+          <p class="learning-comment">[要記入] 一言コメント。勉強会で何が印象に残ったか、明日からの診療がどう変わりそうかを1〜2文で。
+            <span class="learning-by">— 発表者または指導医</span>
+          </p>
+          <p class="content-meta">参考文献：[要記入] 著者・論文タイトル・雑誌名・年</p>
+          <span class="locked-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>詳細資料は入職後、院内共有ドライブで閲覧できます</span>
+        </div>
+      </div>
+      <div class="content-card reveal">
+        <div class="content-thumb img-placeholder">
+          <span>学びのまとめ</span>
+          <span class="sub">Session Summary · AI-generated visual</span>
+        </div>
+        <div class="content-card-body">
+          <div class="content-card-meta-row">
+            <span class="content-type-tag learning">学び</span>
+            <span class="learning-date">2026年6月</span>
+          </div>
+          <h4>[要記入] テーマ（例：鎮痛・鎮静のガイドライン）</h4>
+          <p class="learning-comment">[要記入] 一言コメント。勉強会で何が印象に残ったか、明日からの診療がどう変わりそうかを1〜2文で。
+            <span class="learning-by">— 発表者または指導医</span>
+          </p>
+          <p class="content-meta">参考文献：[要記入] 著者・論文タイトル・雑誌名・年</p>
+          <span class="locked-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>詳細資料は入職後、院内共有ドライブで閲覧できます</span>
+        </div>
+      </div>
     </div>
+    <button type="button" class="feed-more" aria-controls="content-feed" aria-expanded="false" data-more-label="過去の発信をもっと見る" hidden></button>
   </div>
 </section>
 

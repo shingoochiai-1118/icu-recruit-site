@@ -684,9 +684,11 @@ body.nav-open { overflow: hidden; }
 }
 .content-card:hover { box-shadow: 0 8px 28px rgba(74,122,80,0.1); }
 .content-card video, .content-card .content-thumb {
-  width: 100%; display: block; aspect-ratio: 16 / 9; object-fit: cover; background: #0A1A16;
+  width: 100%; display: block; aspect-ratio: 16 / 9; object-fit: cover; background-color: #0A1A16;
 }
-.content-thumb.img-placeholder { border: none; border-radius: 0; }
+/* 画像プレースホルダーの枠は、チーム写真・機材ギャラリーと同じ明るい縞模様で見せる
+   （上の background-color は動画の黒背景としてのみ効かせる） */
+.content-thumb.img-placeholder { border: none; border-radius: 0; background-color: transparent; }
 .content-card-body { padding: 22px 24px; }
 .content-type-tag {
   display: inline-block; font-size: var(--text-2xs); font-weight: 700; letter-spacing: 0.08em;
@@ -697,6 +699,34 @@ body.nav-open { overflow: hidden; }
 .content-card h4 { font-family: var(--serif); font-size: var(--text-lg); font-weight: 700; color: var(--text); margin-bottom: 8px; }
 .content-card p { font-size: var(--text-sm-plus); color: var(--text-muted); line-height: 1.75; }
 .content-meta { font-size: var(--text-3xs); color: var(--text-light); margin-top: 6px; }
+
+/* ── 現場からの発信: 学びのログ ── */
+/* 種別タグは「学び」のみ配色を変える（既存トークンの組み合わせのみ使用） */
+.content-type-tag.learning { background: var(--primary-light); color: var(--primary-dark); }
+.content-card-meta-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.content-card-meta-row .content-type-tag { margin-bottom: 0; }
+.learning-date { font-size: var(--text-2xs); font-weight: 600; color: var(--text-light); letter-spacing: 0.04em; }
+.learning-comment { border-left: 2px solid var(--primary-light); padding-left: 12px; margin-top: 10px; }
+.learning-by { display: block; font-size: var(--text-2xs); color: var(--text-light); margin-top: 4px; }
+/* 院内共有ドライブの案内。リンクは張らない（遷移先を持たせない） */
+.locked-badge {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
+  background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px;
+  padding: 6px 11px; font-size: var(--text-2xs); color: var(--text-light); line-height: 1.5;
+}
+.locked-badge svg { flex-shrink: 0; }
+/* 5件目以降を開くトグル。件数が増えてもセクションの見通しを保つ */
+.feed-more {
+  display: block; margin: var(--space-6) auto 0;
+  background: transparent; border: 1px solid var(--border); border-radius: 24px;
+  padding: 10px 26px; font-family: var(--sans); font-size: var(--text-sm-plus);
+  font-weight: 700; color: var(--primary-dark); cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.feed-more:hover { background: var(--primary-xlight); border-color: var(--primary-light); }
+/* display: block が UA の [hidden] に勝つため、明示的に打ち消す
+   （件数が上限以下でトグルを出さない場合に空のボタンが残るのを防ぐ） */
+.feed-more[hidden] { display: none; }
 
 /* ── 数字で見るICU ── */
 .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); margin-top: var(--space-9); }
