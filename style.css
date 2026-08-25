@@ -540,10 +540,20 @@ body.nav-open { overflow: hidden; }
 }
 .edu-callout:hover .arrow { background: rgba(255,255,255,0.28); transform: translateX(4px); }
 
+/* ── 教育体制: 手技・機材ギャラリー ── */
+.equip-block { margin-top: var(--space-11); }
+.equip-block-head { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
+.equip-block-en { margin-bottom: 0; }
+.equip-block-lead { font-size: var(--text-sm-plus); color: var(--text-muted); line-height: 1.8; max-width: 680px; margin-bottom: var(--space-6); }
+.equip-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); }
+.equip-gallery-item .img-placeholder { aspect-ratio: 4 / 3; border-radius: 10px; }
+.equip-gallery-name { display: block; font-size: var(--text-sm-plus); font-weight: 700; color: var(--text); margin-top: 10px; line-height: 1.4; }
+.equip-gallery-desc { display: block; font-size: var(--text-xs); color: var(--text-muted); line-height: 1.7; margin-top: 3px; }
+
 /* ── 教育体制: キャリアパス図 ── */
 .career-path { margin-top: var(--space-11); }
-.career-path-title { font-family: var(--serif); font-size: var(--text-2xl); font-weight: 700; color: var(--primary-dark); margin-bottom: 4px; }
-.career-path-en { font-size: var(--text-sm-plus); color: var(--text-muted); font-style: italic; margin-bottom: var(--space-6); }
+.career-path-title, .equip-block-title { font-family: var(--serif); font-size: var(--text-2xl); font-weight: 700; color: var(--primary-dark); margin-bottom: 4px; }
+.career-path-en, .equip-block-en { font-size: var(--text-sm-plus); color: var(--text-muted); font-style: italic; margin-bottom: var(--space-6); }
 .career-track { display: flex; align-items: stretch; gap: var(--space-2); }
 .career-stage {
   flex: 1; min-width: 0;
@@ -869,6 +879,7 @@ footer {
   .schedule-time-col { width: 52px; }
 
   .education-inner { grid-template-columns: 1fr; }
+  .equip-gallery { grid-template-columns: repeat(2, 1fr); }
   .career-track { flex-direction: column; }
   .career-connector { flex-basis: 20px; width: 2px; height: 20px; }
 
