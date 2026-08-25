@@ -543,7 +543,9 @@ body.nav-open { overflow: hidden; }
 /* ── 教育体制: 手技・機材ギャラリー ── */
 .equip-block { margin-top: var(--space-11); }
 .equip-block-head { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
-.equip-block-en { margin-bottom: 0; }
+/* 後段の .career-path-en, .equip-block-en が持つ margin-bottom を打ち消す。
+   同詳細度・後方定義に負けないよう、セレクタを1段深くしている。 */
+.equip-block-head .equip-block-en { margin-bottom: 0; }
 .equip-block-lead { font-size: var(--text-sm-plus); color: var(--text-muted); line-height: 1.8; max-width: 680px; margin-bottom: var(--space-6); }
 .equip-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); }
 .equip-gallery-item .img-placeholder { aspect-ratio: 4 / 3; border-radius: 10px; }
