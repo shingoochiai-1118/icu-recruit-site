@@ -717,7 +717,13 @@
     <h2 class="section-title">チームの雰囲気</h2>
     <p class="section-subtitle">診療の合間にも、チームで過ごす時間を大切にしています</p>
 
-    <div class="team-photo-grid">
+    <!--
+      写真は data-collapse-after 件までを常時表示し、それ以降は「もっと見る」で開く
+      （挙動は script.js の共通処理。現場からの発信のカードと同じ仕組み）。
+      表示件数を変えたいときは data-collapse-after の数字だけを書き換える。
+      新しい写真はこのグリッドの末尾に追加していく。
+    -->
+    <div class="team-photo-grid" id="team-photos" data-collapse-after="6">
       <div class="team-photo-item reveal">
         <div class="img-placeholder"><span>歓迎会</span><span class="sub">Welcome Party · photo</span></div>
         <p class="team-photo-caption">新任スタッフ歓迎会</p>
@@ -735,6 +741,7 @@
         <p class="team-photo-caption">新年会</p>
       </div>
     </div>
+    <button type="button" class="feed-more" aria-controls="team-photos" aria-expanded="false" data-more-label="過去の写真をもっと見る" hidden></button>
   </div>
 </section>
 
