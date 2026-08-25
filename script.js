@@ -89,6 +89,39 @@ document.querySelectorAll('.schedule-behind-toggle').forEach(btn => {
   });
 });
 
+// ── タブ切替（修練医の声 / 指導医の声）— recruit.html のみ要素が存在 ──
+document.querySelectorAll('[role="tablist"]').forEach(list => {
+  const tabs = Array.from(list.querySelectorAll('[role="tab"]'));
+  const select = tab => {
+    tabs.forEach(t => {
+      const selected = t === tab;
+      t.setAttribute('aria-selected', String(selected));
+      t.tabIndex = selected ? 0 : -1;
+      const panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (!panel) return;
+      panel.hidden = !selected;
+      // 非表示のパネル内では IntersectionObserver が発火しないため、
+      // 表示に切り替えた時点で .reveal を確定させる（translateY で残るのを防ぐ）
+      if (selected) panel.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    });
+  };
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => select(tab));
+    tab.addEventListener('keydown', e => {
+      const i = tabs.indexOf(tab);
+      let next = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = tabs[(i + 1) % tabs.length];
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = tabs[(i - 1 + tabs.length) % tabs.length];
+      else if (e.key === 'Home') next = tabs[0];
+      else if (e.key === 'End') next = tabs[tabs.length - 1];
+      if (!next) return;
+      e.preventDefault();
+      select(next);
+      next.focus();
+    });
+  });
+});
+
 // ── 紹介リンク機能の唯一の制御点 ──
 // 病院側の正式な公開許可が下りるまで false のまま。再有効化時はこの1箇所を true に変更する。
 // README.md「⚠️ 実名・住所の暫定公開について」参照。

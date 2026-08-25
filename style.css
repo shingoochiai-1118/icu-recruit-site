@@ -601,6 +601,21 @@ body.nav-open { overflow: hidden; }
 .resident-name { font-size: var(--text-sm-plus); font-weight: 700; color: var(--text); }
 .resident-year { font-size: var(--text-xs); color: var(--text-muted); margin-top: 2px; }
 
+/* ── 修練医の声 / 指導医の声 タブ ── */
+.voice-tabs { display: flex; gap: var(--space-2); margin-top: var(--space-8); border-bottom: 1px solid var(--border); }
+.voice-tab {
+  border: none; background: transparent; cursor: pointer; font-family: var(--sans);
+  font-size: var(--text-sm-plus); font-weight: 600; color: var(--text-muted);
+  padding: 10px 18px; border-bottom: 2px solid transparent; margin-bottom: -1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.voice-tab:hover { color: var(--primary-dark); }
+.voice-tab[aria-selected="true"] { color: var(--primary-dark); border-bottom-color: var(--accent); font-weight: 700; }
+/* .residents-grid が display:grid を持つため、hidden 属性だけでは非表示にならない。
+   クラス2つ分の詳細度で明示的に打ち消す。 */
+.residents-grid.voice-panel { margin-top: var(--space-6); }
+.voice-panel[hidden] { display: none; }
+
 .placeholder-tag {
   display: inline-block; font-family: monospace; font-size: var(--text-3xs); letter-spacing: 0.06em;
   color: var(--text-light); border: 1px dashed rgba(74,122,80,0.35);

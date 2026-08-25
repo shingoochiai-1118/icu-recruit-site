@@ -543,7 +543,16 @@
     <h2 class="section-title">修練医の声</h2>
     <p class="section-subtitle">現役フェロー・レジデントに聞いた、率直な言葉</p>
 
-    <div class="residents-grid">
+    <!--
+      セクション見出し「修練医の声」とナビ項目名は変更せず、セクション内を
+      2タブ（修練医の声 / 指導医の声）に分ける。初期表示は「修練医の声」。
+    -->
+    <div class="voice-tabs" role="tablist" aria-label="声の種類">
+      <button type="button" class="voice-tab" role="tab" id="tab-residents" aria-controls="panel-residents" aria-selected="true">修練医の声</button>
+      <button type="button" class="voice-tab" role="tab" id="tab-attendings" aria-controls="panel-attendings" aria-selected="false" tabindex="-1">指導医の声</button>
+    </div>
+
+    <div class="residents-grid voice-panel" id="panel-residents" role="tabpanel" aria-labelledby="tab-residents" tabindex="0">
       <div class="resident-card reveal">
         <span class="placeholder-tag">PLACEHOLDER — 実際のコメントに差し替え予定</span>
         <div class="resident-qmark">"</div>
@@ -583,6 +592,56 @@
           <div>
             <div class="resident-name">氏名（仮）</div>
             <div class="resident-year">兼任フェロー</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--
+      指導医の声。設問は「なぜこの科を選んだか」「若手に何を期待するか」の2つ。
+      修練医の声と同じ .resident-card の体裁で、実コメントへの差し替え待ちの間は
+      .placeholder-tag を付けたサンプル文面を置く。
+    -->
+    <div class="residents-grid voice-panel" id="panel-attendings" role="tabpanel" aria-labelledby="tab-attendings" tabindex="0" hidden>
+      <div class="resident-card reveal">
+        <span class="placeholder-tag">PLACEHOLDER — 実際のコメントに差し替え予定</span>
+        <div class="resident-qmark">"</div>
+        <div class="resident-comment">他科をひと通り経験したうえで戻ってきました。患者さんが一番危ない時間帯に立ち会える場所は、やはりここだと思っています。</div>
+        <div class="resident-comment-en">I came back after training in other specialties — this is still the place where you stand beside patients at their most critical hours.</div>
+        <div class="resident-divider"></div>
+        <div class="resident-profile">
+          <div class="resident-avatar">仮</div>
+          <div>
+            <div class="resident-name">氏名（仮）</div>
+            <div class="resident-year">集中治療科 指導医</div>
+          </div>
+        </div>
+      </div>
+      <div class="resident-card reveal">
+        <span class="placeholder-tag">PLACEHOLDER — 実際のコメントに差し替え予定</span>
+        <div class="resident-qmark">"</div>
+        <div class="resident-comment">「分かりません」と言える人がいちばん伸びます。判断の根拠を言葉にする習慣を、この2〜3年で身につけてほしいと思っています。</div>
+        <div class="resident-comment-en">The residents who grow fastest are the ones who can say "I don't know" — I want them to leave here able to put their reasoning into words.</div>
+        <div class="resident-divider"></div>
+        <div class="resident-profile">
+          <div class="resident-avatar">仮</div>
+          <div>
+            <div class="resident-name">氏名（仮）</div>
+            <div class="resident-year">集中治療科 指導医</div>
+          </div>
+        </div>
+      </div>
+      <div class="resident-card reveal">
+        <span class="placeholder-tag">PLACEHOLDER — 実際のコメントに差し替え予定</span>
+        <div class="resident-qmark">"</div>
+        <div class="resident-comment">専門医を取ってからのほうが学ぶことは多いです。若い人には、うまくいかなかった症例からこそ持ち帰ってほしい。</div>
+        <div class="resident-comment-en">You learn more after board certification, not less — and the cases that don't go well are the ones worth taking home.</div>
+        <div class="resident-divider"></div>
+        <div class="resident-profile">
+          <div class="resident-avatar">仮</div>
+          <div>
+            <div class="resident-name">氏名（仮）</div>
+            <div class="resident-year">集中治療科 指導医</div>
           </div>
         </div>
       </div>
