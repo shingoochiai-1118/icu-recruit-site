@@ -209,13 +209,18 @@ h2.section-title {
 .nav-link:hover { color: var(--primary); background: var(--primary-xlight); }
 .nav-link.active { color: var(--primary-dark); background: var(--primary-light); font-weight: 700; }
 
+/* 病院公式サイトへの外部リンク。<button> ではなく <a> なので、下線を消し、
+   line-height を normal（＝ボタンのUA既定値）で固定して高さを揃えている。
+   色は :visited にも効かせるため個別指定せず、この1箇所で完結させる。 */
 .header-contact {
   flex-shrink: 0; background: var(--primary); color: #fff;
   font-size: var(--text-xs); font-weight: 700; padding: 8px 18px;
   border-radius: 24px; cursor: pointer; border: none;
   font-family: var(--sans); transition: background 0.2s;
+  display: inline-block; text-decoration: none; text-align: center; line-height: normal;
 }
 .header-contact:hover { background: var(--primary-dark); }
+.header-contact:visited { color: #fff; }
 
 /* Mobile nav (≤768px): hamburger toggle switches #main-nav from a horizontal
    bar into a dropdown panel. .header-crosslink lives inside #main-nav in the
@@ -830,18 +835,24 @@ body.nav-open { overflow: hidden; }
 #contact h2 { font-family: var(--serif); font-size: var(--text-4xl); color: #fff; margin-bottom: 10px; position: relative; }
 #contact p { font-size: var(--text-base); color: rgba(255,255,255,0.75); margin-bottom: 36px; line-height: 1.8; position: relative; }
 .cta-buttons { display: flex; gap: var(--space-4); justify-content: center; position: relative; }
+/* .header-contact と同じく、中身は <a>（病院公式サイトへの外部リンク）。
+   text-align:center は ≤768px で width:100% になったときに効いてくる。 */
 .cta-btn-primary {
   background: #fff; color: var(--primary-dark); font-size: var(--text-base); font-weight: 700;
   padding: 14px 36px; border-radius: 32px; cursor: pointer; border: none;
   font-family: var(--sans); transition: box-shadow 0.2s;
+  display: inline-block; text-decoration: none; text-align: center; line-height: normal;
 }
 .cta-btn-primary:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+.cta-btn-primary:visited { color: var(--primary-dark); }
 .cta-btn-outline {
   background: transparent; color: #fff; font-size: var(--text-base); font-weight: 700;
   padding: 14px 36px; border-radius: 32px; cursor: pointer;
   border: 2px solid rgba(255,255,255,0.5); font-family: var(--sans); transition: border-color 0.2s;
+  display: inline-block; text-decoration: none; text-align: center; line-height: normal;
 }
 .cta-btn-outline:hover { border-color: #fff; }
+.cta-btn-outline:visited { color: #fff; }
 
 /* ── クロスリンク（一般向け⇔採用情報） ── */
 .crosslink-callout {

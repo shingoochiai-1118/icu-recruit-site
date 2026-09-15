@@ -7,7 +7,7 @@
   <title>集中治療科 | 沖縄県立中部病院</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260825">
+  <link rel="stylesheet" href="style.css?v=20260915d">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNyIgZmlsbD0iIzJFOTk0NCIvPjxwYXRoIGQ9Ik0yMiAxMmgtNGwtMyA5TDkgM2wtMyA5SDIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=">
 </head>
 <body>
@@ -33,7 +33,11 @@
       <button class="nav-link" data-target="staff">スタッフ紹介</button>
       <a class="header-crosslink" href="recruit.html">医療従事者の方へ：レジデント・フェロー募集 →</a>
     </nav>
-    <button class="header-contact">お問い合わせ</button>
+    <!-- 一般向けページのお問い合わせは病院公式サイトの問い合わせフォームへ。
+         採用ページ（recruit.html）は宛先が別（医師募集ページ）なので注意。 -->
+    <a class="header-contact" href="https://chubuweb.hosp.pref.okinawa.jp/contact/"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="お問い合わせ（病院公式サイトのお問い合わせページ・新しいタブで開きます）">お問い合わせ</a>
   </div>
 </header>
 
@@ -697,7 +701,11 @@
     <p>ご家族が当科で治療を受けられている方、受診に関するご相談は、いつでもお問い合わせください。<br>
     <span style="font-size:12px;">We're here for any questions from patients and families.</span></p>
     <div class="cta-buttons">
-      <button class="cta-btn-primary">お問い合わせ</button>
+      <a class="cta-btn-primary" href="https://chubuweb.hosp.pref.okinawa.jp/contact/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="お問い合わせ（病院公式サイトのお問い合わせページ・新しいタブで開きます）">お問い合わせ</a>
+      <!-- TODO: 「面会について」は宛先未定。病院公式サイトの面会案内ページのURLが
+           決まり次第、上と同じ形の <a> に置き換える。それまでは押しても何も起きない。 -->
       <button class="cta-btn-outline">面会について</button>
     </div>
   </div>

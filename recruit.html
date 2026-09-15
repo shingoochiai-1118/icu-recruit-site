@@ -7,7 +7,7 @@
   <title>レジデント・フェロー募集 | 集中治療科 沖縄県立中部病院</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260915c">
+  <link rel="stylesheet" href="style.css?v=20260915d">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNyIgZmlsbD0iIzE2ODk3QSIvPjxwYXRoIGQ9Ik0yMiAxMmgtNGwtMyA5TDkgM2wtMyA5SDIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=">
 </head>
 <body>
@@ -34,7 +34,11 @@
       <button class="nav-link" data-target="dispatches">現場からの発信</button>
       <a class="header-crosslink" href="index.html">← 集中治療科サイトへ戻る</a>
     </nav>
-    <button class="header-contact">見学に申し込む</button>
+    <!-- 採用系のCTAは3か所とも病院公式サイトの医師募集ページへ。宛先を変えるときは
+         recruit.html 内の rec_doctor リンク3本をまとめて差し替えること。 -->
+    <a class="header-contact" href="https://chubuweb.hosp.pref.okinawa.jp/job_category/rec_doctor/"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="見学に申し込む（病院公式サイトの医師募集ページ・新しいタブで開きます）">見学に申し込む</a>
   </div>
 </header>
 
@@ -818,8 +822,12 @@
     <p>集中治療科での研修にご興味のある方、見学希望の方はいつでもお問い合わせください。<br>
     <span style="font-size:12px;">We warmly welcome inquiries about residency training and hospital visits.</span></p>
     <div class="cta-buttons">
-      <button class="cta-btn-primary">お問い合わせ</button>
-      <button class="cta-btn-outline">見学を申し込む</button>
+      <a class="cta-btn-primary" href="https://chubuweb.hosp.pref.okinawa.jp/job_category/rec_doctor/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="お問い合わせ（病院公式サイトの医師募集ページ・新しいタブで開きます）">お問い合わせ</a>
+      <a class="cta-btn-outline" href="https://chubuweb.hosp.pref.okinawa.jp/job_category/rec_doctor/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="見学を申し込む（病院公式サイトの医師募集ページ・新しいタブで開きます）">見学を申し込む</a>
     </div>
 
     <div class="ref-widget on-dark">
