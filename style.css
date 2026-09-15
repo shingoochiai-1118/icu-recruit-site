@@ -845,6 +845,8 @@ body.nav-open { overflow: hidden; }
 }
 .cta-btn-primary:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
 .cta-btn-primary:visited { color: var(--primary-dark); }
+/* 2026-09-15 時点で使用箇所なし（recruit の2ボタンは1本に統合し、index の
+   「面会について」は削除した）。副ボタンを再び置くときのために残している。 */
 .cta-btn-outline {
   background: transparent; color: #fff; font-size: var(--text-base); font-weight: 700;
   padding: 14px 36px; border-radius: 32px; cursor: pointer;
