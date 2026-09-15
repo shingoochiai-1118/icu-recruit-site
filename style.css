@@ -57,6 +57,7 @@ body {
   --text-hero-fluid: clamp(2rem, 1.1rem + 3.8vw, 3.375rem);    /* hero title, 54px相当 */
 
   /* 装飾的な大数字（コンテンツ用スケールとは別枠） */
+  --text-deco-sm: 1.625rem; /* 26px, 桁数の多い stat-card num（.num.wide） */
   --text-deco-md: 2.25rem; /* 36px, hero-stat num */
   --text-deco-lg: 2.75rem; /* 44px, resident-qmark */
   --text-deco-xl: 3.75rem; /* 60px, philosophy-quote-mark */
@@ -291,7 +292,9 @@ body.nav-open { overflow: hidden; }
   padding: 7px 16px; border-radius: 20px;
 }
 .hero-stats {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  /* minmax(0,1fr) にしないと、.num.wide の nowrap テキストが min-content の
+     下限となって片方の列だけ広がり、2×2が不均等になる。 */
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px;
 }
 .hero-stat {
   background: rgba(255,255,255,0.10); backdrop-filter: blur(6px);
@@ -299,6 +302,9 @@ body.nav-open { overflow: hidden; }
   border-radius: 14px; padding: 20px 18px; text-align: center;
 }
 .hero-stat .num { font-size: var(--text-deco-md); font-weight: 700; color: #fff; line-height: 1; font-variant-numeric: tabular-nums; }
+/* ヒーローの stat カードは実測 145px 前後しかなく、収まるのは4〜6文字まで。
+   「1,000〜1,200」のような長い値はここに入れず、丸めた値（1,000+）を置き、
+   正確なレンジは「数字で見るICU」（1枚 約290px）の側で見せること。 */
 .hero-stat .unit { font-size: var(--text-xs); color: rgba(255,255,255,0.6); margin-top: 2px; font-weight: 500; }
 .hero-stat .label { font-size: var(--text-sm); color: rgba(255,255,255,0.8); margin-top: 6px; }
 
@@ -746,6 +752,11 @@ body.nav-open { overflow: hidden; }
   font-family: var(--serif); font-size: var(--text-deco-md); font-weight: 700; color: var(--primary-dark);
   line-height: 1; font-variant-numeric: tabular-nums;
 }
+/* 「1,000〜1,200」のような桁数の多い値。折り返すと同じ行のカードとベースラインが
+   ずれるため、1行に収まるサイズまで落として nowrap で固定する。あわせて
+   line-height に 36px 相当を明示し、行ボックスの高さを他カード（36px × 1）と
+   揃えることで unit/label の位置がずれないようにしている。 */
+.stat-card .num.wide { font-size: var(--text-deco-sm); line-height: var(--text-deco-md); white-space: nowrap; }
 .stat-card .unit { font-size: var(--text-xs); color: var(--text-muted); margin-top: 4px; font-weight: 500; }
 .stat-card .label { font-size: var(--text-sm); color: var(--text); margin-top: 10px; font-weight: 600; line-height: 1.5; }
 .stat-card.pending { background: transparent; border: 1px dashed rgba(74,122,80,0.35); }
