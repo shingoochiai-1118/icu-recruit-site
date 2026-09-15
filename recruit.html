@@ -7,7 +7,7 @@
   <title>レジデント・フェロー募集 | 集中治療科 沖縄県立中部病院</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260915">
+  <link rel="stylesheet" href="style.css?v=20260915b">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNyIgZmlsbD0iIzE2ODk3QSIvPjxwYXRoIGQ9Ik0yMiAxMmgtNGwtMyA5TDkgM2wtMyA5SDIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=">
 </head>
 <body>
@@ -534,15 +534,10 @@
     <p class="section-subtitle">現役フェロー・レジデントに聞いた、率直な言葉</p>
 
     <!--
-      セクション見出し「修練医の声」とナビ項目名は変更せず、セクション内を
-      2タブ（修練医の声 / 指導医の声）に分ける。初期表示は「修練医の声」。
+      .resident-avatar は後日イラストに差し替える枠。画像を入れるときは
+      <div class="resident-avatar">仮</div> の中身を <img> に置き換える。
     -->
-    <div class="voice-tabs" role="tablist" aria-label="声の種類">
-      <button type="button" class="voice-tab" role="tab" id="tab-residents" aria-controls="panel-residents" aria-selected="true">修練医の声</button>
-      <button type="button" class="voice-tab" role="tab" id="tab-attendings" aria-controls="panel-attendings" aria-selected="false" tabindex="-1">指導医の声</button>
-    </div>
-
-    <div class="residents-grid voice-panel" id="panel-residents" role="tabpanel" aria-labelledby="tab-residents" tabindex="0">
+    <div class="residents-grid">
       <div class="resident-card reveal">
         <span class="placeholder-tag">PLACEHOLDER — 実際のコメントに差し替え予定</span>
         <div class="resident-qmark">"</div>
@@ -552,8 +547,8 @@
         <div class="resident-profile">
           <div class="resident-avatar">仮</div>
           <div>
-            <div class="resident-name">氏名（仮）</div>
-            <div class="resident-year">フェロー1年目</div>
+            <div class="resident-name">T.M</div>
+            <div class="resident-year">内科レジデント</div>
           </div>
         </div>
       </div>
@@ -566,8 +561,8 @@
         <div class="resident-profile">
           <div class="resident-avatar">仮</div>
           <div>
-            <div class="resident-name">氏名（仮）</div>
-            <div class="resident-year">フェロー2年目</div>
+            <div class="resident-name">S.N</div>
+            <div class="resident-year">救急科レジデント</div>
           </div>
         </div>
       </div>
@@ -580,62 +575,13 @@
         <div class="resident-profile">
           <div class="resident-avatar">仮</div>
           <div>
-            <div class="resident-name">氏名（仮）</div>
-            <div class="resident-year">兼任フェロー</div>
+            <div class="resident-name">K.K</div>
+            <div class="resident-year">外科レジデント</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!--
-      指導医の声。設問は「なぜこの科を選んだか」「若手に何を期待するか」の2つ。
-      修練医の声と同じ .resident-card の体裁で、実コメントへの差し替え待ちの間は
-      .placeholder-tag を付けたサンプル文面を置く。
-    -->
-    <div class="residents-grid voice-panel" id="panel-attendings" role="tabpanel" aria-labelledby="tab-attendings" tabindex="0" hidden>
-      <div class="resident-card reveal">
-        <span class="placeholder-tag">PLACEHOLDER — 実際のコメントに差し替え予定</span>
-        <div class="resident-qmark">"</div>
-        <div class="resident-comment">他科をひと通り経験したうえで戻ってきました。患者さんが一番危ない時間帯に立ち会える場所は、やはりここだと思っています。</div>
-        <div class="resident-comment-en">I came back after training in other specialties — this is still the place where you stand beside patients at their most critical hours.</div>
-        <div class="resident-divider"></div>
-        <div class="resident-profile">
-          <div class="resident-avatar">仮</div>
-          <div>
-            <div class="resident-name">氏名（仮）</div>
-            <div class="resident-year">集中治療科 指導医</div>
-          </div>
-        </div>
-      </div>
-      <div class="resident-card reveal">
-        <span class="placeholder-tag">PLACEHOLDER — 実際のコメントに差し替え予定</span>
-        <div class="resident-qmark">"</div>
-        <div class="resident-comment">「分かりません」と言える人がいちばん伸びます。判断の根拠を言葉にする習慣を、この2〜3年で身につけてほしいと思っています。</div>
-        <div class="resident-comment-en">The residents who grow fastest are the ones who can say "I don't know" — I want them to leave here able to put their reasoning into words.</div>
-        <div class="resident-divider"></div>
-        <div class="resident-profile">
-          <div class="resident-avatar">仮</div>
-          <div>
-            <div class="resident-name">氏名（仮）</div>
-            <div class="resident-year">集中治療科 指導医</div>
-          </div>
-        </div>
-      </div>
-      <div class="resident-card reveal">
-        <span class="placeholder-tag">PLACEHOLDER — 実際のコメントに差し替え予定</span>
-        <div class="resident-qmark">"</div>
-        <div class="resident-comment">専門医を取ってからのほうが学ぶことは多いです。若い人には、うまくいかなかった症例からこそ持ち帰ってほしい。</div>
-        <div class="resident-comment-en">You learn more after board certification, not less — and the cases that don't go well are the ones worth taking home.</div>
-        <div class="resident-divider"></div>
-        <div class="resident-profile">
-          <div class="resident-avatar">仮</div>
-          <div>
-            <div class="resident-name">氏名（仮）</div>
-            <div class="resident-year">集中治療科 指導医</div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -943,6 +889,6 @@
   <p class="footer-brand-credit" aria-hidden="true">集中治療の、今</p>
 </footer>
 
-<script src="script.js?v=20260825"></script>
+<script src="script.js?v=20260915b"></script>
 </body>
 </html>
