@@ -32,6 +32,11 @@ body {
   --card: #FFFFFF;
   --border: #C8EDD2;
   --hero-grad: linear-gradient(150deg, #2F8A4C 0%, #46A063 55%, #5FB97C 100%);
+  /* ヒーロー背景に病院外観写真を敷くための「半透明版グラデーション」。
+     --hero-grad と同じ色で、不透明度だけ 88〜93% に下げたもの。
+     数字を下げるほど建物がはっきり出るが、白文字が読みにくくなるので下げすぎないこと */
+  --hero-grad-soft: linear-gradient(150deg, rgba(47,138,76,0.93) 0%, rgba(70,160,99,0.90) 55%, rgba(95,185,124,0.88) 100%);
+  --hero-base: #2F8A4C;
   --cta-grad: linear-gradient(135deg, #2D5034 0%, #4A7A50 100%);
   --nav-h: 68px;
   --max-w: 1080px;
@@ -92,6 +97,9 @@ body {
   --bg-alt: #EFFAF8;
   --border: #C7EDE6;
   --hero-grad: linear-gradient(150deg, #157567 0%, #1D8F7D 55%, #3EAE97 100%);
+  /* 採用ページ用（ティール）の半透明版。上の一般向けと同じ考え方 */
+  --hero-grad-soft: linear-gradient(150deg, rgba(21,117,103,0.93) 0%, rgba(29,143,125,0.90) 55%, rgba(62,174,151,0.88) 100%);
+  --hero-base: #157567;
   --cta-grad: linear-gradient(135deg, #14453D 0%, #3A7A6E 100%);
   --footer-bg: #0F2621;
 }
@@ -290,16 +298,13 @@ body.nav-open { overflow: hidden; }
   background: var(--hero-grad);
   padding: var(--space-12) 0 var(--space-section); position: relative; overflow: hidden;
 }
-/* ヒーローの背景に病院外観の写真をうっすら敷く（一般向けトップのみ。
-   recruit.html は data-theme="recruit" で色が違うため対象外）。
-   写真を下に敷き、その上に「ほぼ不透明の緑グラデーション」を重ねている。
-   グラデーションの透明度（下の 0.93 などの数字）を下げるほど写真がはっきり出る。
-   白い文字の読みやすさを保つため、これ以上は薄くしないこと */
-html:not([data-theme="recruit"]) #hero {
-  background-color: #2F8A4C;
-  background-image:
-    linear-gradient(150deg, rgba(47,138,76,0.93) 0%, rgba(70,160,99,0.90) 55%, rgba(95,185,124,0.88) 100%),
-    url("media/photos/hospital-exterior.jpg");
+/* ヒーローの背景に病院外観の写真をうっすら敷く（両ページ共通）。
+   写真を下に敷き、その上に半透明のグラデーションを重ねている。
+   色はページごとに違う（一般向け=緑 / 採用=ティール）ので、
+   濃さを変えたいときは上の --hero-grad-soft の数字を触る */
+#hero {
+  background-color: var(--hero-base);
+  background-image: var(--hero-grad-soft), url("media/photos/hospital-exterior.jpg");
   background-size: cover;
   background-position: center, center 35%;
   background-repeat: no-repeat;
