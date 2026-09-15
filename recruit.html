@@ -822,12 +822,11 @@
     <p>集中治療科での研修にご興味のある方、見学希望の方はいつでもお問い合わせください。<br>
     <span style="font-size:12px;">We warmly welcome inquiries about residency training and hospital visits.</span></p>
     <div class="cta-buttons">
+      <!-- 以前は「お問い合わせ」「見学を申し込む」の2ボタンだったが、宛先が同じ
+           医師募集ページで押し分ける意味がないため1本に統合した（2026-09-15）。 -->
       <a class="cta-btn-primary" href="https://chubuweb.hosp.pref.okinawa.jp/job_category/rec_doctor/"
          target="_blank" rel="noopener noreferrer"
-         aria-label="お問い合わせ（病院公式サイトの医師募集ページ・新しいタブで開きます）">お問い合わせ</a>
-      <a class="cta-btn-outline" href="https://chubuweb.hosp.pref.okinawa.jp/job_category/rec_doctor/"
-         target="_blank" rel="noopener noreferrer"
-         aria-label="見学を申し込む（病院公式サイトの医師募集ページ・新しいタブで開きます）">見学を申し込む</a>
+         aria-label="見学・お問い合わせはこちら（病院公式サイトの医師募集ページ・新しいタブで開きます）">見学・お問い合わせはこちら</a>
     </div>
 
     <div class="ref-widget on-dark">
@@ -885,10 +884,12 @@
     </div>
     <div class="footer-col">
       <h4>関連リンク</h4>
-      <a href="#">病院トップページ</a>
-      <a href="#">診療科一覧</a>
-      <a href="#">研修医募集（病院全体）</a>
-      <a href="#">アクセス・交通</a>
+      <!-- 病院公式サイト（別ドメイン）への外部リンク。index.html のフッターにも
+           同じ4本があるので、URLを変えるときは両方を直すこと。 -->
+      <a href="https://chubuweb.hosp.pref.okinawa.jp/" target="_blank" rel="noopener noreferrer">病院トップページ</a>
+      <a href="https://chubuweb.hosp.pref.okinawa.jp/departments/" target="_blank" rel="noopener noreferrer">診療科一覧</a>
+      <a href="https://chubuweb.hosp.pref.okinawa.jp/unihawaii/" target="_blank" rel="noopener noreferrer">研修医募集（病院全体）</a>
+      <a href="https://chubuweb.hosp.pref.okinawa.jp/access/" target="_blank" rel="noopener noreferrer">アクセス・交通</a>
     </div>
   </div>
   <div class="footer-bottom">

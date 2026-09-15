@@ -732,11 +732,15 @@
     </div>
     <div class="footer-col">
       <h4>関連リンク</h4>
-      <a href="#">病院トップページ</a>
-      <a href="#">診療科一覧</a>
-      <a href="#">研修医募集</a>
+      <!-- 病院公式サイト（別ドメイン）への外部リンク。recruit.html のフッターにも
+           同じ4本があるので、URLを変えるときは両方を直すこと。 -->
+      <a href="https://chubuweb.hosp.pref.okinawa.jp/" target="_blank" rel="noopener noreferrer">病院トップページ</a>
+      <a href="https://chubuweb.hosp.pref.okinawa.jp/departments/" target="_blank" rel="noopener noreferrer">診療科一覧</a>
+      <a href="https://chubuweb.hosp.pref.okinawa.jp/unihawaii/" target="_blank" rel="noopener noreferrer">研修医募集</a>
+      <!-- TODO: 「外来受付」だけURL未指定。病院公式サイトの該当ページが決まり次第、
+           上と同じ形にする。それまでは href="#" でページ先頭に戻るだけ。 -->
       <a href="#">外来受付</a>
-      <a href="#">アクセス・交通</a>
+      <a href="https://chubuweb.hosp.pref.okinawa.jp/access/" target="_blank" rel="noopener noreferrer">アクセス・交通</a>
     </div>
   </div>
   <div class="footer-bottom">
