@@ -591,15 +591,20 @@ body.nav-open { overflow: hidden; }
 
 /* ── レジデントの声 ── */
 .residents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-9); }
+/* コメントの長さがカードごとに違うため、flex 縦並び＋区切り線に margin-top:auto を
+   置いて、氏名・所属の行をカード下端に揃える（.resident-divider 参照）。 */
 .resident-card {
   background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 30px 26px;
   transition: box-shadow 0.2s;
+  display: flex; flex-direction: column;
 }
 .resident-card:hover { box-shadow: 0 8px 28px rgba(74,122,80,0.1); }
 .resident-qmark { font-size: var(--text-deco-lg); color: var(--primary-light); font-family: Georgia, serif; line-height: 1; margin-bottom: 8px; }
 .resident-comment { font-size: var(--text-base); color: var(--text); line-height: 1.85; margin-bottom: var(--space-4); }
 .resident-comment-en { font-size: var(--text-xs); color: var(--text-muted); font-style: italic; line-height: 1.7; margin-bottom: 22px; }
-.resident-divider { height: 1px; background: var(--border); margin-bottom: 18px; }
+/* margin-top:auto で余った縦方向スペースをここに集め、以降（区切り線・氏名・所属）を
+   カード下端へ押し下げる。flex-shrink:0 は 1px の線が潰れないようにするため。 */
+.resident-divider { height: 1px; background: var(--border); margin-top: auto; margin-bottom: 18px; flex-shrink: 0; }
 .resident-profile { display: flex; align-items: center; gap: 14px; }
 .resident-avatar {
   width: 44px; height: 44px; border-radius: 50%; background: var(--primary-xlight);
