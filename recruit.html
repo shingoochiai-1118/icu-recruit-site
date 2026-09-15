@@ -7,7 +7,7 @@
   <title>レジデント・フェロー募集 | 集中治療科 沖縄県立中部病院</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260915d">
+  <link rel="stylesheet" href="style.css?v=20260915e">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNyIgZmlsbD0iIzE2ODk3QSIvPjxwYXRoIGQ9Ik0yMiAxMmgtNGwtMyA5TDkgM2wtMyA5SDIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=">
 </head>
 <body>
@@ -538,8 +538,10 @@
     <p class="section-subtitle">現役フェロー・レジデントに聞いた、率直な言葉</p>
 
     <!--
-      .resident-avatar は後日イラストに差し替える枠。画像を入れるときは
-      <div class="resident-avatar">仮</div> の中身を <img> に置き換える。
+      .resident-avatar のイラストは media/resident-avatar-{1,2,3}.png（2026-09-15 差し替え）。
+      1枚の元絵（3人並び）から1人ずつ正方形に切り出したもので、背景は透過。
+      透過部分には .resident-avatar の背景色（--primary-xlight）が透けて見える。
+      特定の個人の似顔絵ではないため alt="" とし、氏名は隣のテキストで読ませている。
     -->
     <div class="residents-grid">
       <div class="resident-card reveal">
@@ -549,7 +551,7 @@
         <div class="resident-comment-en">Even after a night shift, the attending always gives feedback at morning conference — nothing gets left unexplained here.</div>
         <div class="resident-divider"></div>
         <div class="resident-profile">
-          <div class="resident-avatar">仮</div>
+          <div class="resident-avatar"><img src="media/resident-avatar-1.png" alt="" width="256" height="256"></div>
           <div>
             <div class="resident-name">T.M</div>
             <div class="resident-year">内科レジデント</div>
@@ -563,7 +565,7 @@
         <div class="resident-comment-en">The volume of cases was overwhelming at first, but I can feel my clinical judgment growing in ways no textbook could teach.</div>
         <div class="resident-divider"></div>
         <div class="resident-profile">
-          <div class="resident-avatar">仮</div>
+          <div class="resident-avatar"><img src="media/resident-avatar-2.png" alt="" width="256" height="256"></div>
           <div>
             <div class="resident-name">S.N</div>
             <div class="resident-year">救急科レジデント</div>
@@ -577,7 +579,7 @@
         <div class="resident-comment-en">Coming from another specialty, I never felt left behind — now I want to pass that same support on to the next resident.</div>
         <div class="resident-divider"></div>
         <div class="resident-profile">
-          <div class="resident-avatar">仮</div>
+          <div class="resident-avatar"><img src="media/resident-avatar-3.png" alt="" width="256" height="256"></div>
           <div>
             <div class="resident-name">K.K</div>
             <div class="resident-year">外科レジデント</div>
