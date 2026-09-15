@@ -156,6 +156,32 @@ h2.section-title {
   font-size: var(--text-3xs); color: var(--text-light);
 }
 
+/* ── 実写真 ─────────────────────────────────────────────
+   ダミー枠（.img-placeholder）を実際の写真に差し替えたときのスタイル。
+   枠の大きさは元のまま変えず、写真の側を枠に合わせる。
+   cover  = 枠いっぱいに広げて、はみ出した部分を切る（部屋・風景向き）
+   contain = 全体が収まるように縮める（縦長の機材を切らずに見せる） */
+.equip-photo {
+  display: block; width: 100%; height: 300px;
+  object-fit: cover; object-position: center;
+}
+.equip-photo.contain {
+  object-fit: contain;
+  background: var(--primary-xlight);
+  height: 380px;  /* 縦長写真は枠を高くして、機械が小さく見えすぎないようにする */
+}
+/* 機材ギャラリー（recruit）は枠が小さいので、全体を収めると細くなりすぎる。
+   枠いっぱいに広げて上下を切る */
+.equip-gallery-photo {
+  display: block; width: 100%; height: auto;
+  aspect-ratio: 4 / 3; border-radius: 10px;
+  object-fit: cover; object-position: center;
+}
+.staff-photo .staff-img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+}
+
 /* Nav */
 #site-header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -947,6 +973,7 @@ footer {
   .equipment-item.left .equip-img, .equipment-item.right .equip-img { order: 1; }
   .equipment-item.left .equip-body, .equipment-item.right .equip-body { order: 2; }
   .equip-img .img-placeholder { height: 220px; }
+  .equip-photo { height: 220px; }
 
   .schedule-container { grid-template-columns: 1fr; }
   .schedule-time-col { width: 52px; }
