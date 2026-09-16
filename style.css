@@ -140,7 +140,8 @@ body {
 .section-label {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.14em;
-  color: var(--accent); text-transform: uppercase; margin-bottom: 14px;
+  /* --accent は 2.91:1 で基準未達だった（11px なので 4.5:1 が必要） */
+  color: var(--primary-dark); text-transform: uppercase; margin-bottom: 14px;
 }
 .section-label::before {
   content: ''; display: block; width: 24px; height: 2px;
@@ -167,13 +168,15 @@ h2.section-title {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 6px;
 }
+/* 写真が入るまでのダミー枠。monospace と「· photo」という英語表記のせいで
+   制作メモがそのまま公開されているように見えていたため、2026-09-16 に
+   通常字形にし、英語の補助表記（.sub）は非表示にした。
+   HTMLには残してあるので、表示に戻したいときはこの display: none を消す */
 .img-placeholder span {
-  font-family: monospace; font-size: var(--text-xs); color: var(--text-muted);
+  font-family: var(--sans); font-size: var(--text-sm-plus); color: var(--text-muted);
   text-align: center; padding: 0 16px; line-height: 1.5;
 }
-.img-placeholder span.sub {
-  font-size: var(--text-3xs); color: var(--text-light);
-}
+.img-placeholder span.sub { display: none; }
 
 /* ── 実写真 ─────────────────────────────────────────────
    ダミー枠（.img-placeholder）を実際の写真に差し替えたときのスタイル。
@@ -259,13 +262,35 @@ h2.section-title {
    色は :visited にも効かせるため個別指定せず、この1箇所で完結させる。 */
 .header-contact {
   flex-shrink: 0; background: var(--primary); color: #fff;
-  font-size: var(--text-xs); font-weight: 700; padding: 8px 18px;
+  /* タップ領域の推奨44pxに合わせる（以前は高さ32px） */
+  font-size: var(--text-xs); font-weight: 700; padding: 14px 18px;
   border-radius: 24px; cursor: pointer; border: none;
   font-family: var(--sans); transition: background 0.2s;
   display: inline-block; text-decoration: none; text-align: center; line-height: normal;
 }
 .header-contact:hover { background: var(--primary-dark); }
 .header-contact:visited { color: #fff; }
+
+/* ヘッダーの項目が入りきらないとき、#main-nav（overflow-x: auto で
+   スクロールバーは非表示）の右端にある .header-crosslink が画面外に出て
+   押せなくなっていた。1280pxで201pxあふれていた。
+   幅を詰めて収める方法は文言の長さ次第で再発するため、クロスリンクを
+   sticky で右端に貼り付けて、あふれても必ず残るようにしている。
+   769px未満はハンバーガーメニューの中に入るので対象外 */
+@media (min-width: 769px) {
+  .header-crosslink {
+    position: sticky; right: 0; z-index: 1;
+    /* 下をナビ項目が流れていくので、読めるように地色を敷く */
+    background: linear-gradient(to right, rgba(255,255,255,0) 0, #fff 12px, #fff 100%);
+    padding-left: 16px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  #site-header .inner { gap: var(--space-4); }
+  #main-nav { gap: 0; }
+  .nav-link { padding: 6px 7px; }
+  .header-crosslink .cl-long { display: none; }
+}
 
 /* Mobile nav (≤768px): hamburger toggle switches #main-nav from a horizontal
    bar into a dropdown panel. .header-crosslink lives inside #main-nav in the
@@ -282,8 +307,9 @@ h2.section-title {
     display: none;
     position: absolute; top: var(--nav-h); left: 0; right: 0;
     flex-direction: column; align-items: stretch; gap: 0;
-    background: rgba(255,255,255,0.98);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    /* 不透明にしている。半透明（0.98）だと、下にあるヒーローの大きな白文字が
+       メニューの上に透けて見え、項目が読みにくかった（2026-09-16） */
+    background: #fff;
     border-bottom: 1px solid var(--border);
     box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     padding: var(--space-3) 0; overflow-x: visible;
