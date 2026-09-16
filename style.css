@@ -1,5 +1,9 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: var(--text-lg); scrollbar-gutter: stable; }
+/* hidden 属性を確実に効かせる。display: flex / grid を指定した要素は、それだけで
+   ブラウザ標準の [hidden] { display: none } を打ち消してしまうため。
+   原稿や写真が揃うまで隠している箇所（HTML の hidden）はこの1行に依存している。 */
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; font-size: var(--text-lg); scrollbar-gutter: stable; scroll-padding-top: 80px; }
 body {
   font-family: 'Noto Sans JP', sans-serif;
   background: #F7FAF7;

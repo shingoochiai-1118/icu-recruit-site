@@ -7,7 +7,7 @@
   <title>集中治療科 | 沖縄県立中部病院</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260915i">
+  <link rel="stylesheet" href="style.css?v=20260916a">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNyIgZmlsbD0iIzJFOTk0NCIvPjxwYXRoIGQ9Ik0yMiAxMmgtNGwtMyA5TDkgM2wtMyA5SDIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=">
 </head>
 <body>
@@ -390,7 +390,7 @@
         </div>
         <div class="equip-body">
           <div class="equip-num">EQUIPMENT 03</div>
-          <h3>CKRT装置</h3>
+          <h3>CKRT（CHDF）装置</h3>
           <p class="en">Continuous Kidney Replacement Therapy</p>
           <p>腎臓のはたらきが急に低下した患者さんのために、腎臓の代わりとなって血液をゆっくりときれいにする装置です（透析の一種）。時間をかけて少しずつ行うため、全身の状態が不安定な重症の患者さんにも負担が少なく行えます。</p>
           <p style="font-size:11px;font-style:italic;color:var(--text-muted);margin-top:12px;line-height:1.7;">A device that gently cleans the blood in place of the kidneys when they suddenly stop working — a slow form of dialysis that even very unstable patients can tolerate.</p>
@@ -645,14 +645,18 @@
           <div class="staff-role-en">Deputy Head Nurse</div>
           <div class="staff-spec">ICU専任</div>
         </div>
-        <div class="staff-card tier-nursing reveal">
+        <!-- 氏名が未記入の2枚は、公式ページに空欄が出ている状態になるため非表示にしている
+             （2026-09-16）。人員体制は下の .staff-note の1文目で伝えている。
+             氏名の掲載について本人の同意が取れたら、hidden を外して .staff-name と
+             .staff-note の1文目をあわせて直す。 -->
+        <div class="staff-card tier-nursing reveal" hidden>
           <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span class="staff-avatar-initial">看</span></div></div>
           <div class="staff-name">氏　名</div>
           <div class="staff-role">副師長</div>
           <div class="staff-role-en">Deputy Head Nurse</div>
           <div class="staff-spec">ICU専任</div>
         </div>
-        <div class="staff-card tier-nursing reveal">
+        <div class="staff-card tier-nursing reveal" hidden>
           <div class="staff-photo"><div class="img-placeholder" style="width:80px;height:80px;border-radius:50%;"><span class="staff-avatar-initial">認</span></div></div>
           <div class="staff-name">氏　名</div>
           <div class="staff-role">認定看護師</div>
@@ -661,7 +665,7 @@
         </div>
       </div>
       <div class="staff-note">
-        <p>ICU専任看護師が24時間体制で患者さんのケアにあたります。師長・副師長のリーダーシップのもと、認定看護師を含む高度な専門知識と技術を持つ看護師チームが、医師・多職種と緊密に連携し、患者さんの回復を支援しています。</p>
+        <p>ICUには専任の副師長2名と、集中ケア認定看護師が在籍しています。ICU専任看護師が24時間体制で患者さんのケアにあたります。師長・副師長のリーダーシップのもと、認定看護師を含む高度な専門知識と技術を持つ看護師チームが、医師・多職種と緊密に連携し、患者さんの回復を支援しています。</p>
         <p class="en">Dedicated ICU nurses — led by head and deputy head nurses and supported by certified specialists — provide round-the-clock multidisciplinary care.</p>
       </div>
     </div>
