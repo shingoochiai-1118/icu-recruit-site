@@ -442,11 +442,13 @@ body.nav-open { overflow: hidden; }
 .value-item {
   display: flex; gap: 18px; align-items: flex-start;
 }
+/* --primary-light では 1.28:1 でほぼ見えなかった。--primary で 3.43:1、
+   28px の装飾数字なので大きい文字の基準 3:1 はクリアする */
 .value-num {
-  font-size: var(--text-4xl); font-weight: 700; color: var(--primary-light);
+  font-size: var(--text-4xl); font-weight: 700; color: var(--primary);
   font-family: var(--serif); line-height: 1; flex-shrink: 0; min-width: 32px;
 }
-.value-item h4 { font-size: var(--text-md); font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.value-item h3 { font-size: var(--text-md); font-weight: 700; color: var(--text); margin-bottom: 4px; }
 .value-item p { font-size: var(--text-sm-plus); color: var(--text-muted); line-height: 1.7; }
 
 /* ── 対象疾患 ── */
@@ -461,7 +463,8 @@ body.nav-open { overflow: hidden; }
 .disease-card:hover { box-shadow: 0 4px 20px rgba(74,122,80,0.1); }
 .disease-card .tag {
   display: inline-block; background: var(--primary-xlight);
-  color: var(--primary); font-size: var(--text-3xs); font-weight: 700;
+  /* 設備セクションのタグと同じ --primary-dark にそろえる。--primary は 3.31:1 で基準未達 */
+  color: var(--primary-dark); font-size: var(--text-2xs); font-weight: 700;
   padding: 3px 8px; border-radius: 10px; letter-spacing: 0.08em; margin-bottom: 12px;
 }
 .disease-card h3 { font-size: var(--text-md); font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
@@ -519,7 +522,7 @@ body.nav-open { overflow: hidden; }
 .schedule-ja { font-size: var(--text-base); font-weight: 600; color: var(--text); line-height: 1.4; }
 .schedule-en { font-size: var(--text-xs); color: var(--text-muted); margin-top: 3px; }
 .schedule-desc { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; }
-.schedule-desc h4 { font-family: var(--serif); font-size: var(--text-2xl); color: var(--primary-dark); margin-bottom: 14px; }
+.schedule-desc h3 { font-family: var(--serif); font-size: var(--text-2xl); color: var(--primary-dark); margin-bottom: 14px; }
 .schedule-desc p { font-size: var(--text-sm-plus); color: var(--text-muted); line-height: 1.85; }
 .schedule-desc .highlight { color: var(--primary); font-weight: 600; }
 
@@ -529,13 +532,16 @@ body.nav-open { overflow: hidden; }
 .schedule-col { display: flex; flex-direction: column; gap: var(--space-2); }
 
 .schedule-behind { margin-top: 8px; }
+/* 実測 76×22px しかなく、押せるものだと気づかれていなかった。
+   タップ領域の推奨 44px に合わせて上下の padding を広げ、薄い枠を付けた */
 .schedule-behind-toggle {
   display: inline-flex; align-items: center; gap: 6px;
-  padding: 3px 0; border: none; background: transparent; cursor: pointer;
-  font-family: var(--sans); font-size: var(--text-xs); font-weight: 600;
-  color: var(--text-light); transition: color 0.2s;
+  padding: 12px 14px; border: 1px solid var(--border); border-radius: 8px;
+  background: #fff; cursor: pointer;
+  font-family: var(--sans); font-size: var(--text-sm); font-weight: 600;
+  color: var(--text-light); transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
-.schedule-behind-toggle:hover { color: var(--primary-dark); }
+.schedule-behind-toggle:hover { color: var(--primary-dark); border-color: var(--primary-light); background: var(--primary-xlight); }
 .schedule-behind-toggle[aria-expanded="true"] { color: var(--primary-dark); }
 .schedule-behind-icon {
   width: 15px; height: 15px; border-radius: 4px; flex-shrink: 0;
@@ -551,7 +557,7 @@ body.nav-open { overflow: hidden; }
   background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px;
   animation: behind-in 0.22s ease;
 }
-.schedule-behind-panel h5 {
+.schedule-behind-panel h3 {
   font-family: var(--serif); font-size: var(--text-sm-plus); font-weight: 700;
   color: var(--primary-dark); margin-bottom: 6px; line-height: 1.5;
 }
@@ -646,9 +652,10 @@ body.nav-open { overflow: hidden; }
 }
 .career-stage-ja { font-size: var(--text-md); font-weight: 700; color: var(--text); line-height: 1.4; }
 .career-stage-en { font-size: var(--text-xs); color: var(--text-muted); margin-top: 2px; }
+/* --accent は 3.06:1 で基準未達。--primary-dark で 7.86:1 */
 .career-stage-body dt {
-  font-size: var(--text-2xs); font-weight: 700; letter-spacing: 0.08em;
-  color: var(--accent); margin-top: var(--space-4);
+  font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em;
+  color: var(--primary-dark); margin-top: var(--space-4);
 }
 .career-stage-body dt:first-child { margin-top: 0; }
 .career-stage-body dd { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.7; margin-top: 4px; }
@@ -782,7 +789,7 @@ body.nav-open { overflow: hidden; }
 }
 .content-type-tag.video { background: var(--primary-xlight); color: var(--primary-dark); }
 .content-type-tag.article { background: var(--bg-alt); color: var(--text-muted); border: 1px solid var(--border); }
-.content-card h4 { font-family: var(--serif); font-size: var(--text-lg); font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.content-card h3 { font-family: var(--serif); font-size: var(--text-lg); font-weight: 700; color: var(--text); margin-bottom: 8px; }
 .content-card p { font-size: var(--text-sm-plus); color: var(--text-muted); line-height: 1.75; }
 .content-meta { font-size: var(--text-3xs); color: var(--text-light); margin-top: 6px; }
 
@@ -841,8 +848,8 @@ body.nav-open { overflow: hidden; }
   padding: 28px 30px; margin: 28px auto 0; max-width: 460px; text-align: left;
 }
 .ref-widget.on-dark { background: rgba(255,255,255,0.10); backdrop-filter: blur(6px); border-color: rgba(255,255,255,0.18); }
-.ref-widget h4 { font-family: var(--serif); font-size: var(--text-md); color: var(--text); margin-bottom: 6px; }
-.ref-widget.on-dark h4 { color: #fff; }
+.ref-widget h3 { font-family: var(--serif); font-size: var(--text-md); color: var(--text); margin-bottom: 6px; }
+.ref-widget.on-dark h3 { color: #fff; }
 .ref-widget p { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.7; }
 .ref-widget.on-dark p { color: rgba(255,255,255,0.72); }
 .ref-widget-row { display: flex; gap: 8px; margin-top: var(--space-4); }
@@ -947,7 +954,7 @@ body.nav-open { overflow: hidden; }
   background: var(--primary-xlight); display: flex; align-items: center; justify-content: center;
 }
 .crosslink-callout-body { flex: 1; }
-.crosslink-callout h4 { font-family: var(--serif); font-size: var(--text-lg); color: var(--text); margin-bottom: 4px; }
+.crosslink-callout h3 { font-family: var(--serif); font-size: var(--text-lg); color: var(--text); margin-bottom: 4px; }
 .crosslink-callout p { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.6; }
 .crosslink-callout .arrow {
   flex-shrink: 0; color: var(--primary); transition: transform 0.2s;
@@ -962,7 +969,7 @@ footer {
   max-width: var(--max-w); margin: 0 auto; padding: 0 var(--container-pad);
   display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-9);
 }
-.footer-col h4 { font-size: var(--text-sm-plus); font-weight: 700; color: #fff; margin-bottom: 14px; }
+.footer-col h3 { font-size: var(--text-sm-plus); font-weight: 700; color: #fff; margin-bottom: 14px; }
 .footer-col p, .footer-col a { font-size: var(--text-sm); color: rgba(255,255,255,0.5); line-height: 1.9; text-decoration: none; display: block; }
 .footer-col a:hover { color: rgba(255,255,255,0.8); }
 .footer-bottom {
@@ -1003,7 +1010,7 @@ footer {
 @media (max-width: 768px) {
   .page-section { padding: 3rem 0; } /* →48px */
   #hero { padding: 3.5rem 0 4rem; } /* →56px 0 64px */
-  #contact { padding: 3.5rem 0; } /* →56px 0 */
+  #contact { padding: 3.5rem 1rem; } /* →56px 16px。0 だと文字が画面の端から6pxになり、他セクションの16pxとそろわない */
 
   .hero-inner { grid-template-columns: 1fr; }
   .hero-desc br, .hero-title br { display: none; }

@@ -7,7 +7,7 @@
   <title>レジデント・フェロー募集 | 集中治療科 沖縄県立中部病院</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260916b">
+  <link rel="stylesheet" href="style.css?v=20260916c">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNyIgZmlsbD0iIzE2ODk3QSIvPjxwYXRoIGQ9Ik0yMiAxMmgtNGwtMyA5TDkgM2wtMyA5SDIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=">
 </head>
 <body>
@@ -34,8 +34,9 @@
       <button class="nav-link" data-target="dispatches">現場からの発信</button>
       <a class="header-crosslink" href="index.html">← 集中治療科サイトへ戻る</a>
     </nav>
-    <!-- 採用系のCTAは3か所とも病院公式サイトの医師募集ページへ。宛先を変えるときは
-         recruit.html 内の rec_doctor リンク3本をまとめて差し替えること。 -->
+    <!-- 採用系のCTAは2か所とも病院公式サイトの医師募集ページへ。宛先を変えるときは
+         recruit.html 内の rec_doctor リンク2本をまとめて差し替えること。
+         （2026-09-15 に2本を1本へ統合したため3→2。ヘッダー固定と最下部の2か所） -->
     <a class="header-contact" href="https://chubuweb.hosp.pref.okinawa.jp/job_category/rec_doctor/"
        target="_blank" rel="noopener noreferrer"
        aria-label="見学に申し込む（病院公式サイトの医師募集ページ・新しいタブで開きます）">見学に申し込む</a>
@@ -138,13 +139,18 @@
                 記入例の方向性: 回診が始まる前に修練医が何を準備しているか、夜間イベントを
                 どう拾い上げるか、プレゼンの順番はどう決まるか、指導医がどこを見ているか。
               -->
+              <!-- 4つの「裏側を見る」のうち、この1つ目だけ最初から開いた状態にしている
+                   （2026-09-16）。小さな補助リンクに見えて開かれずに読み飛ばされていたため、
+                   1つ開いておいて「ここは開くものだ」と分かるようにする。
+                   閉じた状態に戻すには aria-expanded="false" / アイコンを + / ラベルを
+                   「裏側を見る」に戻し、パネルに hidden を付ける（JSは触らなくてよい）。 -->
               <div class="schedule-behind">
-                <button type="button" class="schedule-behind-toggle" aria-expanded="false" aria-controls="behind-round">
-                  <span class="schedule-behind-icon" aria-hidden="true">+</span>
-                  <span class="schedule-behind-label">裏側を見る</span>
+                <button type="button" class="schedule-behind-toggle" aria-expanded="true" aria-controls="behind-round">
+                  <span class="schedule-behind-icon" aria-hidden="true">−</span>
+                  <span class="schedule-behind-label">閉じる</span>
                 </button>
-                <div class="schedule-behind-panel" id="behind-round" hidden>
-                  <h5>回診が始まる前の60分</h5>
+                <div class="schedule-behind-panel" id="behind-round">
+                  <h3>回診が始まる前の60分</h3>
                   <p>担当の患者が割り当てられ、朝の診察と情報収集を行います。また、必要に応じてエコーや追加検査をオーダーします。不安を抱えたままのプレゼンにならないようにフェローと相談！</p>
                 </div>
               </div>
@@ -190,7 +196,7 @@
                   <span class="schedule-behind-label">裏側を見る</span>
                 </button>
                 <div class="schedule-behind-panel" id="behind-conference" hidden>
-                  <h5>レジデント勉強会 or レクチャー</h5>
+                  <h3>レジデント勉強会 or レクチャー</h3>
                   <p>ローテーション中のレジデントはテーマ別の勉強会を行います。希望のテーマでスライド準備を行い、30分程度の発表となります。時折、フェローまたはスタッフからミニレクチャーがあります。</p>
                 </div>
               </div>
@@ -236,7 +242,7 @@
                   <span class="schedule-behind-label">裏側を見る</span>
                 </button>
                 <div class="schedule-behind-panel" id="behind-night" hidden>
-                  <h5>引き継ぎで伝えること</h5>
+                  <h3>引き継ぎで伝えること</h3>
                   <p>当直担当への引き継ぎでは日中での経過と患者さんの変化を簡潔に伝えます。日勤から当直へ切り替わる時間帯の実務の動きを、具体的に記録します。</p>
                 </div>
               </div>
@@ -265,7 +271,7 @@
               <span class="schedule-behind-label">裏側を見る</span>
             </button>
             <div class="schedule-behind-panel" id="behind-adhoc" hidden>
-              <h5>連絡が入ってから入室までの動き</h5>
+              <h3>連絡が入ってから入室までの動き</h3>
               <p>救急や病棟から連絡が入るとフェローが率先して行動します。実際には、フェローが診察後に入室を決定し、レジデントが追加検査をオーダー、動脈ラインやCVの留置を行います。</p>
             </div>
           </div>
@@ -274,15 +280,15 @@
 
       <div class="reveal">
         <div class="schedule-desc" style="margin-bottom:16px;">
-          <h4>朝回診について</h4>
+          <h3>朝回診について</h3>
           <p>毎朝8:30より、ICU医師・主科医師・担当看護師とともに回診を実施しています。各患者さんの状態を共有し、当日の治療目標を全員で決定します。処置や検査は回診と並行して進行していきます。</p>
         </div>
         <div class="schedule-desc" style="margin-bottom:16px;">
-          <h4>カンファレンス</h4>
+          <h3>カンファレンス</h3>
           <p>毎日午後には<span class="highlight">カンファレンス</span>を開催。研修医・専攻医が症例提示を行ったり、最新のガイドラインや知見の勉強会を通して、治療方針について指導医とともに議論します。M&amp;Mカンファレンスなど質改善活動も定期的に実施しています。</p>
         </div>
         <div class="schedule-desc">
-          <h4>夜間・当直体制</h4>
+          <h3>夜間・当直体制</h3>
           <p>夜間は当直医・オンコール医師が常駐し、<span class="highlight">24時間365日</span>の対応体制を整えています。緊急手術後や重症患者の受け入れにも迅速に対応します。</p>
         </div>
       </div>
@@ -715,7 +721,7 @@
         </video>
         <div class="content-card-body">
           <span class="content-type-tag video">動画</span>
-          <h4>エコーの扱い方</h4>
+          <h3>エコーの扱い方</h3>
           <p>日々の診療で欠かせない相棒です。大切にしましょう。</p>
         </div>
       </div>
@@ -731,7 +737,7 @@
         </div>
         <div class="content-card-body">
           <span class="content-type-tag article">症例紹介</span>
-          <h4>【症例】タイトル</h4>
+          <h3>【症例】タイトル</h3>
           <p>典型的な症例（架空・複合症例）をもとに、初期輸液・抗菌薬選択・循環管理の考え方を指導医が解説します。</p>
           <p class="content-meta">監修：集中治療科 指導医 / 教育目的の複合症例（実在の患者の記録ではありません）</p>
         </div>
@@ -744,7 +750,7 @@
         </div>
         <div class="content-card-body">
           <span class="placeholder-tag">準備中 — 近日公開予定</span>
-          <h4>症例紹介記事（不定期更新）</h4>
+          <h3>症例紹介記事（不定期更新）</h3>
           <p>指導医監修による教育目的の症例紹介記事を、現在準備しています。公開まで今しばらくお待ちください。</p>
         </div>
       </div>
@@ -778,7 +784,7 @@
             <span class="content-type-tag learning">学び</span>
             <span class="learning-date">2026年8月</span>
           </div>
-          <h4>[要記入] テーマ（例：循環管理の文献レビュー）</h4>
+          <h3>[要記入] テーマ（例：循環管理の文献レビュー）</h3>
           <p class="learning-comment">[要記入] 一言コメント。勉強会で何が印象に残ったか、明日からの診療がどう変わりそうかを1〜2文で。
             <span class="learning-by">— 発表者または指導医</span>
           </p>
@@ -796,7 +802,7 @@
             <span class="content-type-tag learning">学び</span>
             <span class="learning-date">2026年7月</span>
           </div>
-          <h4>[要記入] テーマ（例：人工呼吸器離脱のプロトコル）</h4>
+          <h3>[要記入] テーマ（例：人工呼吸器離脱のプロトコル）</h3>
           <p class="learning-comment">[要記入] 一言コメント。勉強会で何が印象に残ったか、明日からの診療がどう変わりそうかを1〜2文で。
             <span class="learning-by">— 発表者または指導医</span>
           </p>
@@ -814,7 +820,7 @@
             <span class="content-type-tag learning">学び</span>
             <span class="learning-date">2026年6月</span>
           </div>
-          <h4>[要記入] テーマ（例：鎮痛・鎮静のガイドライン）</h4>
+          <h3>[要記入] テーマ（例：鎮痛・鎮静のガイドライン）</h3>
           <p class="learning-comment">[要記入] 一言コメント。勉強会で何が印象に残ったか、明日からの診療がどう変わりそうかを1〜2文で。
             <span class="learning-by">— 発表者または指導医</span>
           </p>
@@ -845,7 +851,7 @@
     </div>
 
     <div class="ref-widget on-dark">
-      <h4>在籍医師の方へ — 紹介リンクを発行する</h4>
+      <h3>在籍医師の方へ — 紹介リンクを発行する</h3>
       <p>お名前またはIDを入力すると、このページ専用の紹介リンクが作成されます。後輩や知人にそのまま送ってください。（現時点では簡易生成のみで、経由の閲覧数計測は公開先が決まり次第対応予定です）</p>
       <div class="ref-widget-row">
         <input type="text" id="refNameInput" placeholder="例：ochiai" aria-label="お名前またはID">
@@ -867,7 +873,7 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       </div>
       <div class="crosslink-callout-body">
-        <h4>患者さん・ご家族の方へ</h4>
+        <h3>患者さん・ご家族の方へ</h3>
         <p>診療内容や当科の理念、対象疾患について詳しくご紹介しているページはこちらです。</p>
       </div>
       <div class="arrow">
@@ -882,12 +888,12 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-col">
-      <h4>沖縄県立中部病院</h4>
+      <h3>沖縄県立中部病院</h3>
       <p>Okinawa Prefectural Chubu Hospital</p>
       <p style="margin-top:12px;">〒904-2293<br>沖縄県うるま市宮里281<br>281 Miyazato, Uruma City,<br>Okinawa 904-2293</p>
     </div>
     <div class="footer-col">
-      <h4>レジデント・フェロー募集</h4>
+      <h3>レジデント・フェロー募集</h3>
       <a href="#schedule">1日のスケジュール</a>
       <a href="#stats">数字で見るICU</a>
       <a href="#education">教育体制</a>
@@ -898,7 +904,7 @@
       <a href="index.html">集中治療科について</a>
     </div>
     <div class="footer-col">
-      <h4>関連リンク</h4>
+      <h3>関連リンク</h3>
       <!-- 病院公式サイト（別ドメイン）への外部リンク。index.html のフッターにも
            同じ4本があるので、URLを変えるときは両方を直すこと。 -->
       <a href="https://chubuweb.hosp.pref.okinawa.jp/" target="_blank" rel="noopener noreferrer">病院トップページ</a>
