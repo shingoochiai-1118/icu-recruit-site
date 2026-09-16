@@ -9,7 +9,7 @@
   <!-- フォント本体は fonts.gstatic.com から来るので、そちらにも先に接続しておく -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260916e">
+  <link rel="stylesheet" href="style.css?v=20260916f">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNyIgZmlsbD0iIzJFOTk0NCIvPjxwYXRoIGQ9Ik0yMiAxMmgtNGwtMyA5TDkgM2wtMyA5SDIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=">
 </head>
 <body>
@@ -87,6 +87,23 @@
     </div>
   </div>
 </section>
+
+<!-- ════════════════════════════════ -->
+<!-- 病院外観の写真バンド              -->
+<!-- ════════════════════════════════ -->
+<!--
+  ヒーローの背景に写真を敷くのをやめ、ここで文字を乗せずに見せている（2026-09-16）。
+  文字と重ねると必ずどちらかが犠牲になるため（写真を透かすと7〜12%しか見えず、
+  写真を見せると白文字が 1.41:1 まで落ちた）。
+  切り出し・高さは style.css の .hero-photo-band を触る（object-position / height）。
+  写真を差し替えるときは media/src/prepare-photo.sh を通すこと（Exif/GPS削除）。
+-->
+<figure class="hero-photo-band">
+  <img src="media/photos/hospital-exterior.jpg"
+       alt="青空の下の沖縄県立中部病院の外観。建物の上部に病院名の看板がある"
+       width="1600" height="1067">
+  <figcaption><span>沖縄県立中部病院（うるま市）</span></figcaption>
+</figure>
 
 <!-- JUMP NAV (TABLE OF CONTENTS) -->
 <div id="jump-nav">

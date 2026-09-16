@@ -39,12 +39,8 @@ body {
   --card: #FFFFFF;
   --border: #C8EDD2;
   --hero-grad: linear-gradient(150deg, #2F8A4C 0%, #46A063 55%, #5FB97C 100%);
-  /* ヒーロー背景に病院外観写真を敷くための「半透明版グラデーション」。
-     --hero-grad と同じ色で、不透明度だけ 96〜97% に下げたもの。
-     数字を下げるほど建物がはっきり出るが、白文字が読みにくくなるので下げすぎないこと。
-     2026-09-16: 白壁が透けた部分で白文字が 1.41:1（ほぼ見えない）だったため
-     88〜93% から 96〜97% に上げた。建物のシルエットはうっすら残る */
-  --hero-grad-soft: linear-gradient(150deg, rgba(47,138,76,0.97) 0%, rgba(70,160,99,0.97) 55%, rgba(95,185,124,0.96) 100%);
+  /* .hero-photo-band（ヒーロー直下の写真帯）の地色。写真が読み込まれる前や、
+     写真より横長な画面でのふちの色として使う */
   --hero-base: #2F8A4C;
   --cta-grad: linear-gradient(135deg, #2D5034 0%, #4A7A50 100%);
   --nav-h: 68px;
@@ -106,8 +102,6 @@ body {
   --bg-alt: #EFFAF8;
   --border: #C7EDE6;
   --hero-grad: linear-gradient(150deg, #157567 0%, #1D8F7D 55%, #3EAE97 100%);
-  /* 採用ページ用（ティール）の半透明版。上の一般向けと同じ考え方 */
-  --hero-grad-soft: linear-gradient(150deg, rgba(21,117,103,0.97) 0%, rgba(29,143,125,0.97) 55%, rgba(62,174,151,0.96) 100%);
   --hero-base: #157567;
   --cta-grad: linear-gradient(135deg, #14453D 0%, #3A7A6E 100%);
   --footer-bg: #0F2621;
@@ -280,16 +274,21 @@ h2.section-title {
 @media (min-width: 769px) {
   .header-crosslink {
     position: sticky; right: 0; z-index: 1;
-    /* 下をナビ項目が流れていくので、読めるように地色を敷く */
-    background: linear-gradient(to right, rgba(255,255,255,0) 0, #fff 12px, #fff 100%);
-    padding-left: 16px;
+    /* ナビ項目がこの下を流れていくので、地色を敷いて読めるようにする。
+       左端は28pxかけて透明から白へ。ここでぼかすことで「ナビはまだ横に続く」
+       ことが伝わり、項目が切れているのが不具合に見えない */
+    background: linear-gradient(to right, rgba(255,255,255,0) 0, #fff 28px, #fff 100%);
+    padding-left: 32px;
   }
 }
 @media (min-width: 769px) and (max-width: 1400px) {
-  #site-header .inner { gap: var(--space-4); }
+  #site-header .inner { gap: var(--space-3); }
   #main-nav { gap: 0; }
-  .nav-link { padding: 6px 7px; }
+  .nav-link { padding: 6px 6px; }
   .header-crosslink .cl-long { display: none; }
+  /* recruit のロゴの補足「レジデント・フェロー募集」を省く。ヒーローに
+     大きく出ているので情報は失われず、ナビ項目の分の幅が確保できる */
+  .header-logo .dept .dept-long { display: none; }
 }
 
 /* Mobile nav (≤768px): hamburger toggle switches #main-nav from a horizontal
@@ -333,35 +332,37 @@ body.nav-open { overflow: hidden; }
 #hero {
   margin-top: var(--nav-h);
   background: var(--hero-grad);
-  padding: var(--space-12) 0 var(--space-section); position: relative; overflow: hidden;
+  padding: var(--space-12) 0 var(--space-10); position: relative; overflow: hidden; /* 下は写真帯が続くので 90px → 56px */
 }
-/* ヒーローの背景に病院外観の写真をうっすら敷く（両ページ共通）。
-   写真を下に敷き、その上に半透明のグラデーションを重ねている。
-   色はページごとに違う（一般向け=緑 / 採用=ティール）ので、
-   濃さを変えたいときは上の --hero-grad-soft の数字を触る */
-/* 1枚目の薄い黒は、白文字のコントラストを確保するための膜（2026-09-16 追加）。
-   グラデーションの不透明度を上げるだけでは本文サイズの基準 4.5:1 に届かず、
-   文字を真っ白にしても 4.04:1 止まりだったため、背景側を暗くしている。
+/* ⚠️ ヒーローの背景に写真は敷かない（2026-09-16 に移動した）。
+   文字と同じ場所に写真を置くと、必ずどちらかが犠牲になる:
+     ・写真を透かして使うと 7〜12% しか見えず、写真として成立しない
+     ・写真を見せると白文字が 1.41:1（ほぼ読めない）まで落ちる
+   写真は #hero の直後の .hero-photo-band で、文字を乗せずに無加工で見せている。
+
+   薄い黒の膜は残すこと。緑／ティールのグラデーションだけだと、最も明るい端で
+   白文字が index 2.41:1 / recruit 2.73:1 になり基準（4.5:1）に届かない。
+   膜込みの実測は index 4.60〜7.43:1 / recruit 5.13〜9.05:1。
    薄くしたいときはこの 0.30 を下げる（下げるほど白文字が読みにくくなる） */
 #hero {
   background-color: var(--hero-base);
   background-image:
-    linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)),
-    var(--hero-grad-soft),
-    url("media/photos/hospital-exterior.jpg");
-  background-size: cover;
-  background-position: center, center, center 35%;
-  background-repeat: no-repeat;
+    linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0.38)),
+    var(--hero-grad);
 }
 #hero::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+  /* 点模様。白7%だと点の真上で白文字のコントラストが落ちるため 0.05 に下げた */
+  background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
   background-size: 28px 28px;
 }
+/* 右上の大きな白い円（装飾）。ほとんど視認されないのに、数字カードが載る
+   右上を明るくしてカード内側のコントラストを 0.2 ほど下げていたため、
+   2026-09-16 に白4% → 黒4% に変えた。見た目の効果は同じで、暗くなる方向に働く */
 #hero::after {
   content: ''; position: absolute; right: -100px; top: -100px;
   width: 500px; height: 500px; border-radius: 50%;
-  background: rgba(255,255,255,0.04); pointer-events: none;
+  background: rgba(0,0,0,0.04); pointer-events: none;
 }
 .hero-inner {
   max-width: var(--max-w); margin: 0 auto; padding: 0 var(--container-pad);
@@ -397,9 +398,13 @@ body.nav-open { overflow: hidden; }
 }
 /* カードの膜は白ではなく薄い黒。白い膜を重ねると背景が明るくなり、
    中の説明ラベル（「ICUベッド数」など小さい白文字）が読めなくなる。
-   2026-09-16 実測: 白0.06 で 3.49:1（不合格）→ 黒0.12 に変更 */
+   2026-09-16 実測: 白0.06 で 3.49:1（不合格）→ 黒0.18。
+   ⚠️ ここを濃くしても効きが鈍い（backdrop-filter の影響で、実際の描画は
+   計算よりかなり明るく出る。0.12→0.20 で 4.09→4.41:1 しか動かなかった）。
+   カード内側のコントラストは #hero 側の黒の膜（0.38）で担保している。
+   数字を変えたら必ず画素を測り直すこと */
 .hero-stat {
-  background: rgba(0,0,0,0.12); backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.18); backdrop-filter: blur(6px);
   border: 1px solid rgba(255,255,255,0.22);
   border-radius: 14px; padding: 20px 18px; text-align: center;
 }
@@ -417,6 +422,42 @@ body.nav-open { overflow: hidden; }
   position: relative; z-index: 2; border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 .ref-banner.show { display: block; }
+
+/* ── 病院外観の写真バンド（両ページ共通・ヒーローの直後） ─────────────
+   文字を写真の上に乗せない使い方。だから写真を暗くする必要がなく、
+   無加工のまま100%の濃さで見せられる（ヒーローに敷いていたときは 7〜12%）。
+
+   切り出しを変えたいときは .hero-photo-band img の object-position だけを触る。
+     center 24% … いまの設定。病院名の看板と青空が入る
+     center 55% … 正面入口と植栽が入る（タクシーのナンバープレートが写るので、
+                   この値にするなら先にぼかしを入れること）
+   高さを変えたいときは height（PC 260px / スマホ 180px）を触る。 */
+.hero-photo-band {
+  position: relative; margin: 0; line-height: 0;
+  background: var(--hero-base); /* 読み込み前・写真より横長な画面でのふちの色 */
+}
+.hero-photo-band img {
+  display: block; width: 100%; height: 260px;
+  object-fit: cover; object-position: center 24%;
+}
+.hero-photo-band figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 30px 0 14px;
+  /* 写真の明るさは場所によって変わるため、下辺に黒の膜を敷く。
+     ⚠️ 単純なグラデーションにすると、文字の位置ではまだ膜が薄く（0.29〜0.46）、
+     雲の白が透けて 2.26:1 まで落ちた。文字が乗る下44pxは 0.62 で一定にし、
+     そこから上へ抜く。白文字はこれで最悪でも約6.2:1（雲の真上でも可）。
+     数字を下げるときは、雲や白い壁の上で測り直すこと */
+  background: linear-gradient(to top,
+    rgba(0,0,0,0.62) 0,
+    rgba(0,0,0,0.62) 44px,
+    rgba(0,0,0,0) 100%);
+}
+.hero-photo-band figcaption span {
+  display: block; max-width: var(--max-w); margin: 0 auto;
+  padding: 0 var(--container-pad);
+  font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.03em;
+  color: #fff; line-height: 1.5;
+}
 
 /* Jump nav (TOC) below hero */
 /* 目次は画面に貼り付けて、長いページでも現在地と行き先が分かるようにする。
@@ -1070,6 +1111,9 @@ footer {
   .hero-title br { display: none; }
 
   .jump-item { padding: var(--space-3) 10px; } /* 16px→10px。詰めると最初から見える項目が増える */
+
+  .hero-photo-band img { height: 180px; }
+  .hero-photo-band figcaption { padding: 24px 0 12px; }
 
   .medical-grid { grid-template-columns: 1fr; }
 
