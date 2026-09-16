@@ -37,9 +37,11 @@ body {
   --border: #C8EDD2;
   --hero-grad: linear-gradient(150deg, #2F8A4C 0%, #46A063 55%, #5FB97C 100%);
   /* ヒーロー背景に病院外観写真を敷くための「半透明版グラデーション」。
-     --hero-grad と同じ色で、不透明度だけ 88〜93% に下げたもの。
-     数字を下げるほど建物がはっきり出るが、白文字が読みにくくなるので下げすぎないこと */
-  --hero-grad-soft: linear-gradient(150deg, rgba(47,138,76,0.93) 0%, rgba(70,160,99,0.90) 55%, rgba(95,185,124,0.88) 100%);
+     --hero-grad と同じ色で、不透明度だけ 96〜97% に下げたもの。
+     数字を下げるほど建物がはっきり出るが、白文字が読みにくくなるので下げすぎないこと。
+     2026-09-16: 白壁が透けた部分で白文字が 1.41:1（ほぼ見えない）だったため
+     88〜93% から 96〜97% に上げた。建物のシルエットはうっすら残る */
+  --hero-grad-soft: linear-gradient(150deg, rgba(47,138,76,0.97) 0%, rgba(70,160,99,0.97) 55%, rgba(95,185,124,0.96) 100%);
   --hero-base: #2F8A4C;
   --cta-grad: linear-gradient(135deg, #2D5034 0%, #4A7A50 100%);
   --nav-h: 68px;
@@ -102,7 +104,7 @@ body {
   --border: #C7EDE6;
   --hero-grad: linear-gradient(150deg, #157567 0%, #1D8F7D 55%, #3EAE97 100%);
   /* 採用ページ用（ティール）の半透明版。上の一般向けと同じ考え方 */
-  --hero-grad-soft: linear-gradient(150deg, rgba(21,117,103,0.93) 0%, rgba(29,143,125,0.90) 55%, rgba(62,174,151,0.88) 100%);
+  --hero-grad-soft: linear-gradient(150deg, rgba(21,117,103,0.97) 0%, rgba(29,143,125,0.97) 55%, rgba(62,174,151,0.96) 100%);
   --hero-base: #157567;
   --cta-grad: linear-gradient(135deg, #14453D 0%, #3A7A6E 100%);
   --footer-bg: #0F2621;
@@ -306,11 +308,18 @@ body.nav-open { overflow: hidden; }
    写真を下に敷き、その上に半透明のグラデーションを重ねている。
    色はページごとに違う（一般向け=緑 / 採用=ティール）ので、
    濃さを変えたいときは上の --hero-grad-soft の数字を触る */
+/* 1枚目の薄い黒は、白文字のコントラストを確保するための膜（2026-09-16 追加）。
+   グラデーションの不透明度を上げるだけでは本文サイズの基準 4.5:1 に届かず、
+   文字を真っ白にしても 4.04:1 止まりだったため、背景側を暗くしている。
+   薄くしたいときはこの 0.30 を下げる（下げるほど白文字が読みにくくなる） */
 #hero {
   background-color: var(--hero-base);
-  background-image: var(--hero-grad-soft), url("media/photos/hospital-exterior.jpg");
+  background-image:
+    linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)),
+    var(--hero-grad-soft),
+    url("media/photos/hospital-exterior.jpg");
   background-size: cover;
-  background-position: center, center 35%;
+  background-position: center, center, center 35%;
   background-repeat: no-repeat;
 }
 #hero::before {
@@ -333,16 +342,19 @@ body.nav-open { overflow: hidden; }
   background: rgba(255,255,255,0.14); backdrop-filter: blur(4px);
   padding: 6px 14px; border-radius: 20px; margin-bottom: var(--space-5);
 }
-.hero-badge span { font-size: var(--text-2xs); font-weight: 700; color: rgba(255,255,255,0.9); letter-spacing: 0.14em; }
+.hero-badge span { font-size: var(--text-2xs); font-weight: 700; color: #fff; letter-spacing: 0.14em; }
 .hero-badge .dot { width: 6px; height: 6px; background: #8DCF95; border-radius: 50%; animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.8)} }
 .hero-title { font-family: var(--serif); font-size: var(--text-hero-fluid); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 8px; }
-.hero-title-en { font-size: var(--text-base); color: rgba(255,255,255,0.65); letter-spacing: 0.08em; font-weight: 400; margin-bottom: var(--space-6); }
-.hero-desc { font-size: var(--text-md); color: rgba(255,255,255,0.82); line-height: 1.9; margin-bottom: 36px; }
+/* ヒーローの文字は半透明にしない。背景が写真＋グラデーションで場所により
+   明るさが変わるため、不透明度を下げると最も明るい隅で 4.5:1 を割る
+   （2026-09-16 実測: 0.92 で 4.26:1 / 0.88 で 4.05:1）。強弱は文字サイズと太さで付ける */
+.hero-title-en { font-size: var(--text-base); color: #fff; letter-spacing: 0.08em; font-weight: 400; margin-bottom: var(--space-6); }
+.hero-desc { font-size: var(--text-md); color: #fff; line-height: 1.9; margin-bottom: 36px; }
 .hero-tags { display: flex; flex-wrap: wrap; gap: 10px; }
 .hero-tag {
-  background: rgba(255,255,255,0.14); backdrop-filter: blur(4px);
-  color: rgba(255,255,255,0.92); font-size: var(--text-sm); font-weight: 600;
+  background: rgba(255,255,255,0.22); backdrop-filter: blur(4px);
+  color: #fff; font-size: var(--text-sm); font-weight: 600;
   padding: 7px 16px; border-radius: 20px;
 }
 .hero-stats {
@@ -350,17 +362,20 @@ body.nav-open { overflow: hidden; }
      下限となって片方の列だけ広がり、2×2が不均等になる。 */
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px;
 }
+/* カードの膜は白ではなく薄い黒。白い膜を重ねると背景が明るくなり、
+   中の説明ラベル（「ICUベッド数」など小さい白文字）が読めなくなる。
+   2026-09-16 実測: 白0.06 で 3.49:1（不合格）→ 黒0.12 に変更 */
 .hero-stat {
-  background: rgba(255,255,255,0.10); backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(0,0,0,0.12); backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.22);
   border-radius: 14px; padding: 20px 18px; text-align: center;
 }
 .hero-stat .num { font-size: var(--text-deco-md); font-weight: 700; color: #fff; line-height: 1; font-variant-numeric: tabular-nums; }
 /* ヒーローの stat カードは実測 145px 前後しかなく、収まるのは4〜6文字まで。
    「1,000〜1,200」のような長い値はここに入れず、丸めた値（1,000+）を置き、
    正確なレンジは「数字で見るICU」（1枚 約290px）の側で見せること。 */
-.hero-stat .unit { font-size: var(--text-xs); color: rgba(255,255,255,0.6); margin-top: 2px; font-weight: 500; }
-.hero-stat .label { font-size: var(--text-sm); color: rgba(255,255,255,0.8); margin-top: 6px; }
+.hero-stat .unit { font-size: var(--text-xs); color: #fff; margin-top: 2px; font-weight: 500; }
+.hero-stat .label { font-size: var(--text-sm); color: #fff; margin-top: 6px; }
 
 /* 紹介バナー（recruit.html のみで使用） */
 .ref-banner {
