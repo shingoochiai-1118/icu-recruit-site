@@ -9,7 +9,7 @@
   <!-- フォント本体は fonts.gstatic.com から来るので、そちらにも先に接続しておく -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260916g">
+  <link rel="stylesheet" href="style.css?v=20260917a">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNyIgZmlsbD0iIzE2ODk3QSIvPjxwYXRoIGQ9Ik0yMiAxMmgtNGwtMyA5TDkgM2wtMyA5SDIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=">
 </head>
 <body>
@@ -408,21 +408,42 @@
 
       <div class="edu-features">
         <div class="edu-feature reveal">
-          <div class="edu-feature-icon">📋</div>
+          <!-- アイコンは装飾。意味は見出しが持っているので読み上げ対象から外している（aria-hidden） -->
+          <div class="edu-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="2" width="8" height="4" rx="1.2"/>
+              <path d="M16 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+              <path d="M7.4 14h2.1l1.3-2.9 1.9 5.1 1.3-2.2h2.6"/>
+            </svg>
+          </div>
           <div>
             <h4>豊富な症例数</h4>
             <p>沖縄県の基幹病院として多様かつ豊富な症例を経験できます。敗血症・外傷・術後管理など幅広く対応します。</p>
           </div>
         </div>
         <div class="edu-feature reveal">
-          <div class="edu-feature-icon">👨‍⚕️</div>
+          <div class="edu-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="7.2" r="3.9"/>
+              <path d="M16 20.6v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <path d="M15.8 3.5a3.9 3.9 0 0 1 0 7.5"/>
+              <path d="M22 20.6v-2a4 4 0 0 0-3-3.8"/>
+            </svg>
+          </div>
           <div>
             <h4>専門医による丁寧な指導</h4>
             <p>集中治療専門医が常に指導・フィードバックを行います。手技の機会も豊富で、安全な環境で習得できます。</p>
           </div>
         </div>
         <div class="edu-feature reveal">
-          <div class="edu-feature-icon">🌺</div>
+          <div class="edu-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6.3 13.4a5.7 5.7 0 0 1 11.4 0"/>
+              <path d="M12 2.4v1.7M4.6 6l1.2 1.2M19.4 6l-1.2 1.2"/>
+              <path d="M2.6 15.2c.6.5 1.1.9 2.3.9 2.3 0 2.3-1.8 4.6-1.8 2.4 0 2.2 1.8 4.6 1.8 2.3 0 2.3-1.8 4.6-1.8 1.2 0 1.7.4 2.3.9"/>
+              <path d="M2.6 20.1c.6.5 1.1.9 2.3.9 2.3 0 2.3-1.8 4.6-1.8 2.4 0 2.2 1.8 4.6 1.8 2.3 0 2.3-1.8 4.6-1.8 1.2 0 1.7.4 2.3.9"/>
+            </svg>
+          </div>
           <div>
             <h4>沖縄ならではの医療環境</h4>
             <p>米軍や離島からの搬送症例など、沖縄特有の多様な症例を経験できる全国でも稀有な環境です。また、<a href="https://jin-aikai.com/urasoe/section/clinical01/" target="_blank" rel="noopener" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">浦添総合病院</a>と研修の連携を組んでいます。</p>
@@ -443,7 +464,13 @@
     -->
     <div class="equip-block">
       <div class="equip-block-head">
-        <div class="edu-feature-icon">🔬</div>
+        <div class="edu-feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4.8" y="4.8" width="14.4" height="14.4" rx="2.6"/>
+            <rect x="9.4" y="9.4" width="5.2" height="5.2" rx="1.2"/>
+            <path d="M9.2 2.4v2.4M14.8 2.4v2.4M9.2 19.2v2.4M14.8 19.2v2.4M2.4 9.2h2.4M2.4 14.8h2.4M19.2 9.2h2.4M19.2 14.8h2.4"/>
+          </svg>
+        </div>
         <div>
           <h3 class="equip-block-title">多様なデバイスを用いた実践研修</h3>
           <p class="equip-block-en">Hands-On Training with Advanced Equipment</p>

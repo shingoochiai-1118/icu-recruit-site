@@ -707,11 +707,15 @@ body.nav-open { overflow: hidden; }
   display: flex; gap: var(--space-4); align-items: flex-start;
   background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px;
 }
+/* 4つのアイコンは絵文字をやめて線画（SVG）にした（2026-09-17）。
+   絵文字は端末ごとに絵柄と色が変わり、サイト全体のトーンから浮くため。
+   色は currentColor で拾っているので、色を変えたいときは下の color: だけ直せばよい。 */
 .edu-feature-icon {
   width: 40px; height: 40px; background: var(--primary-xlight);
   border-radius: 10px; display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; font-size: var(--text-2xl);
+  flex-shrink: 0; color: var(--primary-dark);
 }
+.edu-feature-icon svg { display: block; width: 22px; height: 22px; }
 .edu-feature h4 { font-size: var(--text-base); font-weight: 700; color: var(--text); margin-bottom: 4px; }
 .edu-feature p { font-size: var(--text-sm-plus); color: var(--text-muted); line-height: 1.8; }
 .edu-callout {
